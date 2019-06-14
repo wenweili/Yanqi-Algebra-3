@@ -17,7 +17,7 @@ We only need the standard packages and fonts, such as
 - The [Noto Serif CJK](https://github.com/googlei18n/noto-cjk) fonts.
 - The [League Spartan](https://www.theleagueofmoveabletype.com/league-spartan) font.
 
-The aforementioned OTF fonts should be installed system-wide to be accessible by XeLaTeX.
+The aforementioned OpenType fonts should be installed system-wide to be accessible by XeLaTeX.
 
 Make sure that all the relevant packages/programs are installed. For reference, the author made the compilation under Linux, using TeX Live 2018 with most packages installed.
 
