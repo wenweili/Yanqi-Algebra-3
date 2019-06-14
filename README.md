@@ -1,5 +1,5 @@
 This are the XeLaTeX sources for the my lecture notes on commutative algebra, entitled somewhat pompously as **Yanqi Lake Lectures on Algebra, Part III**. These notes have been used at
-* [The University of Chinese Academy of Sciences](http://www.ucas.ac.cn) (Yanqi Lake campus), whence the title;
+* [University of Chinese Academy of Sciences](http://www.ucas.ac.cn) (Yanqi Lake campus), whence the title;
 * [Peking University](http://www.pku.edu.cn).
 
 These notes are slightly outdated, poorly organized, and the mathematical contents have not been thoroughly checked yet. Please use them at your own risk. The author does not intend to publish these notes.

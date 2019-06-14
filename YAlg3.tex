@@ -1,0 +1,213 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8
+
+% To be compiled by XeLaTeX, preferably under TeX Live.
+% LaTeX source for ``Yanqi Lake Lectures on Algebra'' Part III.
+% Copyright 2019  李文威 (Wen-Wei Li).
+% Permission is granted to copy, distribute and/or modify this
+% document under the terms of the Creative Commons
+% Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+% https://creativecommons.org/licenses/by-nc/4.0/
+
+% The document is based on the standard book class.
+\documentclass[a4paper,12pt]{book}
+\usepackage[backend=biber, hyperref=auto, backref=true]{biblatex}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+% Indexing via imakeidx + xindy
+\usepackage[xindy]{imakeidx}
+\makeindex[columns=2, program=truexindy, intoc=true, options=-M texindy -I xelatex -C utf8, title={Index}]
+
+% Hyperref set-up
+\usepackage[unicode, colorlinks]{hyperref}
+\hypersetup{
+	linkcolor = blue,
+	citecolor = red,
+	urlcolor = teal,
+	bookmarksnumbered = true,
+	pdfauthor = {Wen-Wei Li},
+	pdftitle = {Yanqi Lake Lectures on Algebra: Part 3}
+}
+
+% Overall font set-up
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setromanfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Heros Cn}
+\setmathfont[math-style=ISO, bold-style=ISO]{texgyrepagella-math.otf}
+
+% Make \today print yyyy-mm-dd
+\usepackage[iso, english]{isodate}
+
+\def\CoverPage{Cover-page.pdf}	% Cover page to be included (here: a PDF file)
+
+
+% Change the geometry if need be
+\usepackage{geometry}
+\geometry{
+	paper=a4paper,
+	top=3cm,
+	inner=2.54cm,
+	outer=2.54cm,
+	bottom=3cm,
+	headheight=6ex,
+	headsep=6ex,
+}
+
+\usepackage{stmaryrd}
+\usepackage{bbding}
+\usepackage[nottoc]{tocbibind}
+\usepackage{mathrsfs}
+\usepackage[centercolon]{mathtools}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning, shapes.geometric, patterns, matrix, knots}
+
+\usepackage{paralist}
+\usepackage[figurewithin=none]{caption}
+\usepackage{graphicx}
+
+% Environments for theorems etc.
+% I prefer linear ordering within sections.
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{corollary}[proposition]{Corollary}
+\newtheorem{fact}[proposition]{Fact}
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{definition-theorem}[proposition]{Definition-Theorem}
+\newtheorem{definition-proposition}[proposition]{Definition-Proposition}
+\newtheorem{hypothesis}[proposition]{Hypothesis}
+\newtheorem{example}[proposition]{Example}
+\newtheorem{exercise}[proposition]{Exercise}
+\theoremstyle{remark}
+\newtheorem{remark}[proposition]{Remark}
+\newtheorem{note}[proposition]{Note}
+\newtheorem{notation}[proposition]{Notation}
+\newtheorem{convention}[proposition]{Convention}
+\newtheorem{conjecture}[proposition]{Conjecture}
+
+% Customize the numbering of equations
+\numberwithin{equation}{chapter}
+\renewcommand{\theequation}{\thechapter--\arabic{equation}}
+
+% Use the usual symbols for real and imaginary parts of a complex number
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+\renewcommand*\arraystretch{1.5} % Extra spacing in a table environment.
+
+% Load custom commands
+\usepackage{mycommand}
+\usepackage{myarrows}
+
+\usepackage{xstring}
+\usepackage{pdfpages}
+
+\usepackage{fancyhdr}
+\newcommand\sectionname{\arabic{chapter}.\arabic{section}}
+\pagestyle{fancy}
+	\renewcommand{\chaptermark}[1]{\markboth{\scshape #1}{}}
+	\renewcommand{\sectionmark}[1]{\markright{\S\sectionname\quad \scshape #1}}
+	\fancyhf{} % delete current setting for header and footer
+	\fancyhead[EC]{\footnotesize{\leftmark}\vspace{1mm}}
+	\fancyhead[OC]{\footnotesize{\rightmark}\vspace{1mm}}
+	\fancyhead[LE,RO]{$\cdot\;${\footnotesize \thepage}$\;\cdot$\vspace{1mm}} %
+	\fancyhead[RE,LO]{}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\addtolength{\headheight}{0.5pt}
+
+\fancypagestyle{plain}{%
+	\fancyhead{} % get rid of headers on plain pages
+	\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+% Set up the chapter titles
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+	{\filleft\normalfont\fontspec[Scale=2.5]{League Spartan}}
+	{Lecture \thechapter}
+	{10mm}
+	{}[]
+
+% Customize biblatex
+\DeclareFieldFormat{postnote}{#1}	% Disable pagination in postnote for biblatex
+\addbibresource{YAlg3.bib}
+
+\begin{document}
+	\frontmatter
+	% Make the cover page by reading the file \CoverPage if it exists.
+	\ifdefempty{\CoverPage}{%
+		\relax
+	}{%
+		\pagestyle{empty}%	Clean-up the page style
+		\renewcommand{\thepage}{C\arabic{page}}%	The page numbers here should start with "C" (PDF: logical page numbers)
+		\IfEndWith{\CoverPage}{.pdf}{% If the file name ends with .pdf or .PDF, we include the PDF file directly.
+			\includepdf{\CoverPage}
+		}{%
+			\IfEndWith{\CoverPage}{.PDF}{%
+				\includepdf{\CoverPage}
+			}{%
+				\input{\CoverPage}		% Otherwise we import the TeX source
+			}
+		}%
+		\pagestyle{fancy}		% Resume the page style to "fancy".
+		\pagenumbering{roman}	% Resume the page numbers to roman style.
+	}
+	
+	\begin{titlepage}
+		\vspace*{\stretch{1}}
+		\noindent\begin{center}\rule{\linewidth}{2pt}\end{center}	% Draw a rule
+		\begin{center}
+			\Huge \textbf{Yanqi Lake Lectures on Algebra}  \\ \vspace{1em}
+			\Huge Part 3
+		\end{center}
+		\noindent\begin{center}\rule{\linewidth}{2pt}\end{center}	% Draw a rule
+		\vspace{1em}
+		\begin{center}
+			{\Large Wen-Wei Li} \\ \vspace{1em}
+			{\Large Chinese Academy of Sciences} \\ \vspace{1.5em}
+		\end{center}
+		\vfill
+		\begin{center} \href{http://www.ucas.edu.cn}{\includegraphics[height=40pt]{logo-UCAS.png}} \end{center}
+	\end{titlepage}
+	
+	\newpage
+	\thispagestyle{empty}
+	\begin{center}
+		\Large Version: \today
+	\end{center}
+	\vfill
+	\begin{tabular}{p{.9\textwidth}}
+		The cover page uses the fonts \textit{Bebas Neue} and \textit{League Gothique}, both licensed under the \href{https://opensource.org/licenses/OFL-1.1}{SIL Open Font License}. \\  \vspace{\baselineskip}
+		This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by-nc/4.0/}. \\
+		\vspace{\baselineskip}
+		\begin{center}
+			\includegraphics[scale=1]{by-nc.eps}
+		\end{center}\\
+	\end{tabular}
+
+	\tableofcontents
+
+	\mainmatter
+	\include{YAlg3-intro}
+	\include{YAlg3-1}
+	\include{YAlg3-2}
+	\include{YAlg3-3}
+	\include{YAlg3-4}
+	\include{YAlg3-5}
+	\include{YAlg3-6}
+	\include{YAlg3-7}
+	\include{YAlg3-8}
+
+	\backmatter
+	\printbibliography[heading=bibintoc]	% For Biber
+	\printindex
+
+\end{document}

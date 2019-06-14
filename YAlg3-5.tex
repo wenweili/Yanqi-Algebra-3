@@ -1,0 +1,477 @@
+% To be compiled by XeLaTeX, preferably under TeX Live.
+% LaTeX source for ``Yanqi Lake Lectures on Algebra'' Part III.
+% Copyright 2019  李文威 (Wen-Wei Li).
+% Permission is granted to copy, distribute and/or modify this
+% document under the terms of the Creative Commons
+% Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+% https://creativecommons.org/licenses/by-nc/4.0/
+
+% To be included
+\chapter{From completions to dimensions}
+
+The main references are \cite{Mat80,Eis95}.
+\section{Completions}
+Consider a ring $R$ together with a family of ideals $\mathcal{I} \neq \emptyset$, such that for any $I, J \in \mathcal{I}$ there exists $K \in \mathcal{I}$ with $K \subset I \cap J$. This turns $R$ into a topological ring, characterized by the property that $\mathcal{I}$ forms a local base of open neighborhoods of $0$. Recall that being a topological ring means that addition, multiplication and $x \mapsto -x$ are all continuous. By standard arguments, $R$ is Hausdorff if and only if $\{0\}$ is closed, if and only if $\bigcap_{I \in \mathcal{I}} I = \{0\}$.\index{topological ring}
+
+To simplify matters, we assume that
+\begin{compactitem}
+	\item the family $\mathcal{I}$ is countable, so that the topological properties (accumulation points, etc.) are detected by convergence of \emph{sequences} as in the case of metric spaces;
+	\item furthermore, we may arrange that $\mathcal{I} = \{I \supset J \supset K \supset \cdots \}$, in other words our topology comes from \emph{filtrations}.
+\end{compactitem}
+Without the countability assumption, the sequences will have to be replaced by \emph{filters}.
+
+It makes sense to talk about topological $R$-modules for a topological ring $R$. By replacing filtration by ideals by filtration by $R$-submodules subject to the usual compatibility relation $F^i R \cdot F^j M \subset F^{i+j} M$, the recipe above applies to $R$-modules as well. Given $N \subset M$, the topology so obtained on $M$ passes to $M/N$ by taking the quotient topology, or equivalently the quotient filtration $(F^\bullet M+N)/N$. If the filtration in question is $I$-adic, where $I \subsetneq R$ is an ideal, we obtain the \emph{$I$-adic topology} on rings and modules.\index{topological ring!$I$-adic}
+
+An $R$-module $M$ equipped with a topology as above is \emph{complete} if every Cauchy sequence $(x_n)_{n \geq 1}$ has a limit; a Cauchy sequence $(x_n)_{n \geq 1}$ is a sequence satisfying
+\[ \forall I \in \mathcal{I}, \; \exists N \quad i,j \geq N \implies x_i - x_j \in I. \]
+As in the familiar case of metric spaces, one has the \emph{completion} of $M$. It is actually a morphism $M \to \hat{M}$ with $\hat{M}$ complete Hausdorff, characterized by the following universal property:\index{completion}
+\[
+\begin{tikzcd}[row sep=tiny, column sep=tiny]
+	M \arrow[rr, "\varphi:\; \text{cont. homo.}" inner sep=0.7em] & & L \\
+	& & \scriptsize\text{complete Hausdorff}
+\end{tikzcd} \quad \leadsto
+\begin{tikzcd}
+	M \arrow[rd, "\varphi"'] \arrow[r] & \hat{M} \arrow[dashed, d, "\exists! \hat{\varphi}"] \\
+	& L
+\end{tikzcd}\]
+
+The uniqueness results immediately, and the formation of $M \mapsto \hat{M}$ is seen to be functorial in $M$. If $M$ is already complete Hausdorff, one may take $\hat{M} = M$. Certainly, the same applies to the ring $R$.
+
+\begin{exercise}
+	Suppose that $R$ is complete Hausdorff with respect to the $I$-adic topology, where $I$ is a proper ideal. Show that every element of the form $u+x$, $u \in R^\times$ and $x \in I$, is invertible.
+\end{exercise}
+
+From the algebraic perspective, the completion of a filtered $R$-module $M = F^0 M \supset F^1 M \supset \cdots$ can be constructed as the projective limit
+\begin{align*}
+	\hat{M} & := \varprojlim_{i \geq 1} M/F^i M \\
+	& = \left\{ (x_i)_{i \geq 1} : i \leq j \implies x_i \equiv x_j \pmod{F^i M} \right\} \subset \prod_{i \geq 1} M/F^i M.
+\end{align*}
+The morphism $M \to \hat{M}$ is the diagonal map. The topology on $\hat{M}$ arises from the filtration
+\[ F^i \hat{M} := \Ker\left[ p_i: \hat{M} \to M/F^i M \right] = \left\{ (x_n)_n \in \hat{M}: i \leq k \implies x_i=0 \right\}, \]
+so that the preimage of $F^i \hat{M}$ in $M$ is precisely $F^i M$. In the case where $M=R$ and $F^i R$ are ideals, we obtain the complete Hausdorff ring $\hat{R}$, which is a subring of $\prod_{i \geq 1} R/F^i R$. Since the filtrations on $R$ and $M$ are assumed compatible, $\hat{M}$ is an $\hat{R}$-module.
+
+\begin{example}
+	Fix a prime number $p$. The completion of $\Z$ with respect to the ideal $p\Z$ is nothing but the ring $\Z_p$ of $p$-adic integers. Similarly, the completion of $\Bbbk[X]$ with respect to $(X)$ is isomorphic to the $\Bbbk$-algebra $\Bbbk\llbracket X\rrbracket$.
+\end{example}
+
+\begin{exercise}
+	Describe the kernel of $M \to \hat{M}$ and show $M \hookrightarrow \hat{M}$ if and only if $M$ is Hausdorff.
+\end{exercise}
+
+\begin{exercise}
+	Show that the topology of $\hat{M}$ is the restriction of the product topology of $\prod_i M/F^i M$, provided that each $M/F^i M$ is endowed with the discrete topology. Show that $\hat{M}$ is a closed subspace of $\prod_i M/F^i M$
+\end{exercise}
+
+\begin{lemma}\label{prop:quotient-completion}
+	Let $M$ be a complete $R$-module with respect to some filtration $F^\bullet M$. For any submodule $N$, the quotient $M/N$ is also complete with respect to the quotient topology, or equivalently with respect to the quotient filtration $(F^\bullet M + N)/N$.
+\end{lemma}
+\begin{proof}
+	Let $\bar{x}_n$ be a Cauchy sequence in $M/N$. Choose preimages $M \ni x_n \mapsto \bar{x}_n$ for all $n$. We have $\bar{x}_{n+1} - \bar{x}_n \in F^{i(n)}M + N$ where $\lim_{n \to \infty} i(n) = \infty$, therefore we can write $x_{n+1} - x_n = y_n + \delta_n$ where $y_n \in F^{i(n)} M$ and $\delta_n \in N$. We contend that $x'_n := x_1 + \sum_{i < n} y_i$ is a Cauchy sequence in $M$. Indeed, for any $i > j$ we have $x'_i - x'_j = \sum_{j \leq k < i} y_k$, which lies in $F^{\inf_k i(k)} M$. This implies $(x'_n)_n$ is a Cauchy sequence, hence has a limit $x \in M$. It is also clear that $x'_n \mapsto \bar{x}_n$. Hence $\bar{x}'_n$ has a limit $\bar{x} = x \bmod N$ in $M/N$.
+\end{proof}
+
+Let us turn to the exactness of completion. This should be understood in the broader framework of $\varprojlim$ of arbitrary projective systems. For simplicity, we only consider $I$-adic topologies on finitely generated modules over a Noetherian ring.
+
+Observe that any homomorphism $\varphi: M \to N$ between $R$-modules is automatically $\mathfrak{a}$-adically continuous, for that $\varphi(\mathfrak{a}^n M) \subset \mathfrak{a}^n N$.
+
+\begin{proposition}\label{prop:completion-exactness}
+	Let $R$ be a Noetherian ring and $I \subsetneq R$ an ideal. Suppose $0 \to M' \to M \to M'' \to 0$ is an exact sequence of finitely generated $R$-modules, each term equipped with the $I$-adic topology. The completed sequence $0 \to \hat{M}' \to \hat{M} \to \hat{M''} \to 0$ is also exact.
+\end{proposition}
+Consequently, completion preserves the exactness of sequences formed by finitely generated $R$-modules. This is what makes completion so useful.
+\begin{proof}
+	We shall show
+	\begin{compactenum}[(i)]
+		\item the topology on $M'$ induced from $M$ is the same as the $I$-adic topology;
+		\item the quotient topology on $M'' = M/M'$ is $I$-adic;
+		\item the completion $\hat{M}'$ is naturally identified with the closure of the image of $M'$ in $\hat{M}$;
+		\item $\hat{M}''$ is naturally identified with the quotient of $\hat{M}$ by $\hat{M}'$.
+	\end{compactenum}
+
+	(i) is a direct consequence of Artin--Rees Theorem \ref{prop:Artin-Rees}: for $n \gg 0$ we have
+	\begin{gather}\label{eqn:AR-induced-top}
+		I^n M' \subset M' \cap I^n M = I (M' \cap I^{n-1} M) \subset I^{n-1} M',
+	\end{gather}
+	and this suffices to identify the resulting topologies.
+	
+	(ii) is immediate. As for (iii), we may embed $M'$ into $M$ and work with the induced topology. Realize $\hat{M}$ as $\varprojlim_n M/I^n M$. As a topological module $\hat{M}'$ equals
+	\begin{align*}
+		\varprojlim_n \frac{M'}{M' \cap I^n M} & = \left\{ \hat{x} = (x_n)_n \in \hat{M} : \forall k, \; x_k \text{ comes from } M' \right\} \\
+		& = \left\{ \hat{x} \in \hat{M}: \forall k \; \exists y \in M' \text{ s.t. } \; \hat{x} \in y + F^k \hat{M} \right\}
+	\end{align*}
+	which is readily seen to be the closure of the image of $M'$.
+	
+	For (iv), the quotient $\hat{M}/\hat{M}'$ is Hausdorff since $\hat{M}'$ is a closed submodule. It is also complete by Lemma \ref{prop:quotient-completion}. There is a natural homomorphism $M/M' \to \hat{M}/\hat{M}'$. Given any continuous homomorphism $\varphi: M/M' \to N$ to a complete Hausdorff $R$-module $N$, we may pull it back to $M \to N$, which corresponds to a unique continuous $\hat{M} \to N$ that is trivial on the image of $M'$; but such a homomorphism must also vanish on the closure $\hat{M}'$. This yields the required $\hat{\varphi}: \hat{M}/\hat{M}' \to N$ in the universal property.
+\end{proof}
+
+For any $R$-module $M$ endowed with $I$-adic topology, there is a canonical homomorphism $M \dotimes{R} \hat{R} \to \hat{M}$. Indeed, $\hat{M} = \varprojlim_n M/I^n M$ is a $\hat{R} = \varprojlim_n R/I^n$-module by
+\[ (r_n)_{n \geq 1} \cdot (x_n)_{n \geq 1} = (r_n x_n)_{n \geq 1}, \quad (r_n)_n \in \hat{R}, \; (x_n)_n \in \hat{M}, \]
+hence the $R$-homomorphism $M \to \hat{M}$ gives rise to $M \dotimes{R} \hat{R} \to \hat{M}$ by the universal property of base change. This homomorphism is continuous if $M \dotimes{R} \hat{R}$ is filtered by the images of $M \dotimes{R} (F^\bullet \hat{R})$, which makes it into a topological $\hat{R}$-module.
+
+\begin{theorem}\label{prop:completion-tensor}
+	Suppose $R$ is Noetherian. Let $M$ be a finitely generated $R$-module endowed with the $I$-adic topology. The homomorphism $M \dotimes{R} \hat{R} \to \hat{M}$ is then an isomorphism.
+\end{theorem}
+\begin{proof}
+	Write down a finite presentation $R^{\oplus a} \to R^{\oplus b} \to M \to 0$. By the naturality of the homomorphism above, the right-exactness of $\otimes$ and Proposition \ref{prop:completion-exactness}, we have a commutative diagram
+	\[\begin{tikzcd}
+		R^{\oplus a} \dotimes{R} \hat{R} \arrow[r] \arrow[d] & R^{\oplus a} \dotimes{R} \hat{R} \arrow[r] \arrow[d] & M \dotimes{R} \hat{R} \arrow[r] \arrow[d] & 0 \\
+		\widehat{R^{\oplus a}} \arrow[r] & \widehat{R^{\oplus b}} \arrow[r] & \hat{M} \arrow[r] & 0
+	\end{tikzcd}\]
+	with exact rows. Completion commutes with direct sums: $(N_1 \oplus N_2)^\wedge = \hat{N}_1 \oplus \hat{N}_2$ canonically (easy, and the categorical reason is that completion is left adjoint to oblivion $R\dcate{CompHausMod} \to R\dcate{TopMod}$). Therefore the first two vertical arrows may be identified with the canonical arrow $R^{\oplus \star} \dotimes{R} \hat{R} \to \hat{R}^{\oplus \star}$, $\star \in \{a,b\}$, which is an isomorphism of topological $\hat{R}$-modules. We infer that $M \dotimes{R} \hat{R} \rightiso \hat{M}$ topologically.
+\end{proof}
+\begin{remark}
+	In fact $M \dotimes{R} \hat{R} \rightiso \hat{M}$ is also a homeomorphism. It suffices to observe that in the rows of the commutative diagram above, $M \dotimes{R} \hat{R}$ and $\hat{M}$ are both realized as quotient topological $\hat{R}$-modules, and that $R^{\oplus \star} \dotimes{R} \hat{R} \rightiso \hat{R}^{\oplus \star}$ is a homeomorphism. The second point has been observed in the proof of Proposition \ref{prop:completion-exactness}, and the first follows from the fact completed modules carry the $\hat{I}$-adic topology. See Proposition \ref{prop:completion-top}. We do not need this result.
+\end{remark}
+
+In the following statements, $R$ is Noetherian and an ideal $I \subsetneq R$ is chosen.
+\begin{corollary}
+	The canonical homomorphism $R \to \hat{R}$ is flat.
+\end{corollary}
+\begin{proof}
+	Flatness can be tested on short exact sequences of the form $0 \to \mathfrak{a} \to R \to R/\mathfrak{a} \to 0$ where $\mathfrak{a}$ is a finitely generated ideal of $R$. Its base-change to $\hat{R}$ is the same as completion, and completion is an exact functor by Proposition \ref{prop:completion-exactness}.
+\end{proof}
+
+\begin{corollary}\label{prop:completion-auto}
+	Assume $R$ is $I$-adically complete Hausdorff. Then every finitely generated $R$-module $M$ is $I$-adically complete Hausdorff, and any submodule $N \subset M$ is closed.
+\end{corollary}
+\begin{proof}
+	For the first assertion: the completion of $M$ can be identified with the composite $M = M \dotimes{R} R \to M \dotimes{R} \hat{R} \to \hat{M}$, which is bijective. Therefore every Cauchy sequence in $M$ has a limit in $M$.
+
+	As to the second assertion, recall that the $I$-adic topology on $N$ is the same as the one restricted from $M$ by \eqref{eqn:AR-induced-top}. It remains to notice that complete subspaces must be closed.
+\end{proof}
+
+\section{Further properties of completion}
+Let $R$ be a Noetherian ring and $M$ a finitely generated $R$-module. Fix an ideal $I \subsetneq R$. Unless otherwise specified, the topologies and completions are always $I$-adic.
+
+\begin{proposition}\label{prop:completion-aux}
+	Let $\mathfrak{a}$ be an ideal, then $\mathfrak{a} \hat{M} = \widehat{\mathfrak{a}M} = \hat{\mathfrak{a}}\hat{M}$ as submodules of $\hat{M}$. Consequently $\hat{M}/\mathfrak{a}\hat{M} \simeq (M/\mathfrak{a}M)^\wedge$ canonically.
+\end{proposition}
+\begin{proof}
+	By the exactness of completion (Proposition \ref{prop:completion-exactness}), we may realize $\hat{\mathfrak{a}}$ as an ideal of $\hat{R}$; in fact it is the image $\mathfrak{a} \hat{R}$ of $\mathfrak{a} \dotimes{R} \hat{R} \to R \dotimes{R} \hat{R} = \hat{R}$. Hence $\mathfrak{a}\hat{R} = \hat{\mathfrak{a}}$. Now consider the commutative diagram
+	\[\begin{tikzcd}
+		\mathfrak{a} \dotimes{R} M \dotimes{R} \hat{R} \arrow[r] \arrow[rd] \arrow[twoheadrightarrow, d] & \mathfrak{a} \dotimes{R} \hat{M} \arrow[d] \\
+		\mathfrak{a}M \dotimes{R} \hat{R} \arrow[r] & \hat{M}
+	\end{tikzcd}\]
+	The upper horizontal arrow is an isomorphism by Theorem \ref{prop:completion-tensor}, therefore the diagonal arrow has image equal to $\mathfrak{a}\hat{M}$. The lower horizontal arrow is just the completion of $\mathfrak{a}M \hookrightarrow M$, thus injective with image $(\mathfrak{a}M)^\wedge$ by Proposition \ref{prop:completion-exactness}. A comparison yields $(\mathfrak{a}M)^\wedge = \mathfrak{a}\hat{M}$. Also note that $\hat{\mathfrak{a}}\hat{M} = \mathfrak{a}\hat{R}\hat{M} = \mathfrak{a}\hat{M}$. The final assertion results from the exactness of completion.
+\end{proof}
+Since the $I$-adic topology on $M/I^n M$ is discrete, as a special case ($\mathfrak{a} = I^n$) we deduce the natural identifications
+\begin{gather*}
+	M/I^n M = \hat{M}/I^n \hat{M} = \hat{M}/\hat{I}^n \hat{M}, \quad \forall n \geq 0, \\
+	\gr_I(R) = \gr_I(\hat{R}) = \gr_{\hat{I}}(\hat{R}), \\
+	\gr_I(M) = \gr_I(\hat{M}) = \gr_{\hat{I}}(\hat{M}).
+\end{gather*}
+
+\begin{proposition}\label{prop:completion-top}
+	For any finitely generated $R$-module $M$, the topology on $\hat{M}$ coincides with the $\hat{I}$-adic one.
+\end{proposition}
+\begin{proof}
+	Consider the closure of the image of $I^n M$ in $\hat{M}$. It is readily seen to be $\{(x_k)_k: i \leq n \implies x_i=0 \} = F^n \hat{M}$. On the other hand, we have seen that this closure is $\widehat{I^n M} \subset \hat{M}$. By virtue of Proposition \ref{prop:completion-aux}, we have $\widehat{I^n M} = \widehat{I^n}\hat{M}$ and $\widehat{I^n} = I^n \hat{R} = (I\hat{R})^n = \hat{I}^n$.
+\end{proof}
+
+\begin{lemma}\label{prop:gr-surjective}
+	Consider a homomorphism $\varphi: L \to N$ between filtered modules over some ring, such that $L$ is complete, $N$ is Hausdorff and exhaustive (see \S\ref{sec:Artin-Rees}) with respect to their filtrations, and $\gr(\varphi): \gr(L) \to \gr(N)$ is surjective. Then $\varphi$ is also surjective.
+\end{lemma}
+\begin{proof}
+	Let $y \in F^d N$, we may take $x \in F^d L$ such that $y' := y- \varphi(x) \in F^{d+1} N$. Next, take $x' \in F^{d+1} L$ with $y'' := y' -  \varphi(x') \in F^{d+2} N$, and so forth. Use the completeness of $L$ to define $x_\infty := x + x' + x'' + \cdots$, which maps to $y$ since $N$ is Hausdorff.
+\end{proof}
+
+\begin{proposition}\label{prop:completion-rad}
+	The ring $\hat{R}$ is also Noetherian, and $\hat{I} \subset \mathrm{rad}(\hat{R})$.
+\end{proposition}
+\begin{proof}
+	Let $\mathfrak{A}$ be any ideal of $\hat{R}$, equipped with the filtration $F^n \mathfrak{A} := \hat{I}^n \cap \mathfrak{A}$. We have to show $\mathfrak{A}$ is finitely generated. Since $\gr_I(R) = \gr_{\hat{I}}(\hat{R})$ is Noetherian, so is $\gr_F(\mathfrak{A})$. Take $t_1, \ldots, t_n \in \mathfrak{A}$, $t_i \in F^{d_i} \mathfrak{A}$, whose images $\bar{t}_i$ in $\gr^{d_i}_F(\mathfrak{A})$ generates $\gr_F(\mathfrak{A})$. Using an appropriately shifted filtration on $L := \hat{R}^{\oplus n}$, we obtain a filtered homomorphism $\varphi: L \to  \mathfrak{A}$ with image $(t_1, \ldots, t_n)$, such that $\gr(\varphi)$ is surjective. Now apply the previous Lemma to obtain the first assertion.
+	
+	One of the characterizations of Jacobson radical says that $\hat{I} \subset \mathrm{rad}(\hat{R})$ if and only if $1 - \hat{I} \subset \hat{R}^\times$. This is verified by noting that $(1-t)^{-1} = 1+t+t^2+ \cdots$ converges $I$-adically. This proves the second assertion.
+\end{proof}
+
+\begin{proposition}\label{prop:completion-semilocal}
+	The map $\mathfrak{p} \mapsto \hat{\mathfrak{p}}$ furnishes an injection from $V(I)$ to $\Spec(\hat{R})$ satisfying $R/\mathfrak{p} \simeq \hat{R}/\hat{\mathfrak{p}}$ (as rings). It restricts to a bijection $\MaxSpec(R) \cap V(I) \xrightarrow{1:1} \MaxSpec(\hat{R})$.
+
+	Consequently, if $R$ is local (resp. semi-local), so is $\hat{R}$.
+\end{proposition}
+\begin{proof}
+	Since $\mathfrak{p} \supset I$, the $I$-adic topology on $R/\mathfrak{p}$ is discrete. By Proposition \ref{prop:completion-aux}, $\hat{R}/\hat{p} \simeq (R/\mathfrak{p})^\wedge = R/\mathfrak{p}$, and here the isomorphism even respects ring structures. Therefore $\hat{\mathfrak{p}}$ is a prime ideal. Moreover, it is maximal if and only if $\mathfrak{p}$ is. Claim: $\mathfrak{p}$ is the preimage of $\hat{\mathfrak{p}} = \varprojlim_n \mathfrak{p}/(I^n \cap \mathfrak{p})$ under $R \to \hat{R} = \varprojlim_n R/I^n$. Indeed, lying in that preimage amounts to $x \in I^n + \mathfrak{p} = \mathfrak{p}$, for all $n \geq 1$. Injectivity follows.
+
+	Lemma \ref{prop:completion-rad} implies that every $\mathfrak{A} \in \MaxSpec(\hat{R})$ contains $\hat{I}$, therefore is open by Proposition \ref{prop:completion-top}. Since $\hat{R}$ is Noetherian, $\mathfrak{A}$ is also closed by Corollary \ref{prop:completion-auto}. As $R \to \hat{R}$ has dense image, we conclude that $\mathfrak{A}$ equals the completion of its preimage $\mathfrak{m} \in V(I) \subset \Spec(R)$. By the previous paragraph, $\mathfrak{m}$ is a maximal ideal.
+\end{proof}
+
+\section{Hilbert--Samuel polynomials}
+For a graded ring $R = \bigoplus_\gamma R_\gamma$ (we always assume $1 \in R_0$) and a given $\eta$, we may define its twist $R(\eta)$ as the graded $R$-module
+\[ R(\eta)_\gamma := R_{\gamma+\eta}. \]
+
+To generate a graded $R$-module $M$ by finitely many homogeneous elements $x_1, \ldots, x_n$, of degrees $\eta_1, \ldots, \eta_n$ respectively, is equivalent to giving a surjection of graded $R$-modules
+\begin{equation}\label{eqn:homogeneous-generation} \begin{tikzcd}[row sep=tiny]
+	\bigoplus_{i=1}^n R(-\eta_i) \arrow[r, twoheadrightarrow] & M \\
+	(\ldots, 0, \underbracket{1}_{i-\text{th slot}}, 0, \ldots) \arrow[r, mapsto] & x_i.
+\end{tikzcd}\end{equation}
+
+Hereafter, we assume that
+\begin{itemize}
+	\item everything is graded by $\Gamma = (\Z^N_{\geq 0}, +)$ for some fixed $N$,
+	\item $R_0/R_0 \cap \mathrm{ann}(M)$ is an Artinian ring,
+	\item $R$ is finitely generated over $R_0$.
+\end{itemize}
+The appearance of $\mathrm{ann}(M)$ is harmless since $R$ can be safely replaced by $R/\mathfrak{ann}(M)$, which is legitimate since $\mathrm{ann}(M)$ is a graded ideal of $R$. To see this, write $\mathrm{ann}(M)$ as the intersection of $\mathrm{ann}(x)$ where $x$ ranges over the homogeneous elements of $M$, and observe that $\mathrm{ann}(x)$ must be graded.
+
+\begin{lemma}\label{prop:Hilbert-poly-0}
+	For $R$ as above and $M$ a finitely generated graded $R$-module, each graded piece $M_\gamma$ is an $R_0$-module of finite length.
+\end{lemma}
+\begin{proof}
+	Using \eqref{eqn:homogeneous-generation} this is readily reduced to the case $M = R(-\eta)$, and then to $M=R$. Write $R = R_0[x_1, \ldots, x_n]$ where each $x_i$ is homogeneous of degree $d_i$. Given $\gamma$, the $R_0$-module $M_\gamma$ is generated by monomials $x_1^{a_1} \cdots x_n^{a_n}$ with $\sum_i a_i d_i = \gamma$ and $a_1, \ldots, a_n \in \Z_{\geq 0}$; this admits only finitely many solutions $(a_1, \ldots, a_n)$. We conclude that $M_\gamma$ has finite length since $R_0/R_0 \cap \text{ann}(M)$ is an Artinian ring.
+\end{proof}
+
+Recall that saying a module $N$ over a ring $A$ has finite length means that there exists a composition series
+\[ N = N_0 \supset \cdots \supset N_n = \{0\}, \quad \forall N_i/N_{i+1} \text{ is simple.} \]
+The unique number (Jordan--Hölder Theorem) is called the \emph{length} of $N$, denoted by $\ell_A(N)$. The length function is additive in short exact sequences. When $A$ is a field we have $\ell_A = \dim_A$. \index{length}
+
+\begin{definition}
+	For $R$ and $M$ as in Lemma \ref{prop:Hilbert-poly-0}, we define the functions
+	\[ \chi(M, \gamma) := \ell_{R_0}(M_\gamma), \quad \gamma \in \Gamma := \Z_{\geq 0}^N \]
+	with values in $\Z_{\geq 0}$.
+\end{definition}
+One sees immediately that for a short exact sequence $0 \to M' \to M \to M'' \to 0$ of finitely generated graded $R$-modules, we have $\chi(M,\gamma) = \chi(M',\gamma) + \chi(M'',\gamma)$ for all $\gamma \in \Gamma$. This extends to alternating sums of $\chi$ in finite exact sequences.
+
+One can control the behavior of $\chi(M, \cdot)$ by forming the Poincaré series $P_M(\mathbf{X}) = \sum_{\gamma \in \Gamma} \chi(M,\gamma) \mathbf{X}^\gamma$; see \cite[6.D]{BG09}. Here we shall restrict to the case $N=1$, i.e. $\Gamma = \Z_{\geq 0}$, in order to gain more control of $\chi(M,\gamma)$. As a preparation, we say a function $H: \Z \to \CC$ is a \emph{quasi-polynomial} of period $\varpi$ if its restriction to each congruence class modulo $\varpi$ coincides with a polynomial function (necessarily unique); the degree of $\chi$ is defined by taken the maximum among congruence classes. In particular, a quasi-polynomial of period $1$ is just a polynomial.
+
+\begin{theorem}
+	Assume $\Gamma = \Z_{\geq 0}$. Suppose $R$ is generated by homogeneous elements $x_1, \ldots, x_n$ over $R_0$. There exists a unique quasi-polynomial $H_M$ of degree $\leq n-1$, with coefficients in $\Q$ and period $e := \mathrm{lcm}(\deg x_1, \ldots, \deg x_n)$, such that
+	\[ \chi(M, \gamma) = H_M(\gamma), \quad |\gamma| \gg 0. \]
+\end{theorem}
+\begin{proof}
+	Uniqueness is clear. We construct $H_M$ by induction on the minimal number of generators $n$. If $n=0$ then $R = R_0$ and $M_\gamma = 0$ for $|\gamma| \gg 0$, in which case $H_M = 0$.
+
+	For $n \geq 1$, write $R = R_0[x_1, \ldots, x_n]$ as usual. We may assume that $x_i \neq 0$ has degree $\eta_i$, for $i=1,\ldots,n$. Fix $i$ and define the graded modules
+	\[ Z := \Ker\left( M \xrightarrow{\cdot x_i} M(\eta_i) \right), \quad Y := \Coker\left( M(-\eta_i) \xrightarrow{\cdot x_i} M \right) \]
+	which are again finitely generated, so that we have the exact sequence
+	\[ 0 \to Z_\gamma \to M_\gamma \to M_{\gamma + \eta_i} \to Y_{\gamma + \eta_i} \to 0, \quad \gamma \in \Gamma. \]
+	Since $x_i$ annihilates $Z$ and $Y$, induction hypothesis entails
+	\[ \chi(M, \gamma+\eta_i) - \chi(M, \gamma) = \chi(Y, \gamma+\eta_i) - \chi(Z, \gamma), \]
+	the right-hand side being quasi-polynomials of period $\text{lcm}(\ldots, \widehat{\eta_i}, \ldots)$ for large $|\gamma|$ and of degrees $\leq n-2$, since $x_i$ acts trivially on $Z$ and $Y$. Doing this for all $i$ yields difference equations that witness the polynomiality of $\chi(M, \gamma)$ for $|\gamma| \gg 0$ in every congruence class modulo $e$.
+\end{proof}
+In particular, if $R$ is generated by $R_1$ over $R_0$, the period $e=1$ and we have the notion of \emph{Hilbert--Samuel polynomials}.\index{Hilbert--Samuel polynomial}
+
+\begin{example}\label{eg:count-monomials}
+	For $R = M = \Bbbk[X_1, \ldots, X_n]$ graded by total degree, where $\Bbbk$ is a field, our assumptions are readily verified. We see $\chi(M, \gamma) = \dim_{\Bbbk} \Bbbk[X_1, \ldots, X_n]_{\deg=\gamma}$ for all $\gamma \in \Z_{\geq 0}$, which equals $\binom{\gamma + n - 1}{n- 1}$ by high school combinatorics. Hence the Hilbert--Samuel polynomial is $H_M(X) = \binom{X+n-1}{n-1} \in \Q[X]$.
+\end{example}
+
+\section{Definition of Krull dimension}\label{sec:Krull-dimension}
+Let $R$ be a ring.
+
+\begin{definition}[Height and dimension]\label{def:height-dimension}\index{height}\index{dimension}
+	For any prime ideal $\mathfrak{p}$ of $R$, define its \emph{height} $\text{ht}(\mathfrak{p})$ as the supremum of the lengths of prime chains
+	\[ \mathfrak{p} = \mathfrak{p}_0 \supsetneq \mathfrak{p}_1 \supsetneq \cdots \supsetneq \mathfrak{p}_n, \quad \text{length} := n. \]
+	For any ideal $\mathfrak{a}$ of $R$, we define $\text{ht}(\mathfrak{a}) := \inf\{ \text{ht}(\mathfrak{p}) : \mathfrak{p} \supset \mathfrak{a} \}$.
+	
+	Define the \emph{Krull dimension} of $R$ to be $\dim R := \sup_{\mathfrak{p} \in \Spec(R)} \text{ht}(\mathfrak{p})$.
+\end{definition}
+
+The following results are immediate.
+\begin{itemize}
+	\item The zero prime in a domain has height $0$.
+	\item Fields have dimension zero. In fact, a ring has dimension zero if and only if every prime ideal is maximal.
+	\item We have $\text{ht}(\mathfrak{p}) = \dim R_{\mathfrak{p}}$ for every prime ideal $\mathfrak{p} \subset R$.
+	\item For any ideal $\mathfrak{a}$ we have $\dim R \geq \dim(R/\mathfrak{a}) + \text{ht}(\mathfrak{a})$.
+\end{itemize}
+
+\begin{exercise}
+	Verify the last property above.
+\end{exercise}
+
+\begin{exercise}
+	Show that every principal ideal domain which is not a field has dimension one.
+\end{exercise}
+
+More generally, we define the dimension of an $R$-module $M$ as
+\[ \dim M := \dim(R/\text{ann}(M)), \quad \dim\{0\} := -\infty . \]
+For a short exact sequence $0 \to M' \to M \to M'' \to 0$ we have $\dim M', \dim M'' \leq \dim M$.
+
+\begin{lemma}\label{prop:dim-M-equiv}
+	Suppose $R$ is Noetherian. The following are equivalent for a finitely generated $R$-module $M \neq \{0\}$.
+	\begin{enumerate}[(i)]
+		\item $\dim M = 0$.
+		\item $R/\mathrm{ann}(M)$ is Artinian.
+		\item $M$ has finite length.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	(i) $\iff$ (ii) is already known: recall that a Noetherian ring is Artinian if and only if its prime ideals are all maximal (Corollary \ref{prop:Artinian-dim-0}). Let us show (i) or (ii) $\implies$ (iii). By writing $M = M_1 + \cdots + M_n$ where each $M_i$ is generated by one element,  we may assume $M \simeq R/\mathfrak{a}$ for some ideal $\mathfrak{a} = \text{ann}(M)$. It has been shown that $R/\mathfrak{a}$ has finite length as a module since it is an Artinian ring.
+	
+	(iii) $\implies$ (i). Upon modulo $\text{ann}(M)$ we may assume $\text{ann}(M)=\{0\}$. Take any minimal prime $\mathfrak{p}$ in $R$. As $\text{ann}(M) = \{0\}$ we have $M_{\mathfrak{p}} \neq \{0\}$. Therefore $\mathfrak{p}$ is a minimal element of $\Supp(M)$, hence belongs to $\text{Ass}(M)$. We may embed $R/\mathfrak{p}$ into $M$. The $R$-module $R/\mathfrak{p}$ has finite length since $M$ does, therefore $R/\mathfrak{p}$ is an Artinian ring. This implies $\mathfrak{p}$ is a maximal ideal, therefore $\dim R = 0$ since every prime in $R$ lies over a minimal prime.
+\end{proof}
+
+Our strategy is to study the Krull dimension via completions and Hilbert polynomials. As a preparation, we begin with the local, or more generally the semi-local rings.
+
+\begin{definition}\index{parameter ideal}
+	Let $R$ be a Noetherian semi-local ring (i.e. there are finitely many maximal ideals $\mathfrak{m}_1, \ldots, \mathfrak{m}_n$). Let $M \neq \{0\}$ be a finitely generated $R$-module. We say an ideal $I$ is a \emph{parameter ideal} for $M$ if $I \subset \text{rad}(R)$ and $M/IM$ has finite length.
+\end{definition}
+Parameter ideals are often called \emph{ideals of definition}. Here we follow the terminologies of \cite{Eis95}.
+
+\begin{exercise}
+	Show that $I$ is a parameter ideal for $R$ if and only if there exists $k$ with
+	\[ \text{rad}(R)^k \subset I \subset \text{rad}(R). \]
+	Show that such an ideal is a parameter ideal for every $M$. Hint: If $I \supset \text{rad}(R)^k$, every prime ideal $\mathfrak{p} \supset I$ must contain $(\mathfrak{m}_1 \cdots \mathfrak{m}_n)^k$, hence $\mathfrak{p} = \mathfrak{m}_i$ for some $i$. Conversely, show that in an Artinian ring we have $\text{rad}(R)^k = 0$ for $k \gg 0$, using Corollary \ref{prop:Artinian-dim-0}. Hint: for Artinian rings, $\text{rad}(R)$ equals the nilpotent radical, and is finitely generated.
+\end{exercise}
+
+Dimension theory for modules can be built solely on the parameter ideals for $R$, but we opt to introduce the general notion here.
+
+Hereafter we fix a Noetherian semi-local ring $R$ and a finitely generated $R$-module $M \neq \{0\}$.
+
+\begin{lemma}\label{prop:para-ideal-characterization}
+	An ideal $I \subset \mathrm{rad}(R)$ is a parameter ideal for $M$ if and only if there exists $k$ with $\mathrm{rad}(R)^k \subset I + \mathrm{ann}(M)$. In this case $R/(I+\mathrm{ann}(M))$ is an Artinian ring.
+	
+	In particular, $\mathrm{rad}(R)$ is a parameter ideal for any $M$.
+\end{lemma}
+\begin{proof}
+	First we claim that $V(\text{ann}(M/IM)) = \Supp(M/IM)$ equals $V(I+\text{ann}(M))$. By the exactness of localizations together with Nakayama's Lemma, we have
+	\[ \Supp(M/IM) = \Supp(M) \cap \left\{ \mathfrak{p}: IR_{\mathfrak{p}} \subsetneq R_{\mathfrak{p}} \right\}; \]
+	the last term equals $\Supp(M) \cap V(I) = V(\text{ann}(M)+I)$, thereby proving our claim. By applying to $M/IM$ the Lemma \ref{prop:dim-M-equiv}, $I \subset \text{rad}(R)$ being a parameter ideal for $M$ is equivalent to any one of the following
+	\begin{align*}
+		\frac{R}{\text{ann}(M/IM)} \text{ is Artinian} & \iff V(\text{ann}(M/IM)) \subset \MaxSpec(R) \\
+		& \iff V(I+\text{ann}(M)) \subset \MaxSpec(R) \\
+		& \iff \bar{R} := \frac{R}{I+\text{ann}(M)} \text{ is Artinian}.
+	\end{align*}
+	If $\bar{R}$ is Artinian, then the image of $\text{rad}(R)$ in $\bar{R}$ is contained in $\text{rad}(\bar{R})$, and we know $\text{rad}(\bar{R})^k = 0$ for large $k$.
+	
+	Conversely, suppose $\text{rad}(R)^k \subset I + \text{ann}(M)$. We claim that $R/\text{rad}(R)^k$ is Artinian: $\mathrm{rad}(R)$ contains the product $\mathfrak{m}_1 \cdots \mathfrak{m}_k$ of all maximal ideals, so every over-prime of $\text{rad}(R)^k$ is some $\mathfrak{m}_i$, thus maximal. This shows that $M/IM$ has finite length by the previous equivalences and Lemma \ref{prop:dim-M-equiv}.
+\end{proof}
+
+Given an parameter ideal $I$ for $M$. The $I$-adic grading gives rise to the graded objects
+\[ \gr_I(R) = \bigoplus_{n \geq 0} \frac{I^n}{I^{n+1}}, \quad \gr_I(M) = \bigoplus_{n \geq 0} \frac{I^n M}{I^{n+1}M}. \]
+
+Recall that
+\begin{compactitem}
+	\item $\gr_I(R)$ is finitely generated over $\gr^0_I(R) = R/I$ as an algebra and is Noetherian (Proposition \ref{prop:gr-Noetherian});
+	\item more precisely, $\gr_I(R)$ is generated by $\gr^1_I(R)$ over $R/I$.
+	\item $\gr_I(M)$ is a finitely generated $\gr_I(R)$-module (Proposition \ref{prop:gr-fg});
+	\item the ring $\gr^0_I(R) = R/I$ becomes Artinian after modulo $\gr^0_I(R) \cap \text{ann}(\gr_I(M))$, which contains $(\text{ann}(M)+I)/I$ (use Lemma \ref{prop:para-ideal-characterization}).
+\end{compactitem}
+Upon recalling Lemma \ref{prop:Hilbert-poly-0}, it are justified to define
+\[ \chi(M, I; n) := \ell_{R/I^n}(M/I^n M) = \sum_{j=0}^{n-1} \ell_{R/I}(I^j M/I^{j+1} M), \quad n \in \Z_{\geq 0}. \]
+By the theory of Hilbert--Samuel polynomials, $n \mapsto \chi(M,I; n)$ is a polynomial $H_I(M, \cdot)$ whenever $n \gg 0$, with $\deg H_I(M, \cdot)$ bounded by the minimal number of generators of $\gr_I(R)$ over $\gr^0_I(R) = R/I$.
+\begin{lemma}\label{prop:Hilbert-poly-I}
+	Let $M \neq \{0\}$ be a finitely generated $R$-module with parameter ideal $I$.
+	\begin{enumerate}[(i)]
+		\item The degree $d(M)$ of $H_I(M, \cdot)$ is independent of the choice of the parameter ideal $I$.
+		\item In a short exact sequence $0 \to M' \to M \to M'' \to 0$ of finitely generated $M$-modules, we have
+		\[ \deg H_I(M', \cdot), \deg H_I(M'', \cdot) \leq \deg H_I(M, \cdot), \]
+		and $H_I(M, \cdot) - H_I(M', \cdot) - H_I(M'', \cdot)$ has degree $< d(M)$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	(i): To compare the graded objects associated to two parameter ideals $I, J$, we apply the characterization in Lemma \ref{prop:para-ideal-characterization}: it suffices to take $J = \mathrm{rad}(R)$, so that
+	\[ J^m + \text{ann}(M) \subset I + \text{ann}(M) \subset J + \text{ann}(M) \]
+	for some $m \geq 1$. This implies $\chi(M,J; n) \leq \chi(M,I;n)$ and $\chi(M,I;n) \leq \chi(M,J;mn)$ for all $n \geq 0$. Whence (i).
+
+	(ii): For the first part, note that $M/I^n M \to M''/I^n M''$ is surjective, so $\chi(M'', I; n) \leq \chi(M, I; n)$. On the other hand, $M'/I^n M' \to M/I^n M$ has kernel $\frac{M' \cap I^n M}{I^n M'}$. For $n \geq n_0 \gg 0$, Artin--Rees (Theorem \ref{prop:Artin-Rees}) gives
+	\begin{multline*}
+		\ell\left(\frac{M' \cap I^n M}{I^n M'}\right) = \ell\left(\frac{I^{n - n_0}(M' \cap I^{n_0} M)}{I^n M'}\right) \leq \ell\left(\frac{I^{n - n_0} M'}{I^n M'}\right) \\
+		= \ell\left( \frac{M'}{I^n M'} \right) - \ell\left( \frac{M'}{I^{n - n_0} M'}\right) = \chi(M', I; n) - \chi(M', I; n-n_0)
+	\end{multline*}
+	which has degree inferior to $H_I(M', \cdot)$. Hence $\deg H_I(M', \cdot) \leq \deg H_I(M, \cdot)$.
+
+	To establish the second part of (ii), we consider $\chi(M, I; n) - \chi(M'', I; n)$ which equals
+	\begin{gather*}
+		\ell\left(\frac{M}{I^n M}\right) - \ell\left( \frac{M}{M' + I^n M} \right) = \ell\left( \frac{M' + I^n M}{I^n M} \right) = \ell\left( \frac{M'}{M' \cap I^n M} \right).
+	\end{gather*}
+	By Artin--Rees, the rightmost term is squeezed between $\ell(M'/I^n M') = \chi(M',I; n)$ and $\ell( M'/I^{n-k} M') = \chi(M', I; n-k)$ for some $k$ independent of $n \gg 0$. Hence $\chi(M, I; n) - \chi(M'', I; n)$ is a polynomial with the same leading term as $\chi(M', I; n)$, for $n \gg 0$.
+\end{proof}
+
+Define $s(M)$ to be the smallest integer $s$ such that there exist $t_1, \ldots, t_s \in \text{rad}(R)$ with $M/\sum_{i=1}^s t_i M$ of finite length. In other words, $s(M)$ is the minimal number of generators for parameter ideals for $M$. Observe that $M/\sum_{i=1}^s t_i M \neq \{0\}$, otherwise Nakayama's Lemma will lead to $M = \{0\}$.
+
+\begin{theorem}\label{prop:dim-s-d}
+	For any finitely generated nonzero $R$-module $M$, we have $\dim M = s(M) = d(M)$. In particular $\dim M$ is finite.
+\end{theorem}
+\begin{proof}
+	We argue inductively on $d(M)$ to show $\dim M \leq d(M)$. If $d(M)=0$ then $I^n M = I^{n+1} M = \cdots$ for $n \gg 0$. Corollary \ref{prop:Krull-intersection-rad} implies $I^n M = \{0\}$, hence $M=M/I^n M$ has finite length and $\dim M = 0$ by Lemma \ref{prop:dim-M-equiv}.
+	
+	Now assume $d(M) \geq 1$. Take a minimal $\mathfrak{p} \in \text{Ass}(M)$ verifying $\dim(R/\mathfrak{p}) = \dim M$, so that $R/\mathfrak{p} \hookrightarrow M$. As $d(R/\mathfrak{p}) \leq d(M)$, we are reduced to the case $M = R/\mathfrak{p}$. Consider a chain of prime ideals
+	\[ \mathfrak{p} = \mathfrak{p}_0 \subsetneq \cdots \subsetneq \mathfrak{p}_m \]
+	in $R$. We claim that $m \leq d(R/\mathfrak{p})$. We may surely suppose $m \geq 1$. Take $t \in \mathfrak{p}_1 \smallsetminus \mathfrak{p}_0$. Reduction modulo $Rt + \mathfrak{p}$ yields a prime chain of length $m-1$, namely
+	\[ \frac{\mathfrak{p}_1}{Rt + \mathfrak{p}} \subsetneq \cdots \frac{\mathfrak{p}_m}{Rt + \mathfrak{p}} \]
+	in $R/(Rt + \mathfrak{p})$. Hence $\dim(R/Rt+\mathfrak{p}) \geq m-1$. In view of the exactness of
+	\[ 0 \to R/\mathfrak{p} \xrightarrow{t} R/\mathfrak{p} \to \frac{R}{Rt+\mathfrak{p}} \to 0, \]
+	Lemma \ref{prop:Hilbert-poly-I} (ii) implies that $d(R/Rt+\mathfrak{p}) < d(R/\mathfrak{p})$. By induction we deduce $d(R/\mathfrak{p}) > d(R/Rt+\mathfrak{p}) \geq \dim(R/Rt+\mathfrak{p}) \geq m-1$, hence $d(R/\mathfrak{p}) \geq m$ as required.
+	
+	Next, let us show $s(M) \leq \dim M$. Set $r := \dim M$. We contend that there exist $t_1, \ldots, t_r \in \text{rad}(R)$ such that $M/(t_1, \ldots, t_r)M$ has finite length; therefore $s \leq r$. When $r=0$ this follows from Lemma \ref{prop:dim-M-equiv}. For $r > 0$, we have $\text{rad}(R) \not\subset \mathfrak{p}$ for any minimal $\mathfrak{p} \in \text{Ass}(M)$ verifying $\dim R/\mathfrak{p} = \dim M$, for otherwise $\mathfrak{p}$ will contain, thus equal to a maximal ideal as $R$ is semi-local, and we would get $\dim M = 0$. Using prime avoidance (Proposition \ref{prop:prime-avoidance} applied to $I := \mathrm{rad}(R)$ and the primes $\mathfrak{p}$ above), we may pick $t_1 \in \text{rad}(R)$ that does not belong to any $\mathfrak{p}$ above. From $\text{ann}(M/t_1 M) \supset Rt_1 + \text{ann}(M)$ and our choice of $t_1,$, we see $\dim M/t_1 M < \dim M$. Our claim results from induction on $r$.
+	
+	We finish the proof by showing $d(M) \leq s(M)$. Suppose $M/\sum_{i=1}^s t_i M \neq \{0\}$ has finite length. We contend that for any $t \in \text{rad}(R)$ we have
+	\begin{gather}\label{eqn:d-drop}
+		d(M) \geq d(M/tM) \geq d(M)-1.
+	\end{gather}
+	If this holds, we can look at the sequence $M, M/t_1 M, M/(t_1M + t_2 M), \ldots$: at each step $d(\cdots)$ drops at most by one; at the end $L := M/\sum_{j=1}^s t_j M$ we have $d(L)=0$: indeed, as $L$ has finite length, $\ell(L/I^n L)$ is uniformly bounded by $\ell(L)$ so that $d(L)=0$. Thus $d(M) \leq s$ as expected.
+	
+	To prove \eqref{eqn:d-drop}, first note that $d(M) \geq d(M/tM)$ is known. Take any parameter ideal $I \ni t$. We bound $\chi(M/tM, I; n)$ as follows
+	\[ \ell\left( \frac{M}{tM + I^n M} \right) = \ell\left( \frac{M}{I^n M} \right) - \ell\left( \frac{tM + I^n M}{I^n M} \right). \]
+	Note that
+	\begin{align*}
+		\frac{M}{I^{n-1} M}\twoheadrightarrow \frac{M}{ \{ x \in M : tx \in I^n M \} } & \rightiso \frac{tM}{tM \cap I^n M} \simeq \frac{tM + I^n M}{I^n M} \\
+		y & \mapsto ty.
+	\end{align*}
+	Hence $\chi(M/tM, I; n) \geq \chi(M, I; n) - \chi(M, I; n-1)$ for $n \gg 0$, proving the second inequality in \eqref{eqn:d-drop}.
+\end{proof}
+
+\begin{corollary}
+	Under the same assumptions, we have $\dim_R M = \dim_{\hat{R}} \hat{M}$, where we take $I$-adic completions.
+\end{corollary}
+\begin{proof}
+	Proposition \ref{prop:completion-aux} gives identifications $\gr_I(R) = \gr_{\hat{I}}(\hat{R})$ and $\gr_I(M) = \gr_{\hat{I}}(\hat{M})$; moreover $\hat{R}$ is still semi-local and $\hat{I}$ is still a parameter ideal for $\hat{M}$ (see Proposition \ref{prop:completion-rad}, \ref{prop:completion-semilocal}). Since $d(M)$ and $d(\hat{M})$ are read from these graded modules, they are equal.
+\end{proof}
+
+These results will be applied to the case $M=R$ in the next section.
+
+\section{Krull's theorems and regularity}
+We still assume $R$ is a Noetherian ring.
+
+\begin{theorem}[Krull]
+	Suppose $\mathfrak{a} = (t_1, \ldots, t_r)$ is a proper ideal of $R$, then for every minimal over-prime ideal $\mathfrak{p}$ of $\mathfrak{a}$, we have $\mathrm{ht}(\mathfrak{p}) \leq r$.
+\end{theorem}
+From Definition \ref{def:height-dimension} we infer that $\text{ht}(\mathfrak{a}) \leq r$. The special case $r=1$ says that every principal ideal $(t) \neq R$ has height at most one (exactly one if $t$ is not a zero divisor --- use Theorem \ref{prop:Ass-properties} (ii)); this is called the Hauptidealsatz.\index{Hauptidealsatz}
+\begin{proof}
+	We work in $R_{\mathfrak{p}}$ and $I := \mathfrak{a} R_{\mathfrak{p}} = (t_1, \ldots, t_r)$. Since $I \subset \text{rad}(R_{\mathfrak{p}})$ and $R_{\mathfrak{p}}/I$ has dimension zero, thus Artinian, $I$ is a parameter ideal. We conclude by Theorem \ref{prop:dim-s-d} and $\text{ht}(\mathfrak{p}) = \dim R_{\mathfrak{p}}$.
+\end{proof}
+
+Now assume $R$ is Noetherian and local with maximal ideal $\mathfrak{m}$. The parameter ideals of $R$ are precisely those squeezed between $\mathfrak{m}$ and $\mathfrak{m}^k$ for some $k \geq 1$, by Lemma \ref{prop:para-ideal-characterization}. Set $d := \dim R$, which is finite by Theorem \ref{prop:dim-s-d}. The same theorem tells us that we can generate some parameter ideal $I \subset \mathfrak{m}$ (namely $R/I$ Artinian) by elements $t_1, \ldots, t_d \in \mathfrak{m}$. These elements form a \emph{system of parameters} of $R$.
+
+\begin{proposition}\label{prop:system-parameter}
+	Suppose $R$ is a Noetherian local ring with a system of parameters $t_1, \ldots, t_d$, which generate a parameter ideal $I$. For any $0 \leq i \leq d$ we have $\dim(R/(t_1, \ldots, t_i)) = d-i$, and $t_{i+1}, \ldots, t_d$ form a system of parameters for $R/(t_1, \ldots, t_i)$.
+\end{proposition}
+\begin{proof}
+	Consider the sequence $R, R/(t_1), R/(t_1, t_2), \ldots, R/(t_1, \ldots, t_d)$. Recall the formalism in Theorem \ref{prop:dim-s-d}: at each stage $d(R/\cdots)$ drops at most by one, by \eqref{eqn:d-drop}. After $d$ steps we arrive at $R/I$ with $\dim(\cdot)=d(\cdot)=s(\cdot)=0$, since it has finite length. Hence $d$ drops exactly by one at each stage. The remaining assertions are immediate.
+\end{proof}
+
+A natural question arises: when can we assure $I=\mathfrak{m}$?
+\begin{definition}\index{regular local ring}
+	We say a Noetherian local ring $R$ is a \emph{regular local ring} if $\mathfrak{m}$ can be generated by $d = \dim R$ elements $t_1, \ldots, t_d$. In this case we say $t_1, \ldots, t_r$ form a \emph{regular system of parameters}.
+\end{definition}
+In particular, $\mathfrak{m}=\{0\}$ if $R$ is regular local with $\dim R = 0$.
+
+\begin{exercise}
+	Let $\Bbbk$ be a field. The $\Bbbk$-algebra of formal power series $\Bbbk\llbracket X_1, \ldots, X_d \rrbracket$ is a regular local ring. Indeed, it is Noetherian with maximal ideal $\mathfrak{m} = (X_1, \ldots, X_d)$, and $X_1, \ldots, X_d$ form a regular system of parameters. On the other hand, $\mathfrak{m}/\mathfrak{m}^2$ has a $\Bbbk$-basis formed by the images of $X_1, \ldots, X_d$. One way to determine its dimension and prove its regularity is to calculate the functions $n \mapsto \dim_\Bbbk(\mathfrak{m}^n/\mathfrak{m}^{n+1})$ explicitly, i.e. count the monomials in $d$ variables with total degree $n$. You should get a polynomial in $n$ with degree $d-1$, cf. Exercise \ref{eg:count-monomials}.
+\end{exercise}
+
+\begin{theorem}
+	For any Noetherian local ring $R$ with maximal ideal $\mathfrak{m}$ and residue field $\Bbbk$, we have $\dim R \leq \dim_\Bbbk \mathfrak{m}/\mathfrak{m}^2$. Equality holds if and only if $R$ is a regular local ring.
+\end{theorem}
+\begin{proof}
+	By Nakayama's Lemma (more precisely, Corollary \ref{prop:NAK-generation}), $\mathfrak{m}/\mathfrak{m}^2$ can be generated over $\Bbbk$ by $s$ elements if and only if $\mathfrak{m}$ can be generated over $R$ by $s$ elements, for any $s \in \Z_{\geq 0}$. Hence Theorem \ref{prop:dim-s-d} imposes the bound $s \geq \dim R$, and equality holds if and only if $R$ admits a regular system of parameters.
+\end{proof}
+
+\begin{figure}[h]
+	\centering \includegraphics[height=130pt]{OZariski.jpg} \\ \vspace{1em}
+	\begin{minipage}{0.7\textwidth}
+		\small The $\Bbbk$-vector space $\mathfrak{m}/\mathfrak{m}^2$ is called the \emph{Zariski cotangent space} of $\Spec(R)$, in honor of Oscar Zariski (1899--1986). Picture taken from \href{https://commons.wikimedia.org/wiki/File:Oscar_Zariski.jpg}{Wikimedia Commons}.
+	\end{minipage}
+\end{figure}
+
+Due to time constraints, we cannot say too much about regular local rings. Below is one of their wonderful properties.
+\begin{theorem}\label{prop:regular-local-domain}
+	Regular local rings are integral domains.
+\end{theorem}
+\begin{proof}
+	Induction on $d := \dim R$. If $\dim R=0$ then $\mathfrak{m}=\{0\}$, hence $R$ is a field. Assume hereafter that $d > 0$. We know there are only finitely many minimal prime ideals and $\dim_\Bbbk \mathfrak{m}/\mathfrak{m}^2 \geq 1$. By prime avoidance (Proposition \ref{prop:prime-avoidance}) applied to $I := \mathfrak{m}$, the minimal prime ideals and $\mathfrak{m}^2$, there exists $t \in \mathfrak{m} \smallsetminus \mathfrak{m}^2$ that does not lie in any minimal prime ideal. Put $R' := R/(t)$ with maximal ideal $\mathfrak{m}' = \mathfrak{m}/(t)$; our choice of $t$ together with Proposition \ref{prop:system-parameter} imply
+	\begin{align*}
+		\dim R' & = \dim R - 1, \\
+		\dim_\Bbbk \mathfrak{m}'/(\mathfrak{m}')^2 & = \dim_\Bbbk \mathfrak{m}/\mathfrak{m}^2 - 1 = \dim R - 1.
+	\end{align*}
+	Hence $R'$ is still regular local, and by induction it is a domain. This implies $(t)$ is prime.
+	
+	Take any minimal prime $\mathfrak{p}$ below $(t)$; note that $t \notin \mathfrak{p}$ by construction. To show $R$ is a domain it suffices to prove $\mathfrak{p}=\{0\}$. Indeed, every $s \in \mathfrak{p}$ can be written as $s=at$, $a \in R$. Since $t \notin \mathfrak{p}$, we must have $a \in \mathfrak{p}$. Hence $\mathfrak{p}=t\mathfrak{p} \subset \mathfrak{m}\mathfrak{p}$. Nakayama's Lemma (Theorem \ref{prop:NAK}) implies $\mathfrak{p} = \{0\}$.
+\end{proof}
