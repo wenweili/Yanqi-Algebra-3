@@ -19,7 +19,7 @@ We only need the standard packages and fonts, such as
 
 The aforementioned OpenType fonts should be installed system-wide to be accessible by XeLaTeX.
 
-For some strange reason, I used and installed the font TeX Gyre Heros Cn. If XeLaTeX misses this font, please look for the OTF files (in the directories in your computer which store TeX-related fonts) whose names begin with **texgyreheroscn** and **texgyrepagella**, then install them manually in your system.
+For some strange reason, I used and installed the fonts TeX Gyre Heros Cn and TeX Gyre Pagella. In case of error messages related to these fonts, please look for the OTF files (in the directories in your computer which store TeX-related fonts) whose names begin with **texgyreheroscn** and **texgyrepagella**, then install them manually in your system.
 
 Make sure that all the relevant packages/programs are installed. For reference, the author made the compilation using Arch-based Linux distributions with TeX Live 2018; the packages **biber** and **texlive-science** are required.
 
