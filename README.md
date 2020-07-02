@@ -24,7 +24,7 @@ For some strange reason, I used and installed the fonts TeX Gyre Heros Cn and Te
 Make sure that all the relevant packages/programs are installed. For reference, the author made the compilation using Arch-based Linux distributions with TeX Live 2018; the packages **biber** and **texlive-science** are required.
 
 ## Clone the files
-As a preparation for the compilation process, we will clone the files into `~/Yanqi-Algebra-3` in our home directory. In command line, type
+Assume that [Git](https://git-scm.com/) has been installed on your computer. As a preparation for the compilation process, we will clone the files into `~/Yanqi-Algebra-3` in our home directory. In command line, type
 ```
 cd ~
 git clone https://github.com/wenweili/Yanqi-Algebra-3
