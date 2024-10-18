@@ -18,7 +18,7 @@ clean:
 
 tarball:
 	@rm -f ../Yanqi-Algebra-3.tar.gz
-	@tar cvfz ../Yanqi-Algebra-3.tar.gz .
+	@tar --exclude .git -zcvf ../Yanqi-Algebra-3.tar.gz .
 
 zip:
 	@rm -f ../Yanqi-Algebra-3.zip
