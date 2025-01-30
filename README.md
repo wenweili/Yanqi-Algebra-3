@@ -65,3 +65,7 @@ In case of problems of compilation, please kindly report to the author. Make sur
 
 # License
 Except possibly the photos and the logo of UCAS, the entire codebase is under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+
+# Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=wenweili/Yanqi-Algebra-3&type=Date)](https://star-history.com/#wenweili/Yanqi-Algebra-3&Date)
