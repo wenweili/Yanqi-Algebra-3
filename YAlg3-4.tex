@@ -30,7 +30,7 @@ Pictorially:
 \end{tikzpicture}\end{center}
 
 \begin{lemma}[Existence of minimal over-primes]\label{prop:minimal-prime}\index{minimal prime ideal}
-	Let $\mathfrak{a}$ be a proper ideal in a ring $R$. There exists a prime ideal $\mathfrak{p}$ which is minimal among all primes containing $\mathfrak{a}$. If $\mathfrak{P}$ is an ideal containing $\mathfrak{a}$, one can choose $\mathfrak{p} \subset \mathfrak{P}$.
+	Let $\mathfrak{a}$ be a proper ideal in a ring $R$. There exists a prime ideal $\mathfrak{p}$ which is minimal among all primes containing $\mathfrak{a}$. If $\mathfrak{P}$ is a prime ideal containing $\mathfrak{a}$, one can choose $\mathfrak{p} \subset \mathfrak{P}$.
 \end{lemma}
 \begin{proof}
 	One easily reduces to the case $\mathfrak{a} = \{0\}$. We want to use Zorn's Lemma\index{Zorn's Lemma} to find a minimal prime. It boils down to show that any chain $(\mathfrak{p}_i)_{i \in I}$ of prime ideals ($I$: totally ordered set with $j > i \implies \mathfrak{p}_i \supset \mathfrak{p}_j$) has a lower bound; we assume $\mathfrak{p}_i \subset \mathfrak{P}$ when $\mathfrak{P}$ is prescribed. It suffices to show $\mathfrak{p} := \bigcap_{i \in I} \mathfrak{p}_i$ is prime: if $xy \in \mathfrak{p}$ but there exists $i$ with $x \notin \mathfrak{p}_i$, then $x \notin \mathfrak{p}_j$ whenever $j \geq i$; in this case $j \geq i \implies y \in \mathfrak{p}_j$. This entails $y \in \mathfrak{p}$.
