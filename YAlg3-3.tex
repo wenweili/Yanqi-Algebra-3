@@ -326,7 +326,7 @@ there exist some $s \in \Z_{\geq 1}$ and a commutative diagram
 	R^{\oplus r} \arrow[rd, "x"'] \arrow[rr, "B"] & & R^{\oplus s} \arrow[ld, "y"] \\
 	& N &
 \end{tikzcd} \quad \text{s.t. } K \subset \Ker(B). \]
-Indeed, $x$ (resp. $y$) corresponds to $(x_1, \ldots, x_r)$ via $x: (t_1, \ldots, t_r) \mapsto \sum_i t_i x_i$ (resp. $y: (u_1, \ldots, u_s) \mapsto \sum_j u_j, y_j$), and $K \subset \Ker(x)$ corresponds to $R \cdot (a_1, \ldots, a_r)$. The homomorphism $B$ corresponds to the matrix $(b_{ij})_{i,j}$.
+Indeed, $x$ (resp. $y$) corresponds to $(x_1, \ldots, x_r)$ via $x(t_1, \ldots, t_r) = \sum_i t_i x_i$ (resp. $y(u_1, \ldots, u_s) = \sum_j u_j y_j$), and $K \subset \Ker(x)$ corresponds to $R \cdot (a_1, \ldots, a_r)$. The homomorphism $B$ corresponds to the matrix $(b_{ij})_{i,j}$ that acts on row vectors by right multiplication.
 
 \begin{remark}\label{rem:equational-flatness-ext}
 	For flat $N$, the equational criterion so rephrased is applicable to any finitely generated $K \subset \Ker(x)$. Indeed, one may iterate the construction for $R^{\oplus s} \xrightarrow{y} M$, etc. to make every generator of $K$ mapped to $0$.
