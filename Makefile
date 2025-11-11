@@ -17,8 +17,8 @@ clean:
 	@rm -f .metadonnees*
 
 tarball:
-	@rm -f ../Yanqi-Algebra-3.tar.gz
-	@tar --exclude .git -zcvf ../Yanqi-Algebra-3.tar.gz .
+	@rm -f ../Yanqi-Algebra-3.tar.zst
+	@tar --exclude .git --zstd -cf ../Yanqi-Algebra-3.tar.zst .
 
 zip:
 	@rm -f ../Yanqi-Algebra-3.zip
