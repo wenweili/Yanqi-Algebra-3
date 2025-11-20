@@ -1,4 +1,5 @@
 MAINFILE=YAlg3
+COMPRESSED=Yanqi-Algebra-3
 COVER=Cover-page
 LATEXMK=latexmk
 
@@ -17,11 +18,11 @@ clean:
 	@rm -f .metadonnees*
 
 tarball:
-	@rm -f ../Yanqi-Algebra-3.tar.zst
-	@tar --exclude .git --zstd -cf ../Yanqi-Algebra-3.tar.zst .
+	@rm -f ../$(COMPRESSED).tar.zst
+	@tar --exclude .git --zstd -cf ../$(COMPRESSED).tar.zst .
 
 zip:
-	@rm -f ../Yanqi-Algebra-3.zip
-	@zip -r ../Yanqi-Algebra-3.zip .
+	@rm -f ../$(COMPRESSED).zip
+	@zip -r ../$(COMPRESSED).zip .
 
 .PHONY: clean
