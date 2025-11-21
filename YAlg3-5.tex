@@ -350,7 +350,7 @@ By the theory of Hilbert--Samuel polynomials, $n \mapsto \chi(M,I; n)$ is a poly
 	Let $M \neq \{0\}$ be a finitely generated $R$-module with parameter ideal $I$.
 	\begin{enumerate}[(i)]
 		\item The degree $d(M)$ of $H_I(M, \cdot)$ is independent of the choice of the parameter ideal $I$.
-		\item In a short exact sequence $0 \to M' \to M \to M'' \to 0$ of finitely generated $M$-modules, we have
+		\item In a short exact sequence $0 \to M' \to M \to M'' \to 0$ of finitely generated $R$-modules, we have
 		\[ \deg H_I(M', \cdot), \deg H_I(M'', \cdot) \leq \deg H_I(M, \cdot), \]
 		and $H_I(M, \cdot) - H_I(M', \cdot) - H_I(M'', \cdot)$ has degree $< d(M)$.
 	\end{enumerate}
@@ -385,7 +385,7 @@ Define $s(M)$ to be the smallest integer $s$ such that there exist $t_1, \ldots,
 	Now assume $d(M) \geq 1$. Take a minimal $\mathfrak{p} \in \text{Ass}(M)$ verifying $\dim(R/\mathfrak{p}) = \dim M$, so that $R/\mathfrak{p} \hookrightarrow M$. As $d(R/\mathfrak{p}) \leq d(M)$, we are reduced to the case $M = R/\mathfrak{p}$. Consider a chain of prime ideals
 	\[ \mathfrak{p} = \mathfrak{p}_0 \subsetneq \cdots \subsetneq \mathfrak{p}_m \]
 	in $R$. We claim that $m \leq d(R/\mathfrak{p})$. We may surely suppose $m \geq 1$. Take $t \in \mathfrak{p}_1 \smallsetminus \mathfrak{p}_0$. Reduction modulo $Rt + \mathfrak{p}$ yields a prime chain of length $m-1$, namely
-	\[ \frac{\mathfrak{p}_1}{Rt + \mathfrak{p}} \subsetneq \cdots \frac{\mathfrak{p}_m}{Rt + \mathfrak{p}} \]
+	\[ \frac{\mathfrak{p}_1}{Rt + \mathfrak{p}} \subsetneq \cdots \subsetneq \frac{\mathfrak{p}_m}{Rt + \mathfrak{p}} \]
 	in $R/(Rt + \mathfrak{p})$. Hence $\dim(R/Rt+\mathfrak{p}) \geq m-1$. In view of the exactness of
 	\[ 0 \to R/\mathfrak{p} \xrightarrow{t} R/\mathfrak{p} \to \frac{R}{Rt+\mathfrak{p}} \to 0, \]
 	Lemma \ref{prop:Hilbert-poly-I} (ii) implies that $d(R/Rt+\mathfrak{p}) < d(R/\mathfrak{p})$. By induction we deduce $d(R/\mathfrak{p}) > d(R/Rt+\mathfrak{p}) \geq \dim(R/Rt+\mathfrak{p}) \geq m-1$, hence $d(R/\mathfrak{p}) \geq m$ as required.
