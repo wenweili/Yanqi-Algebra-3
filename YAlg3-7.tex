@@ -218,12 +218,15 @@ Based on \cite{Bour98}, we give a brief account on the notion of depth. Let $R$ 
 
 \begin{definition}[Depth of a module]\index{depth}
 	Let $I$ be a proper ideal of $R$. We define the \emph{depth} of $M$ relative to $I$ as
-	\[ \text{depth}_I(M) := \inf \left\{n \geq 0: \Ext^n_R(R/I, M) \neq 0 \right\} \]
+	\[ \text{depth}_I(M) := \begin{cases}
+		\inf \left\{n \geq 0: \Ext^n_R(R/I, M) \neq 0 \right\}, & \text{if}\; \exists n, \; \Ext^n_R(R/I, M) \neq 0 \\
+		+\infty, & \text{otherwise},
+	\end{cases}\]
 	with values in $\Z_{\geq 0} \sqcup \{+\infty\}$.
 \end{definition}
 
 \begin{proposition}\label{prop:depth-zero}
-	For $I$, $M$ as above, the following are equivalent:
+	Let $R$ be a Noetherian ring, $I$ an ideal of $R$, and $M$ a finitely generated $R$-module. The following are equivalent:
 	\begin{enumerate}[(i)]
 		\item $\mathrm{depth}_I(M)=0$;
 		\item for all $x \in I$, the homomorphism $M \xrightarrow{x} M$ is not injective;
