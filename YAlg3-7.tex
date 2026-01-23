@@ -218,11 +218,8 @@ Based on \cite{Bour98}, we give a brief account on the notion of depth. Let $R$ 
 
 \begin{definition}[Depth of a module]\index{depth}
 	Let $I$ be a proper ideal of $R$. We define the \emph{depth} of $M$ relative to $I$ as
-	\[ \text{depth}_I(M) := \begin{cases}
-		\inf \left\{n \geq 0: \Ext^n_R(R/I, M) \neq 0 \right\}, & \text{if}\; \exists n, \; \Ext^n_R(R/I, M) \neq 0 \\
-		+\infty, & \text{otherwise},
-	\end{cases}\]
-	with values in $\Z_{\geq 0} \sqcup \{+\infty\}$.
+	\[ \text{depth}_I(M) := \inf \left\{n \geq 0: \Ext^n_R(R/I, M) \neq 0 \right\}\]
+	with the convention that $\inf\emptyset = +\infty$, hence the depth takes values in $\Z_{\geq 0} \sqcup \{+\infty\}$.
 \end{definition}
 
 \begin{proposition}\label{prop:depth-zero}
@@ -291,7 +288,7 @@ Based on \cite{Bour98}, we give a brief account on the notion of depth. Let $R$ 
 
 \begin{definition}[Cohen--Macaulay modules]\index{Cohen--Macaulay module}
 	Let $R$ be a Noetherian ring. A finitely generated $R$-module $M$ is called \emph{Cohen--Macaulay} if
-	\[ \mathrm{depth}_{\mathfrak{m}A_{\mathfrak{m}} }(M_{\mathfrak{m}}) = \dim M_{\mathfrak{m}} \]
+	\[ \mathrm{depth}_{\mathfrak{m}R_{\mathfrak{m}} }(M_{\mathfrak{m}}) = \dim M_{\mathfrak{m}} \]
 	for every $\mathfrak{m} \in \MaxSpec(R) \cap \Supp(M)$. We say $R$ is a Cohen--Macaulay ring if it is Cohen--Macaulay as a module.
 \end{definition}
 
