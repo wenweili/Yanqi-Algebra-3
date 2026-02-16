@@ -146,7 +146,7 @@ Fix a Noetherian ring $R$.
 \begin{proof}
 	(iii) $\implies$ (i). We have seen that discrete valuation rings are principal ideal rings of dimension $1$, therefore also normal by unique factorization property.
 	
-	(i) $\implies$ (ii). Under the normality assumption, choose any $t \in R \smallsetminus \{0\}$. Since $\dim R = 1$ and $\{0\}$ is a prime ideal, the associated prime of $(t)$ can only be the maximal ideal $\mathfrak{m}$, which is principal by Proposition \ref{prop:normality-principal}. This shows that $R$ is regular local.
+	(i) $\implies$ (ii). Under the normality assumption, choose any non-invertible $t \in R \smallsetminus \{0\}$. Since $\dim R = 1$ and $\{0\}$ is a prime ideal, the associated prime of $(t)$ can only be the maximal ideal $\mathfrak{m}$, which is principal by Proposition \ref{prop:normality-principal}. This shows that $R$ is regular local.
 	
 	(ii) $\implies$ (iii) is included in Proposition \ref{prop:reg-local-dvr}.
 \end{proof}
@@ -157,7 +157,7 @@ Fix a Noetherian ring $R$.
 	inside $\mathrm{Frac}(R)$.
 \end{corollary}
 \begin{proof}
-	Evidently $\subset$ holds. By Lemma \ref{prop:intersection-ass} together with Proposition \ref{prop:normality-principal}, $R$ can be written as an intersection of $R_{\mathfrak{p}}$ where $\mathfrak{p}$ is associated to some non zero-divisor, such that $\mathfrak{p}R_{\mathfrak{p}}$ is principal; it suffices to show $\text{ht}(\mathfrak{p})=1$. From $\mathfrak{p} \neq \{0\}$ we see $\text{ht}(\mathfrak{p}) \geq 1$; on the other hand, by Hauptidealsatz or by the discussion on regular local rings, we see $\text{ht}(\mathfrak{p}) = \text{ht}(\mathfrak{p}R_{\mathfrak{p}}) \leq 1$.
+	Evidently $\subset$ holds. By Lemma \ref{prop:intersection-ass} together with Proposition \ref{prop:normality-principal}, $R$ can be written as an intersection of $R_{\mathfrak{p}}$ where $\mathfrak{p}$ is associated to some non zero-divisor, so that $\mathfrak{p}R_{\mathfrak{p}}$ is principal; it suffices to show $\text{ht}(\mathfrak{p})=1$. From $\mathfrak{p} \neq \{0\}$ we see $\text{ht}(\mathfrak{p}) \geq 1$; on the other hand, by Hauptidealsatz or by the discussion on regular local rings, we see $\text{ht}(\mathfrak{p}) = \text{ht}(\mathfrak{p}R_{\mathfrak{p}}) \leq 1$.
 \end{proof}
 
 \section{Serre's criterion}
@@ -312,7 +312,7 @@ Based on \cite{Bour98}, we give a brief account on the notion of depth. Let $R$ 
 	\[ \forall i \geq 0, \quad \Ext^i_{R_{\mathfrak{p}}}(X_{\mathfrak{p}}, Y_{\mathfrak{p}}) \simeq \Ext^i_R(X,Y)_{\mathfrak{p}} \]
 	valid for Noetherian $R$ and finitely generated $R$-modules $X, Y$, yields
 	\[ 0 \leq \text{depth}_{\mathfrak{p}}(R) \leq \text{depth}_{\mathfrak{p}R_{\mathfrak{p}}}(R_{\mathfrak{p}}) \leq 1. \]
-	If $\text{depth}_{\mathfrak{p}}(R)=0$, there exists of $\mathfrak{p}' \supset \mathfrak{p}$ and $\mathfrak{p}' \in \text{Ass}(R)$ by Proposition \ref{prop:depth-zero}, but \textbf{S2} implies $\text{ht}(\mathfrak{p}) \leq \text{ht}(\mathfrak{p}') = 0$ which is absurd. If $\text{depth}_{\mathfrak{p}}(R)=1$, there exists a non zero-divisor $x$ in $R$ such that $\text{depth}_{\mathfrak{p}}(R/(x)) = 0$. The same argument furnishes $\mathfrak{p}' \supset \mathfrak{p}$ such that $\mathfrak{p}' \in \text{Ass}(R/(x))$. Now \textbf{S2} implies $\text{ht}(\mathfrak{p}) \leq \text{ht}(\mathfrak{p}')=1$, again a contradiction.
+	If $\text{depth}_{\mathfrak{p}}(R)=0$, there exist $\mathfrak{p}' \supset \mathfrak{p}$ such that $\mathfrak{p}' \in \text{Ass}(R)$ by Proposition \ref{prop:depth-zero}, but \textbf{S2} implies $\text{ht}(\mathfrak{p}) \leq \text{ht}(\mathfrak{p}') = 0$ which is absurd. If $\text{depth}_{\mathfrak{p}}(R)=1$, there exists a non zero-divisor $x$ in $R$ such that $\text{depth}_{\mathfrak{p}}(R/(x)) = 0$. The same argument furnishes $\mathfrak{p}' \supset \mathfrak{p}$ such that $\mathfrak{p}' \in \text{Ass}(R/(x))$. Now \textbf{S2} implies $\text{ht}(\mathfrak{p}) \leq \text{ht}(\mathfrak{p}')=1$, again a contradiction.
 \end{proof}
 
 Now the conditions \textbf{R1} and \textbf{S2} can be generalized to arbitrary $k \in \Z_{\geq 0}$:
