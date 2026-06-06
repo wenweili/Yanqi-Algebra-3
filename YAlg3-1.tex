@@ -9,7 +9,7 @@
 % To be included
 \chapter{Warming up}
 
-The reader might be familiar with most of the materials in this lecture. Our goal is to fix notation and present the basic structural results on Noetherian and Artinian rings or modules, including the celebrated Nakayama's Lemma which will be used repeatedly.
+The reader might be familiar with most of the material in this lecture. Our goal is to fix notation and present the basic structural results on Noetherian and Artinian rings or modules, including the celebrated Nakayama's Lemma which will be used repeatedly.
 
 \section{Review on ring theory}
 Let $R$ be a ring, supposed to be commutative with unit $1 \neq 0$ as customary. Recall that an ideal $I \subsetneq R$ is called
@@ -19,7 +19,7 @@ Let $R$ be a ring, supposed to be commutative with unit $1 \neq 0$ as customary.
 \end{compactitem}
 Recall the following standard facts
 \begin{itemize}
-	\item $I$ is prime if and only if $R/I$ is an integral domain, i.e. has no zero divisors except $0$;
+	\item $I$ is prime if and only if $R/I$ is an integral domain, i.e., has no zero-divisors except $0$;
 	\item $I$ is maximal if and only if $R/I$ is a field; in particular, maximal ideals are prime;
 	\item every proper ideal $I$ is contained in a maximal ideal (an application of Zorn's Lemma).\index{Zorn's Lemma}
 \end{itemize}
@@ -32,7 +32,7 @@ Recall the following standard facts
 Sometimes we denote a local ring by the pair $(R, \mathfrak{m})$.
 
 \begin{remark}
-	Let $R$ be a local ring with maximal ideal $\mathfrak{m}$, then $R^\times = R \smallsetminus \mathfrak{m}$. The is easily seen as follows. An element $x \in R$ is invertible if and only if $Rx = R$. Note that $Rx=R$ is equivalent to that $x$ is not contained in any maximal ideal, and the only maximal ideal is $\mathfrak{m}$.
+	Let $R$ be a local ring with maximal ideal $\mathfrak{m}$, then $R^\times = R \smallsetminus \mathfrak{m}$. This is easily seen as follows. An element $x \in R$ is invertible if and only if $Rx = R$. Note that $Rx=R$ is equivalent to that $x$ is not contained in any maximal ideal, and the only maximal ideal is $\mathfrak{m}$.
 \end{remark}
 
 Throughout these lectures, we shall write \index{Spec@$\Spec(R)$} \index{MaxSpec@$\MaxSpec(R)$}
@@ -43,7 +43,7 @@ Throughout these lectures, we shall write \index{Spec@$\Spec(R)$} \index{MaxSpec
 They are called the \emph{spectrum} and the \emph{maximal spectrum} of $R$, respectively. The upshot is that $\Spec(R)$ comes with a natural topology.
 
 \begin{definition}[Zariski topology] \index{Zariski topology}\index{$V(\mathfrak{a})$}
-	For any ideal $\mathfrak{a} \subset R$, set $V(\mathfrak{a}) := \{ \mathfrak{p} \in \Spec(R): \mathfrak{p} \supset \mathfrak{a} \}$. Then there is a topology on $\Spec(R)$, called the \emph{Zariski topology}, whose closed subset are precisely $V(\mathfrak{a})$, for various ideals $\mathfrak{a}$.
+	For any ideal $\mathfrak{a} \subset R$, set $V(\mathfrak{a}) := \{ \mathfrak{p} \in \Spec(R): \mathfrak{p} \supset \mathfrak{a} \}$. Then there is a topology on $\Spec(R)$, called the \emph{Zariski topology}, whose closed subsets are precisely $V(\mathfrak{a})$, for various ideals $\mathfrak{a}$.
 \end{definition}
 Indeed, we only have to prove the family of subsets $\{ V(\mathfrak{a}) : \mathfrak{a} \subset R \}$ is closed under finite union and arbitrary intersections. It boils down to the easy observation that $V(\mathfrak{a}) \cup V(\mathfrak{b}) = V(\mathfrak{a}\mathfrak{b})$ (check this!) and $\bigcap_{\mathfrak{a} \in \mathcal{A}} V(\mathfrak{a}) = V\left( \sum_{\mathfrak{a} \in \mathcal{A}} \mathfrak{a} \right)$, where $\mathcal{A}$ is any family of ideals.
 
@@ -59,7 +59,7 @@ Given a ring homomorphism $\varphi: R_1 \to R_2$, if $I \subset R_2$ is an ideal
 \begin{proof}
 	Clearly, $ab \in \varphi^{-1}(\mathfrak{p})$ is equivalent to $\varphi(a)\varphi(b) \in \mathfrak{p}$, which is in turn equivalent to $(\varphi(a) \in \mathfrak{p}) \vee (\varphi(b) \in \mathfrak{p})$ when $\mathfrak{p}$ is prime.
 	
-	To show the continuity of $\varphi^\sharp$, observe that for any ideal $\mathfrak{a} \subset R_1$ and $\mathfrak{p} \in \Spec(R_2)$, we have $\varphi^{-1}(\mathfrak{p}) \supset \mathfrak{a}$ if and only if $\mathfrak{p} \supset \varphi(\mathfrak{a})$, i.e. $\mathfrak{p} \in V(\varphi(\mathfrak{a}) R_2)$. Hence the preimage of closed subsets are still closed.
+	To show the continuity of $\varphi^\sharp$, observe that for any ideal $\mathfrak{a} \subset R_1$ and $\mathfrak{p} \in \Spec(R_2)$, we have $\varphi^{-1}(\mathfrak{p}) \supset \mathfrak{a}$ if and only if $\mathfrak{p} \supset \varphi(\mathfrak{a})$, i.e. $\mathfrak{p} \in V(\varphi(\mathfrak{a}) R_2)$. Hence preimages of closed subsets are still closed.
 \end{proof}
 
 More operations on spectra:
@@ -79,7 +79,7 @@ At this stage, we can prove a handy result concerning prime ideals.
 	then there exists $1 \leq i \leq n$ such that $I \subset \mathfrak{p}_i$.
 \end{proposition}
 \begin{proof}
-	If $R$ contains an infinite field $F$, the ideals are automatically $F$-vector subspaces of $R$. Since $I = \bigcup_{i=1}^r I \cap \mathfrak{p}_i$ whereas an $F$-vector space cannot be covered by finitely many proper subspaces, there must exist some $i$ with $I \cap \mathfrak{p}_i = I$.
+	If $R$ contains an infinite field $F$, the ideals are automatically $F$-vector subspaces of $R$. Since $I = \bigcup_{i=1}^n I \cap \mathfrak{p}_i$ whereas an $F$-vector space cannot be covered by finitely many proper subspaces, there must exist some $i$ with $I \cap \mathfrak{p}_i = I$.
 
 	Under the second assumption, let us argue by induction on $n$ that $\forall i \; I \not\subset \mathfrak{p}_i$ implies $I \not\subset \bigcup_{i=1}^n \mathfrak{p}_i$. The case $n=1$ is trivial. When $n \geq 2$, by induction we may choose, for each $i$, an element $x_i \in I \smallsetminus \bigcup_{j \neq i} \mathfrak{p}_j$. Suppose on the contrary that $I \subset \bigcup_{j=1}^n \mathfrak{p}_j$, then we would have $x_i \in \mathfrak{p}_i$, for all $i=1, \ldots, n$.
 
@@ -133,9 +133,9 @@ Consequently, if $S \subset R^\times$ then $R \simeq R[S^{-1}]$ canonically. Fur
 
 Let us review some important instances of the localization procedure.
 \begin{enumerate}
-	\item Take $S$ to be the subset of non zero-divisors of $R$. This is easily seen to be a multiplicative subset (check it!) and $K(R) := R[S^{-1}]$ is called the \emph{total fraction ring} of $R$. The reader is invited to check that $R \to K(R)$ is the ``biggest localization'' such that the natural homomorphism $R \to R[S^{-1}]$ is injective. Hint: state this in terms of universal properties.\index{total fraction ring}
+	\item Take $S$ to be the subset of non-zero-divisors of $R$. This is easily seen to be a multiplicative subset (check it!) and $K(R) := R[S^{-1}]$ is called the \emph{total ring of fractions} of $R$. The reader is invited to check that $R \to K(R)$ is the ``biggest localization'' such that the natural homomorphism $R \to R[S^{-1}]$ is injective. Hint: state this in terms of universal properties.\index{total ring of fractions}
 	
-	When $R$ is an integral domain, we shall take $S := R \smallsetminus \{0\}$; in this case the total fraction ring $\text{Frac}(R) := K(R)$ is the well-known \emph{field of fractions} of $R$.\index{field of fractions}
+	When $R$ is an integral domain, we shall take $S := R \smallsetminus \{0\}$; in this case the total ring of fractions $\text{Frac}(R) := K(R)$ is the well-known \emph{field of fractions} of $R$.\index{field of fractions}
 	
 	\item Take any $\mathfrak{p} \in \Spec(R)$ and $S := R \smallsetminus \mathfrak{p}$. From the definition of prime ideals, one infers that $S$ is a multiplicative subset of $R$. The corresponding localization is denoted by $R \to R_{\mathfrak{p}} := R[S^{-1}]$. We see from \eqref{eqn:localization-Spec} that
 		\[ \MaxSpec(R_{\mathfrak{p}}) = \{ \mathfrak{p} R_{\mathfrak{p}} \}; \]
@@ -163,7 +163,7 @@ As in the case of rings, we shall write $m/s$ instead of $[m,s]$. It is an $R[S^
 
 A slicker interpretation is to use the natural isomorphism $M[S^{-1}] \rightiso R[S^{-1}] \dotimes{R} M$ which maps $m/s$ to $(1/s) \otimes m$. Hereafter, we shall identify $M[S^{-1}]$ and $R[S^{-1}] \dotimes{R} M$ without further comments.
 
-In the same vein, we may define $M[f^{-1}]$ and $M_{\mathfrak{p}}$, for non-nilpotent $f \in R$ and $\mathfrak{p} \in \Spec(R)$ respectively. Localization ``commutes'' with several standard operation on modules, which we sketch below. The details are left to the reader.
+In the same vein, we may define $M[f^{-1}]$ and $M_{\mathfrak{p}}$, for non-nilpotent $f \in R$ and $\mathfrak{p} \in \Spec(R)$, respectively. Localization ``commutes'' with several standard operations on modules, which we sketch below. The details are left to the reader.
 \begin{itemize}
 	\item For $R$-modules $M$, $N$, we have a natural isomorphism of $R[S^{-1}]$-modules
 		\begin{gather*}
@@ -182,7 +182,7 @@ In the same vein, we may define $M[f^{-1}]$ and $M_{\mathfrak{p}}$, for non-nilp
 			0 \arrow[r] & \Hom(M,N)[S^{-1}] \arrow[r] \arrow[d] & \Hom(R^b, N)[S^{-1}] \arrow[r] \arrow[d, "\simeq"] & \Hom(R^a, N)[S^{-1}] \arrow[d, "\simeq"] \\
 			0 \arrow[r] & \Hom(M[S^{-1}], N[S^{-1}]) \arrow[r] & \Hom(R[S^{-1}]^b, N[S^{-1}]) \arrow[r] & \Hom(R[S^{-1}]^a, N[S^{-1}])
 		\end{tikzcd}\]
-		Here we used the fact that localization preserves exactness: see the Proposition \ref{prop:localization-exactness} below.
+		Here we used the fact that localization preserves exactness: see Proposition \ref{prop:localization-exactness} below.
 	\item Let $\varphi: R \to R'$ be a ring homomorphism and $S \subset R$ be a multiplicative subset, so that $S' := \varphi(S) \subset R'$ is also multiplicative. View $R'$ as an $R$-module, then we have
 	\[\begin{tikzcd}[row sep=tiny]
 		\underbracket{R'[(S')^{-1}]}_{\text{as ring}} \arrow[r, "\sim"] & \underbracket{R'[S^{-1}]}_{\text{as module}} \arrow[equal, r] & R[S^{-1}] \dotimes{R} R' \\
@@ -240,7 +240,7 @@ We begin with two important notions of radicals. The first version is defined as
 It is readily seen to be an ideal from the binomial identity $(a+b)^{2n} = \sum_{k=0}^{2n} \binom{2n}{k} a^k b^{2n-k}$. It should also be clear that $\sqrt{I} \subset R$ equals the preimage of $\sqrt{0} \subset R/I$. \index{nilpotent radical}
 
 \begin{exercise}
-	Show that $\sqrt{\sqrt{I}} = I$ for all ideal $I$.
+	Show that $\sqrt{\sqrt{I}} = \sqrt{I}$ for every ideal $I$.
 \end{exercise}
 
 \begin{proposition}
@@ -265,7 +265,7 @@ To prove the celebrated Nakayama's Lemma, let us recall an easy variant of the C
 \begin{proof}
 	Write $\varphi(x_i) = \sum_{j=1}^n a_{ij} x_j$ where $a_{ij} \in I$. Set $A := (a_{ij})_{1 \leq i,j \leq n} \in \text{Mat}_n(R)$. Regard $M$ as an $R[X]$-module by letting $X$ act as $\varphi$. Then we have the matrix equation over $R[X]$
 	\[ (X \cdot \identity_{n \times n} - A) \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} = \begin{pmatrix} 0 \\ \vdots \\ 0 \end{pmatrix} \]
-	Multiplying by the cofactor matrix $(X \cdot \identity_M - A)^\vee$ on the left, we see that $P(X) := \det(X \cdot \identity_{n \times n} - A) \in R[X]$ acts as $0$ on each $x_i$, thus on the whole $M$. This is the required polynomial.
+	Multiplying by the cofactor matrix $(X \cdot \identity_{n \times n} - A)^\vee$ on the left, we see that $P(X) := \det(X \cdot \identity_{n \times n} - A) \in R[X]$ acts as $0$ on each $x_i$, thus on the whole $M$. This is the required polynomial.
 \end{proof}
 
 \begin{theorem}[Nakayama's Lemma]\label{prop:NAK}\index{Nakayama's lemma}
@@ -317,7 +317,7 @@ On the other hand, being Artinian is a rather stringent condition on rings.
 	
 	Set $\mathfrak{a} := \mathfrak{m}_1 \cdots \mathfrak{m}_n$. Since $R$ is Artinian we must have $\mathfrak{a}^k = \mathfrak{a}^{k+1}$ for some $k > 0$. We claim that $\mathfrak{a}^k = 0$.
 	
-	Put $\mathfrak{b} := \{r \in R: r\mathfrak{a}^k = 0 \}$, we have to show $\mathfrak{b}=R$. If not, let $\mathfrak{b}'$ be a minimal ideal lying strictly over $\mathfrak{b}$. Thus $\mathfrak{b}' = Rx + \mathfrak{b}$ for any $x \in \mathfrak{b}' \smallsetminus \mathfrak{b}$. We must have $\mathfrak{a}x + \mathfrak{b} \subsetneq \mathfrak{b}'$, for otherwise $M := \mathfrak{b}'/\mathfrak{b}$ is finitely generated (say by $x$) and satisfies $M = \mathfrak{a}M$, then Theorem \ref{prop:NAK} plus $\mathfrak{a} \subset \text{rad}(R)$ would imply $M = \{0\}$, which is absurd. By minimality we have $\mathfrak{b} = \mathfrak{a}x + \mathfrak{b}$. It follows that $\mathfrak{a}x \subset \mathfrak{b}$, i.e. $\mathfrak{a}^{k+1} x = 0$; from $\mathfrak{a}^k = \mathfrak{a}^{k+1}$ we infer $x \in \mathfrak{b}$. Contradiction.
+	Put $\mathfrak{b} := \{r \in R: r\mathfrak{a}^k = 0 \}$. We have to show $\mathfrak{b}=R$. If not, let $\mathfrak{b}'$ be a minimal ideal lying strictly over $\mathfrak{b}$. Thus $\mathfrak{b}' = Rx + \mathfrak{b}$ for any $x \in \mathfrak{b}' \smallsetminus \mathfrak{b}$. We must have $\mathfrak{a}x + \mathfrak{b} \subsetneq \mathfrak{b}'$, for otherwise $M := \mathfrak{b}'/\mathfrak{b}$ is finitely generated (say by $x$) and satisfies $M = \mathfrak{a}M$, then Theorem \ref{prop:NAK} plus $\mathfrak{a} \subset \text{rad}(R)$ would imply $M = \{0\}$, which is absurd. By minimality we have $\mathfrak{b} = \mathfrak{a}x + \mathfrak{b}$. It follows that $\mathfrak{a}x \subset \mathfrak{b}$, i.e. $\mathfrak{a}^{k+1} x = 0$; from $\mathfrak{a}^k = \mathfrak{a}^{k+1}$ we infer $x \in \mathfrak{b}$. Contradiction.
 	
 	All in all, we obtain a descending chain of ideals
 	\begin{align*}
@@ -332,7 +332,7 @@ On the other hand, being Artinian is a rather stringent condition on rings.
 	A ring $R$ is Artinian if and only if it is Noetherian and every prime ideal of $R$ is maximal.
 \end{corollary}
 \begin{proof}
-	If $R$ is Artinian, then $R$ is of finite length, hence is Noetherian as well. For every prime ideal $\mathfrak{p}$, we have $\mathfrak{p} \supset \{0\} = (\mathfrak{m}_1 \cdots \mathfrak{m}_n)^k$ in the notations of the proof above, therefore $\mathfrak{p} \supset \mathfrak{m}_i$ for some $i$, so $\mathfrak{p} = \mathfrak{m}_i$ is maximal.
+	If $R$ is Artinian, then $R$ is of finite length, hence is Noetherian as well. For every prime ideal $\mathfrak{p}$, we have $\mathfrak{p} \supset \{0\} = (\mathfrak{m}_1 \cdots \mathfrak{m}_n)^k$ in the notation of the proof above, therefore $\mathfrak{p} \supset \mathfrak{m}_i$ for some $i$, so $\mathfrak{p} = \mathfrak{m}_i$ is maximal.
 
 	Conversely, if $R$ is Noetherian but of infinite length, then the nonempty set of ideals
 	\[ \mathcal{S} := \left\{ \text{ideals } I \subsetneq R: R/I \text{ has infinite length} \right\} \]
@@ -341,7 +341,7 @@ On the other hand, being Artinian is a rather stringent condition on rings.
 	If we assume moreover that every prime ideal is maximal, then for the $\mathfrak{p}$ chosen above, $R/\mathfrak{p}$ will be a field, thus of finite length. This is impossible.
 \end{proof}
 
-Rings whose prime ideals are all maximal are said to have \emph{dimension zero}, in the sense of Krull dimensions; we shall return to this point in \S\ref{sec:Krull-dimension}.
+Rings whose prime ideals are all maximal are said to have \emph{dimension zero}, in the sense of Krull dimension; we shall return to this point in \S\ref{sec:Krull-dimension}.
 
 \section{What is commutative algebra?}
 In broad terms, \emph{commutative algebra} is the study of commutative rings. Despite its intrinsic beauty, we prefer to motivate from an external point of view. See also \cite{Eis95}.
@@ -361,7 +361,7 @@ In broad terms, \emph{commutative algebra} is the study of commutative rings. De
 
 	\item \textbf{Invariant theory}\index{invariant theory}. Let $G$ be a group acting on a finite-dimensional $\Bbbk$-vector space $V$ from the right, and let $\Bbbk[V]$ be the $\Bbbk$-algebra of polynomials on $V$. Thus $\Bbbk[V]$ carries a left $G$-action by $gf(v) = f(vg)$. For ``reasonable'' groups $G$, say finite or $\Bbbk$-algebraic ones, the classical invariant theory seeks to describe the subalgebra $\Bbbk[V]^G$ of invariants\footnote{More generally, we are also interested in the algebra of invariant differential operators with polynomial coefficients.} in terms of \emph{generators} and \emph{relations}.
 
-	In particular, one has to know when is the algebra $\Bbbk[V]^G$ finitely generated. This is actually the source of many results in commutative algebra, such as the Basis Theorem and Nullstellensatz of Hilbert. For example, let the symmetric group $G = \mathfrak{S}_n$ act on $V = \Bbbk^n$ in the standard manner, then our question is completely answered by the following classical result: $\Bbbk[V]^G$ equals the polynomial algebra $\Bbbk[e_1, \ldots, e_n]$, where $e_i$ stands for the $i$-th elementary symmetric function in $n$ variables.
+	In particular, one has to know when the algebra $\Bbbk[V]^G$ is finitely generated. This is actually the source of many results in commutative algebra, such as the Basis Theorem and Nullstellensatz of Hilbert. For example, let the symmetric group $G = \mathfrak{S}_n$ act on $V = \Bbbk^n$ in the standard manner, then our question is completely answered by the following classical result: $\Bbbk[V]^G$ equals the polynomial algebra $\Bbbk[e_1, \ldots, e_n]$, where $e_i$ stands for the $i$-th elementary symmetric function in $n$ variables.
 
 	The same questions may be posed for any affine algebraic variety $V$. From the geometric point of view, if $\Bbbk[V]^G$ is finitely generated, it will consist of regular functions of some kind of quotient variety $V /\!/ G$. The study of quotients in this sense naturally leads to \emph{geometric invariant theory}, for which we refer to \cite{AG4} for details.
 \end{asparaenum}

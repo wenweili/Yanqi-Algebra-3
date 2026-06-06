@@ -71,11 +71,11 @@ Throughout this section, $R$ will be a Noetherian ring.
 \begin{theorem}\label{prop:Ass-properties}
 	Let $M$ be an $R$-module.
 	\begin{enumerate}[(i)]
-		\item We have $M = \{0\}$ if and only if $\mathrm{Ass}(M) = \emptyset$.
-		\item The union of all $\mathfrak{p} \in \mathrm{Ass}(M)$ equals the set of zero divisors on $M$.
+		\item We have $M = \{0\}$ if and only if $\text{Ass}(M) = \emptyset$.
+		\item The union of all $\mathfrak{p} \in \text{Ass}(M)$ equals the set of zero divisors on $M$.
 		\item For any multiplicative subset $S \subset R$, we have
-			\[ \mathrm{Ass}(M[S^{-1}]) = \left\{ \mathfrak{p}[S^{-1}] : \mathfrak{p} \in \mathrm{Ass}(M), \; \mathfrak{p} \cap S = \emptyset \right\} . \]
-		\item If $0 \to M' \to M \to M''$ is exact, then $\mathrm{Ass}(M') \subset \mathrm{Ass}(M) \subset \mathrm{Ass}(M') \cup \mathrm{Ass}(M'')$.
+			\[ \text{Ass}(M[S^{-1}]) = \left\{ \mathfrak{p}[S^{-1}] : \mathfrak{p} \in \text{Ass}(M), \; \mathfrak{p} \cap S = \emptyset \right\} . \]
+		\item If $0 \to M' \to M \to M''$ is exact, then $\text{Ass}(M') \subset \text{Ass}(M) \subset \text{Ass}(M') \cup \text{Ass}(M'')$.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -99,7 +99,7 @@ We remark that $0 \to M' \to M \to M'' \to 0$ being exact does not imply $\text{
 \end{exercise}
 
 \begin{theorem}\label{prop:Supp-Ass}
-	For every $R$-module $M$ we have $\Supp(M) = \bigcup_{\mathfrak{p} \in \mathrm{Ass}(M)} V(\mathfrak{p})$, in particular $\mathrm{Ass}(M) \subset \Supp(M)$.	Furthermore, every minimal element of $\Supp(M)$ with respect to inclusion is actually a minimal element of $\mathrm{Ass}(M)$.
+	For every $R$-module $M$ we have $\Supp(M) = \bigcup_{\mathfrak{p} \in \text{Ass}(M)} V(\mathfrak{p})$, in particular $\text{Ass}(M) \subset \Supp(M)$.	Furthermore, every minimal element of $\Supp(M)$ with respect to inclusion is actually a minimal element of $\text{Ass}(M)$.
 \end{theorem}
 \begin{proof}
 	For any prime $\mathfrak{q}$ we have $M_{\mathfrak{q}} \neq 0 \iff \text{Ass}(M_{\mathfrak{q}}) \neq \emptyset$, and the latter condition holds precisely when there exists $\mathfrak{p} \in \text{Ass}(M)$ with $\mathfrak{p} \cap (R \smallsetminus \mathfrak{q}) = \emptyset$, i.e. $\mathfrak{q} \supset \mathfrak{p}$. This proves the first assertion. The second assertion is a direct consequence.
@@ -119,10 +119,10 @@ Hereafter we impose finite generation on $M$. This implies $M$ is Noetherian.
 \begin{theorem}
 	Let $M$ be a finitely generated $R$-module. There exists a chain $M = M_n \supset M_{n-1} \supset \cdots \supset M_0 = \{0\}$ of submodules such that for every $0 < i \leq n$, the subquotient $M_i/M_{i-1}$ is isomorphic to $R/\mathfrak{p}_i$ for some prime ideal $\mathfrak{p}_i$.
 	
-	Furthermore we have $\mathrm{Ass}(M) \subset \{\mathfrak{p}_1, \ldots, \mathfrak{p}_n \}$; in particular $\mathrm{Ass}(M)$ is a finite set.
+	Furthermore we have $\text{Ass}(M) \subset \{\mathfrak{p}_1, \ldots, \mathfrak{p}_n \}$; in particular $\text{Ass}(M)$ is a finite set.
 \end{theorem}
 \begin{proof}
-	Assume $M \supsetneq M_0 := \{0\}$. There exists $\mathfrak{p}_1 \in \text{Ass}(M)$ together with a submodule $M_1 \subset M$ isomorphic to $R/\mathfrak{p}_1$. Furthermore $\text{Ass}(M_1) = \text{Ass}(R/\mathfrak{p}_1) = \{ \mathfrak{p}_1\}$ as easily seen. Hence the Theorem \ref{prop:Ass-properties} entails $\text{Ass}(M) \subset \{\mathfrak{p}_1\} \cup \text{Ass}(M/M_1)$.
+	Assume $M \supsetneq M_0 := \{0\}$. There exists $\mathfrak{p}_1 \in \text{Ass}(M)$ together with a submodule $M_1 \subset M$ isomorphic to $R/\mathfrak{p}_1$. Furthermore $\text{Ass}(M_1) = \text{Ass}(R/\mathfrak{p}_1) = \{ \mathfrak{p}_1\}$ as is easily seen. Hence Theorem \ref{prop:Ass-properties} entails $\text{Ass}(M) \subset \{\mathfrak{p}_1\} \cup \text{Ass}(M/M_1)$.
 
 	If $M_1 = M$ we are done. Otherwise we start over with $M/M_1$, finding $M_1 \subset M_2 \subset M$ with $M_2/M_1 \simeq R/\mathfrak{p}_2$ where $\mathfrak{p}_2 \in \text{Ass}_R(M/M_1)$, and so forth. This procedure terminates in finite steps since $M$ is Noetherian.
 \end{proof}
@@ -138,7 +138,7 @@ The classical framework of primary decompositions concerns ideals, but it is adv
 	The following are equivalent for a nonzero $R$-module $M$.
 	\begin{enumerate}[(i)]
 		\item $M$ is coprimary;
-		\item for every zero divisor $r \in R$ for $M$ and every $x \in M$, there exists $n \geq 1$ such that $r^n x = 0$.
+		\item for every zero divisor $r \in R$ of $M$ and every $x \in M$, there exists $n \geq 1$ such that $r^n x = 0$.
 	\end{enumerate}
 \end{proposition}
 The condition (ii) is usually called the local-nilpotency of $r$ on $M$. When $M = R/I$ for some ideal $I$, it translates into: all zero divisors of the ring $R/I$ are nilpotent.
@@ -161,7 +161,7 @@ The condition (ii) is usually called the local-nilpotency of $r$ on $M$. When $M
 \end{exercise}
 
 \begin{lemma}\label{prop:intersection-primary}
-	Let $\mathfrak{p} \in \Spec(R)$ and $N_1, N_2 \subset M$ are $\mathfrak{p}$-primary submodules. Then $N_1 \cap N_2$ is a $\mathfrak{p}$-primary submodule of $M$.
+	Let $\mathfrak{p} \in \Spec(R)$ and $N_1, N_2 \subset M$ be $\mathfrak{p}$-primary submodules. Then $N_1 \cap N_2$ is a $\mathfrak{p}$-primary submodule of $M$.
 \end{lemma}
 \begin{proof}
 	We have $M/N_1 \cap N_2 \hookrightarrow M/N_1 \oplus M/N_2$. Since $N_1 \cap N_2 \neq M$, we have
@@ -175,10 +175,10 @@ We still assume $R$ Noetherian and fix a finitely generated $R$-module $M$.
 \begin{theorem}[Lasker--Noether]\label{prop:primary-decomp}\index{primary decomposition}
 	Let $N \subsetneq M$ be an $R$-submodule. Then we can express $N$ as
 	\[ N = M_1 \cap \cdots \cap M_n, \]
-	for some $n \geq 1$ and primary $R$-submodules $M_i$, say with $\mathrm{Ass}(M/M_i) = \{\mathfrak{p}_i\}$ for $i = 1, \ldots, n$. Such a decomposition is called a \emph{primary decomposition} of $N$. We say it is \emph{irredundant} if none of the $M_i$ can be dropped, and \emph{minimal} if there is no such decomposition with fewer terms.
+	for some $n \geq 1$ and primary $R$-submodules $M_i$, say with $\text{Ass}(M/M_i) = \{\mathfrak{p}_i\}$ for $i = 1, \ldots, n$. Such a decomposition is called a \emph{primary decomposition} of $N$. We say it is \emph{irredundant} if none of the $M_i$ can be dropped, and \emph{minimal} if there is no such decomposition with fewer terms.
 	\begin{enumerate}[(i)]
-		\item We have $\mathrm{Ass}(M/N) \subset \{ \mathfrak{p}_1, \ldots, \mathfrak{p}_n \}$, equality holds when the decomposition is irredundant.
-		\item If the decomposition is minimal, then for every $\mathfrak{p} \in \mathrm{Ass}(M/N)$ there exists a unique $1 \leq i \leq n$ with $\mathfrak{p} = \mathfrak{p}_i$; consequently $n = |\mathrm{Ass}(M/N)|$.
+		\item We have $\text{Ass}(M/N) \subset \{ \mathfrak{p}_1, \ldots, \mathfrak{p}_n \}$; equality holds when the decomposition is irredundant.
+		\item If the decomposition is minimal, then for every $\mathfrak{p} \in \text{Ass}(M/N)$ there exists a unique $1 \leq i \leq n$ with $\mathfrak{p} = \mathfrak{p}_i$; consequently $n = |\text{Ass}(M/N)|$.
 		\item Consider a primary decomposition of $N$. Let $S \subset R$ be any multiplicative subset, and assume without loss of generality that $\mathfrak{p}_1, \ldots, \mathfrak{p}_m$ are the primes among $\{\mathfrak{p}_1, \ldots, \mathfrak{p}_n \}$ which are disjoint from $S$, then $m \geq 1 \iff N[S^{-1}] \subsetneq M[S^{-1}]$ and
 		\[ N[S^{-1}] = M_1[S^{-1}] \cap \cdots \cap M_m[S^{-1}] \]
 		is a primary decomposition of the $R[S^{-1}]$-submodule $N[S^{-1}] \subsetneq M[S^{-1}]$; this decomposition of $N[S^{-1}]$ is minimal if the one for $N$ is.
@@ -197,7 +197,7 @@ Note that the ``irredundant'' condition in \cite[(8.D)]{Mat80} corresponds to mi
 	\end{gather}
 	Granting this, $Q := \bigcap_{\mathfrak{p} \in \text{Ass}(M)} Q(\mathfrak{p})$ yields the required decomposition since $\text{Ass}(M)$ is finite and $\text{Ass}(Q) = \emptyset$.
 	
-	Establish \eqref{eqn:Lasker-Noether-aux} as follows. Put $\Psi := \{ \mathfrak{p} \}$. By Zorn's Lemma\index{Zorn's Lemma} we get a maximal element $Q(\mathfrak{q})$ from the set
+	Establish \eqref{eqn:Lasker-Noether-aux} as follows. Put $\Psi := \{ \mathfrak{p} \}$. By Zorn's Lemma\index{Zorn's Lemma} we get a maximal element $Q(\mathfrak{p})$ from the set
 	\[ \emptyset \neq \left\{  Q \subset M: \text{submodule}, \; \text{Ass}(Q) \subset \text{Ass}(M) \smallsetminus \Psi \right\} \]
 	which is partially ordered by inclusion (details omitted, and you may also use the Noetherian property of $M$). Since
 	\[ \text{Ass}(M) \subset \text{Ass}(M/Q(\mathfrak{p})) \cup \text{Ass}(Q(\mathfrak{p})), \]
@@ -226,7 +226,7 @@ Note that the ``irredundant'' condition in \cite[(8.D)]{Mat80} corresponds to mi
 A natural question arises: to what extent are minimal primary decompositions unique? For those $M_i$ whose associated primes are minimal in $\text{Ass}(M/N)$, the answer turns out to be positive.
 
 \begin{corollary}\label{prop:p-primary-component}
-	Let $N = M_1 \cap \cdots \cap M_n$ be a minimal primary decomposition of $N \subsetneq M$. Suppose that $M_1$ is $\mathfrak{p}$-primary where $\mathfrak{p} := \mathfrak{p}_1$ is a minimal element in $\mathrm{Ass}(M/N)$, then $M_1$ equals the preimage of $N_{\mathfrak{p}}$ under $M \to M_{\mathfrak{p}}$. Call it the $\mathfrak{p}$-\emph{primary component} of $N$.
+	Let $N = M_1 \cap \cdots \cap M_n$ be a minimal primary decomposition of $N \subsetneq M$. Suppose that $M_1$ is $\mathfrak{p}$-primary where $\mathfrak{p} := \mathfrak{p}_1$ is a minimal element in $\text{Ass}(M/N)$, then $M_1$ equals the preimage of $N_{\mathfrak{p}}$ under $M \to M_{\mathfrak{p}}$. Call it the $\mathfrak{p}$-\emph{primary component} of $N$.
 \end{corollary}
 \begin{proof}
 	Recall the proof of Theorem \ref{prop:primary-decomp}, especially the part (iii); here we localize with respect to $S := R \smallsetminus \mathfrak{p}$. The minimality assumption entails
@@ -240,7 +240,7 @@ It follows that the non-uniqueness of minimal primary decompositions can only ar
 Primary decompositions are most often applied in the case $M = R$ and $N = I$ is a proper ideal. The goal is to express $I$ as an intersection of primary ideals. To begin with, let us take $R = \Z$. Observations:
 \begin{itemize}
 	\item The primary ideals of $R$ take the form $(p)^n$, where $n \geq 1$ and $p$ is a prime number or zero. This may be deduced from Exercise \ref{ex:primary-ideal} or directly from definitions.
-	\item The irredundant primary decompositions of $\Z/n\Z$, for $n > 1$, corresponds to the factorization of $n$ into prime-powers. There are no embedded primes in this case; the irredundant primary decomposition is unique and automatically minimal.
+	\item The irredundant primary decompositions of $\Z/n\Z$, for $n > 1$, correspond to the factorization of $n$ into prime-powers. There are no embedded primes in this case; the irredundant primary decomposition is unique and automatically minimal.
 \end{itemize}
 
 \begin{exercise}
@@ -259,7 +259,7 @@ Therefore one can regard primary decompositions as a generalization of factoriza
 \begin{example}
 	Take $R=\Bbbk[X,Y]$ and $I = (X^2, XY)$. The reader is invited to check that
 	\[ I = (X) \cap (X^2, XY, Y^2) = (X) \cap (X^2, Y). \]
-	Claim: this gives two minimal primary decompositions of $I$. The ideal $(X)$ is prime, hence primary. In fact, $(X^2, XY, Y^2) = (X,Y)^2$ and $(X^2, Y)$ are both primary ideals associated to the maximal ideal $(X, Y)$. This follows either by direct arguments or by Exercise \ref{ex:maximal-primary}, noting that $(X,Y)^2 = (X^2, XY, Y^2)$ is contained in $(X^2, Y)$. The embedded prime $(X,Y)$ is seen to be responsible non-uniqueness of primary decompositions.
+	Claim: this gives two minimal primary decompositions of $I$. The ideal $(X)$ is prime, hence primary. In fact, $(X^2, XY, Y^2) = (X,Y)^2$ and $(X^2, Y)$ are both primary ideals associated to the maximal ideal $(X, Y)$. This follows either by direct arguments or by Exercise \ref{ex:maximal-primary}, noting that $(X,Y)^2 = (X^2, XY, Y^2)$ is contained in $(X^2, Y)$. The embedded prime $(X,Y)$ is seen to be responsible for the non-uniqueness of primary decompositions.
 	
 	To see the geometry behind, recall that $V(\mathfrak{a}) \cup V(\mathfrak{b}) = V(\mathfrak{a}\mathfrak{b}) = V(\mathfrak{a} \cap \mathfrak{b})$ for any ideals $\mathfrak{a}, \mathfrak{b}$, thus expressing $I$ as an intersection means breaking the corresponding geometric object into a union of simpler pieces. Also recall that for an ideal $I \subset \Bbbk[X,Y]$, the points in $\bigcap_{f \in I} \{f=0\}$ are in bijection with the maximal ideals lying over $I$, at least for $\Bbbk$ algebraically closed (Nullstellensatz). Thus we may interpret these primary decompositions as equalities among ``geometric objects'' embedded in $\Bbbk^2$:
 	\[ \left\{ X^2=0, XY=0 \right\} = \begin{cases} \left\{ X = 0 \right\} \cup \left\{X^2=XY=Y^2=0 \right\} \\ \left\{ X = 0 \right\} \cup \left\{ X^2=Y=0 \right\}. \end{cases} \]
@@ -269,11 +269,11 @@ Therefore one can regard primary decompositions as a generalization of factoriza
 		\item In a similar vein, $X^2=Y=0$ physically defines $(0,0)$, but by restricting $f$ to that thickened point, we retrieve $f(0,0)$ as well as $\frac{\partial f}{\partial x}(0,0)$. Therefore we obtain the first-order infinitesimal neighborhood of $0$ inside the $X$-axis.
 	\end{enumerate}
 
-	Both decomposition says that we obtain the $Y$-axis together with first-order infinitesimal information at the origin $(0,0)$. This is also a nice illustration of the use of nilpotent elements in scheme theory.
+	Both decompositions say that we obtain the $Y$-axis together with first-order infinitesimal information at the origin $(0,0)$. This is also a nice illustration of the use of nilpotent elements in scheme theory.
 \end{example}
 
 \begin{example}[Symbolic powers]
 	Let $\mathfrak{p}$ be a prime ideal in a Noetherian ring $R$ and fix $n \geq 1$. Observe that $\mathfrak{p}$ is the unique minimal element in $\Supp(R/\mathfrak{p}^n) = V(\mathfrak{p}^n)$. By Theorem \ref{prop:Supp-Ass} $\mathfrak{p} \in \text{Ass}(R/\mathfrak{p}^n)$, so it makes sense to denote by $\mathfrak{p}^{(n)}$ the $\mathfrak{p}$-primary component (Corollary \ref{prop:p-primary-component}) of $\mathfrak{p}^n$, called the $n$-th \emph{symbolic power} of $\mathfrak{p}$. In general $\mathfrak{p}^{(n)} \supsetneq \mathfrak{p}^n$. For a nice geometric interpretation of symbolic powers due to Nagata and Zariski, we refer to \cite[\S 3.9]{Eis95}.
 \end{example}
 
-Getting primary decomposition of ideals in polynomial algebras is a non-trivial task. Thanks to the pioneers in computational commutative algebra, this can now achieved on your own computer, eg. by the open-source \href{http://www.sagemath.org}{SageMath} system.\index{SageMath}
+Getting primary decomposition of ideals in polynomial algebras is a non-trivial task. Thanks to the pioneers in computational commutative algebra, this can now be achieved on your own computer, e.g. by the open-source \href{http://www.sagemath.org}{SageMath} system.\index{SageMath}

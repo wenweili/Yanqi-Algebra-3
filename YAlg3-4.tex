@@ -15,7 +15,7 @@ This lecture will be less self-contained than the other ones.
 In geometry, it is often crucial to know properties of a morphism between algebraically defined geometric objects. Rephrased in terms of commutative algebra, our goal is to understand the image of $\varphi^\sharp: \Spec(B) \to \Spec(A)$ where $\varphi: A \to B$ is a given ring homomorphism.
 
 \begin{itemize}
-	\item We say the \emph{going-up} property holds for $\varphi$ if for every $\mathfrak{p} \subset \mathfrak{p}'$ in $\Spec(A)$ and $\mathfrak{q} \in \Spec(B)$ with $\varphi^\sharp(\mathfrak{q}) = \mathfrak{p}$ (and we say $\mathfrak{q}$ \emph{lies over} $\mathfrak{p}$...) there exists $\mathfrak{q}' \supset \mathfrak{q}$ lying over $\mathfrak{p}'$. \index{going-up}
+	\item We say the \emph{going-up} property holds for $\varphi$ if for every $\mathfrak{p} \subset \mathfrak{p}'$ in $\Spec(A)$ and $\mathfrak{q} \in \Spec(B)$ with $\varphi^\sharp(\mathfrak{q}) = \mathfrak{p}$ (and we say $\mathfrak{q}$ \emph{lies over} $\mathfrak{p}$) there exists $\mathfrak{q}' \supset \mathfrak{q}$ lying over $\mathfrak{p}'$. \index{going-up}
 	\item We say the \emph{going-down} property holds for $\varphi$ if for every $\mathfrak{p} \subset \mathfrak{p}'$ in $\Spec(A)$ and $\mathfrak{q}' \in \Spec(B)$ lying over $\mathfrak{p}'$, there exists $\mathfrak{q} \subset \mathfrak{q}'$ lying over $\mathfrak{p}$. \index{going-down}
 \end{itemize}
 Pictorially:
@@ -33,7 +33,7 @@ Pictorially:
 	Let $\mathfrak{a}$ be a proper ideal in a ring $R$. There exists a prime ideal $\mathfrak{p}$ which is minimal among all primes containing $\mathfrak{a}$. If $\mathfrak{P}$ is a prime ideal containing $\mathfrak{a}$, one can choose $\mathfrak{p} \subset \mathfrak{P}$.
 \end{lemma}
 \begin{proof}
-	One easily reduces to the case $\mathfrak{a} = \{0\}$. We want to use Zorn's Lemma\index{Zorn's Lemma} to find a minimal prime. It boils down to show that any chain $(\mathfrak{p}_i)_{i \in I}$ of prime ideals ($I$: totally ordered set with $j > i \implies \mathfrak{p}_i \supset \mathfrak{p}_j$) has a lower bound; we assume $\mathfrak{p}_i \subset \mathfrak{P}$ when $\mathfrak{P}$ is prescribed. It suffices to show $\mathfrak{p} := \bigcap_{i \in I} \mathfrak{p}_i$ is prime: if $xy \in \mathfrak{p}$ but there exists $i$ with $x \notin \mathfrak{p}_i$, then $x \notin \mathfrak{p}_j$ whenever $j \geq i$; in this case $j \geq i \implies y \in \mathfrak{p}_j$. This entails $y \in \mathfrak{p}$.
+	One easily reduces to the case $\mathfrak{a} = \{0\}$. We want to use Zorn's Lemma\index{Zorn's Lemma} to find a minimal prime. It boils down to showing that any chain $(\mathfrak{p}_i)_{i \in I}$ of prime ideals ($I$: totally ordered set with $j > i \implies \mathfrak{p}_i \supset \mathfrak{p}_j$) has a lower bound; we assume $\mathfrak{p}_i \subset \mathfrak{P}$ when $\mathfrak{P}$ is prescribed. It suffices to show $\mathfrak{p} := \bigcap_{i \in I} \mathfrak{p}_i$ is prime: if $xy \in \mathfrak{p}$ but there exists $i$ with $x \notin \mathfrak{p}_i$, then $x \notin \mathfrak{p}_j$ whenever $j \geq i$; in this case $j \geq i \implies y \in \mathfrak{p}_j$. This entails $y \in \mathfrak{p}$.
 \end{proof}
 
 \begin{lemma}
@@ -61,15 +61,14 @@ Pictorially:
 \end{proof}
 
 \begin{theorem}[Krull--Cohen--Seidenberg]\label{prop:Cohen-Seidenberg}
-	Suppose the ring $B$ is integral over its subring $A$. The following holds.
+	Suppose the ring $B$ is integral over its subring $A$. The following hold.
 	\begin{enumerate}[(i)]
 		\item The map $\Spec(B) \to \Spec(A)$ given by $\mathfrak{q} \mapsto \mathfrak{q} \cap A$ is surjective.
 		\item There are no inclusion relations in any fiber of $\Spec(B) \to \Spec(A)$.
 		\item Going-up holds for $A \hookrightarrow B$.
 		\item If $A$ is a local ring and $\mathfrak{p} \in \MaxSpec(A)$, then the fiber $\{ \mathfrak{q} : \mathfrak{q} \cap A = \mathfrak{p} \}$ equals $\MaxSpec(B)$.
 		\item Assume $A,B$ are domains and $A$ is normal. Then going-down holds for $A \hookrightarrow B$.
-		\item Assume furthermore that $B$ is the integral closure of $A$ in a normal field extension $L \supset K := \mathrm{Frac}(A)$, then $\Gamma := \mathrm{Aut}(L/K)$ acts transitively on each fiber of $\Spec(B) \to \Spec
-		(A)$.
+		\item Assume furthermore that $B$ is the integral closure of $A$ in a normal field extension $L \supset K := \text{Frac}(A)$. Then $\Gamma := \text{Aut}(L/K)$ acts transitively on each fiber of $\Spec(B) \to \Spec(A)$.
 	\end{enumerate}
 \end{theorem}
 The last assertion should be familiar to readers with a background in algebraic number theory.
@@ -145,7 +144,7 @@ The last assertion should be familiar to readers with a background in algebraic 
 \begin{proof}
 	Apply Theorem \ref{prop:Cohen-Seidenberg} with Proposition \ref{prop:going-up-closed} to show that $\Spec(B) \to \Spec(A)$ is closed and surjective.
 
-	To show the finiteness of the fiber over $\mathfrak{p} \in \Spec(A)$, note that the preimage of $V(\mathfrak{p})$ in $\Spec(B)$ equals $V(\mathfrak{p}B)$. Since there are no inclusions in the fiber over $\mathfrak{p}$, every element in that fiber must be a minimal over-prime of $\mathfrak{p}B$. We have seen in the proof of Proposition \ref{prop:going-up-closed} that there are only finitely many such minimal-over primes.
+	To show the finiteness of the fiber over $\mathfrak{p} \in \Spec(A)$, note that the preimage of $V(\mathfrak{p})$ in $\Spec(B)$ equals $V(\mathfrak{p}B)$. Since there are no inclusions in the fiber over $\mathfrak{p}$, every element in that fiber must be a minimal over-prime of $\mathfrak{p}B$. We have seen in the proof of Proposition \ref{prop:going-up-closed} that there are only finitely many such minimal over-primes.
 \end{proof}
 
 Note that the ``closed surjection'' part applies to any integral extension of rings. See Exercise \ref{exo:integral-closed}.
@@ -154,7 +153,7 @@ In order to obtain further results of this type, we have to introduce more notio
 \begin{definition}
 	For $\mathfrak{p}, \mathfrak{p}' \in \Spec(R)$ satisfying $\mathfrak{p} \subset \mathfrak{p}'$, we say $\mathfrak{p}$ is a \emph{generalization} of $\mathfrak{p}'$, and $\mathfrak{p}'$ is a \emph{specialization} of $\mathfrak{p}$.
 \end{definition}
-To make geometric meaning from it, being ``specialized'' signifies that there are ``more equations'' in $\mathfrak{p}'$, therefore it corresponds a smaller embedded geometric object. For example, in $R=\CC[X,Y]$ the prime ideal $(X,Y)$ is a specialization of $(X)$, as the origin $X=Y=0$ belongs to the line $X=0$.
+To make geometric meaning from it, being ``specialized'' signifies that there are ``more equations'' in $\mathfrak{p}'$, therefore it corresponds to a smaller embedded geometric object. For example, in $R=\CC[X,Y]$ the prime ideal $(X,Y)$ is a specialization of $(X)$, as the origin $X=Y=0$ belongs to the line $X=0$.
 
 \begin{lemma}
 	With respect to the Zariski topology, $\mathfrak{p}$ is a generalization of $\mathfrak{p}'$ if and only if $\mathfrak{p}' \in \overline{\{\mathfrak{p}\}}$.
@@ -169,19 +168,19 @@ A subset is called stable under specialization (resp. generalization) if the spe
 \end{lemma}
 
 \begin{definition}\index{constructible subset}
-	Suppose $R$ is Noetherian. A subset is called \emph{locally closed} if it is the intersection of an open with a closed subset, called \emph{constructible} if it is a finite union of locally closed subsets. % A possibly infinite intersection (resp. union) of constructible subsets is called \emph{pro-constructible} (resp. \emph{ind-constructible}).
+	Suppose $R$ is Noetherian. A subset is called \emph{locally closed} if it is the intersection of an open with a closed subset, called \emph{constructible} if it is a finite union of locally closed subsets.
 
-	Closed subsets of the form $V(\mathfrak{p})$, where $\mathfrak{p} \in \Spec(R)$, are called \emph{irreducible}; in this case we call $\mathfrak{p}$ the \emph{generic point} of $Z$, which is uniquely characterized as the point which generalizes every member of $Z$.
+	Closed subsets of the form $V(\mathfrak{p})$, where $\mathfrak{p} \in \Spec(R)$, are called \emph{irreducible}; in this case we call $\mathfrak{p}$ the \emph{generic point} of $V(\mathfrak{p})$, which is uniquely characterized as the point which generalizes every member of $Z$.
 \end{definition}
 \begin{itemize}
 	\item The foregoing definition is standard only for $R$ Noetherian. The general definition in EGA differs.
-	\item These notions can be applied to any topological space $X$. In practice one usually suppose $X$ to be
+	\item These notions can be applied to any topological space $X$. In practice one usually supposes $X$ to be
 		\begin{compactitem}
 			\item \emph{Noetherian}: the closed subsets satisfy descending chain condition,
 			\item \emph{sober}: every irreducible has a generic point,
 		\end{compactitem}
 		in order to get interesting results. This explains our Noetherian assumption.
-	\item If $\Bbbk$ is algebraically closed, $R = \Bbbk[X_1, \ldots, X_n]/\mathfrak{a}$ corresponds to an affine algebraic variety $\mathcal{X} \subset \Bbbk^n$ and we work with $\MaxSpec(R)$ instead of $\Spec(R)$, then a subset $E \subset \mathcal{X}$ being locally closed means that it can be defined by a formula using the usual language of algebraic operations over $\CC$, with coordinate variables $X_1, \ldots, X_n$  and the symbols $=, \neq$, but \emph{without using the quantifiers $\exists, \forall$}. For example, the formula
+	\item If $\Bbbk$ is algebraically closed, $R = \Bbbk[X_1, \ldots, X_n]/\mathfrak{a}$ corresponds to an affine algebraic variety $\mathcal{X} \subset \Bbbk^n$ and we work with $\MaxSpec(R)$ instead of $\Spec(R)$, then a subset $E \subset \mathcal{X}$ being locally closed means that it can be defined by a formula using the usual language of algebraic operations over $\Bbbk$, with coordinate variables $X_1, \ldots, X_n$  and the symbols $=, \neq$, but \emph{without using the quantifiers $\exists, \forall$}. For example, the formula
 	\[ (\neg X = 0) \vee (X = 0 \wedge Y=0) \]
 	defines the constructible subset $E := \{(x,y) \in \Bbbk^2 : x \neq 0 \} \cup \{(0,0) \}$, which is neither closed nor open. Note that $E$ is the image of the polynomial map $\Bbbk^2 \to \Bbbk^2$ given by $(x,y) \mapsto (x,xy)$.
 \end{itemize}
@@ -191,7 +190,7 @@ A subset is called stable under specialization (resp. generalization) if the spe
 \end{exercise}
 
 \begin{exercise}
-	Show that irreducible closed subsets $Z$ admit the following topological characterization: if $X = A \cup B$ with $A,B$ closed, then either $X=A$ or $X=B$.
+	Show that irreducible closed subsets $Z$ admit the following topological characterization: if $Z = A \cup B$ with $A,B$ closed, then either $Z=A$ or $Z=B$.
 \end{exercise}
 
 Suppose $R$ is Noetherian. Given any closed subset $Z \subset \Spec(R)$, we may write $Z = Z_1 \cup \cdots \cup Z_n$ with each $Z_i$ irreducible. One way to do this is to use the primary decomposition for $\mathfrak{a}$, where we assume $Z = V(\mathfrak{a})$; then $Z_1, \ldots, Z_n$ will correspond to the minimal elements in $\text{Ass}(R/\mathfrak{a})$. One can show by purely topological means that such an irreducible decomposition is unique if we require $i \neq j \implies Z_i \not\subset Z_j$. See \cite[I.1.5]{Har77}.
@@ -219,7 +218,7 @@ Now we can give a partial converse to Lemma \ref{prop:stability-vs-closeness-0},
 	Suppose $R$ is Noetherian and $E$ is a constructible subset of $\Spec(R)$. If $E$ is stable under specialization (resp. generalization), then $E$ is closed (resp. open) in $\Spec(R)$.
 \end{proposition}
 \begin{proof}
-	It suffices to treat the specialization-stable case by taking complements. Write the Zariski-closure $\bar{E}$ as a finite union of irreducibles components $Z$, without inclusion relations. For each irreducible component $Z$, notice that $Z \cap E$ is dense in $Z$ for all $Z$, since otherwise $\bar{E} = \overline{\bigcup_Z (Z \cap E)} = \bigcup_Z \overline{Z \cap E}$ would lead to another irreducible decomposition. Thus $Z \cap E$ contains a nonempty open of $Z$ by Lemma \ref{prop:char-constructible}. This open subset of $E$ must contain the generic point of $Z$. As $E$ is stable under specialization, we obtain $Z \subset E$. This being true for all $Z$, we deduce that $E = \bar{E}$.
+	It suffices to treat the specialization-stable case by taking complements. Write the Zariski-closure $\bar{E}$ as a finite union of irreducible components $Z$, without inclusion relations. For each irreducible component $Z$, notice that $Z \cap E$ is dense in $Z$ for all $Z$, since otherwise $\bar{E} = \overline{\bigcup_Z (Z \cap E)} = \bigcup_Z \overline{Z \cap E}$ would lead to another irreducible decomposition. Thus $Z \cap E$ contains a nonempty open of $Z$ by Lemma \ref{prop:char-constructible}. This open subset of $E$ must contain the generic point of $Z$. As $E$ is stable under specialization, we obtain $Z \subset E$. This being true for all $Z$, we deduce that $E = \bar{E}$.
 \end{proof}
 
 \begin{proposition}
@@ -240,7 +239,7 @@ Let $(\Gamma, +)$ be a commutative monoid. In most cases we consider $\Gamma = \
 We will often omit $\Gamma$ when there is no worry of confusion. Note that if $0$ is allowed to be homogeneous, as people sometimes do, it will be homogeneous of any degree.
 
 \begin{exercise}
-	Show that in a graded ring $R$ we always have $1 \in R_0$, provides that $(\Gamma, +)$ satisfies the cancellation law: $\gamma+\eta=\eta \iff \gamma=0$. Hint: let $e_0$ be the component of $1_R$ in degree 0, argue that $x e_0 = x = e_0 x$ for all homogeneous $x \in R$. The condition $1 \in R_0$ is sometimes built into the definition of graded rings.
+	Show that in a graded ring $R$ we always have $1 \in R_0$, provided that $(\Gamma, +)$ satisfies the cancellation law: $\gamma+\eta=\eta \iff \gamma=0$. Hint: let $e_0$ be the component of $1_R$ in degree 0, argue that $x e_0 = x = e_0 x$ for all homogeneous $x \in R$. The condition $1 \in R_0$ is sometimes built into the definition of graded rings.
 \end{exercise}
 
 \begin{definition}
@@ -258,20 +257,20 @@ Let $N$ be an $R$-submodule of $M$ and suppose $M$ is graded. The following are 
 \begin{example}
 	Let $A$ be a ring and $R := A[X_1, \ldots, X_n]$. Then $R$ is naturally $\Z_{\geq 0}$-graded by degrees: for each $d \in \Z_{\geq 0}$, let $R_d$ be the set of homogeneous polynomials of total degree $d$. Ideals generated by homogeneous polynomials are precisely the graded ideals. The importance of this grading comes from projective algebraic geometry.
 
-	On the other hand, $R$ can also be graded by monomials by taking $\Gamma = \Z_{\geq 0} \times \cdots \times \Z_{\geq 0}$ ($n$ copies), and we set $R_{(d_1, \ldots, d_n)} = A \cdot X_1^{d_1} \cdots X_n^{d_n}$
+	On the other hand, $R$ can also be graded by monomials by taking $\Gamma = \Z_{\geq 0} \times \cdots \times \Z_{\geq 0}$ ($n$ copies), and we set $R_{(d_1, \ldots, d_n)} = A \cdot X_1^{d_1} \cdots X_n^{d_n}$.
 \end{example}
 
 Many constructions in commutative algebra can be generalized to the graded case. Let us illustrate what one can do in an important case, the primary decomposition (cf.\ \cite[\S 3.5 and Exercise 3.5]{Eis95}). In the $\Z$-graded context, it says that for a finitely generated graded module $M$ over a Noetherian graded ring, the associated primes of $M$ are all graded ideals, and one can write $\{0\} = N_1 \cap \cdots \cap N_m$ where $N_i \subset M$ are graded submodules with $\text{Ass}(M/N_i) = \{\mathfrak{p}_i\}$, $\mathfrak{p}_i \in \text{Ass}(M)$, etc. Most of the arguments in the ungraded case carry over verbatim, and the only new technique is the following
 
 \begin{lemma}
-	Let $M$ be a $\Z$-graded module over a $\Z$-graded ring $R$. If $x \in M$ and $\mathfrak{p} := \mathrm{ann}(x)$ is a prime ideal, then
+	Let $M$ be a $\Z$-graded module over a $\Z$-graded ring $R$. If $x \in M$ and $\mathfrak{p} := \text{ann}(x)$ is a prime ideal, then
 	\begin{enumerate}[(i)]
 		\item $\mathfrak{p}$ is a homogeneous ideal, and
-		\item $\mathfrak{p} = \mathrm{ann}(y)$ for some homogeneous element $y \in M$.
+		\item $\mathfrak{p} = \text{ann}(y)$ for some homogeneous element $y \in M$.
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-	We begin with (i). Let $t \in \mathfrak{p}$ and $x \in M$ be such that $\mathfrak{p} = \text{ann}(M)$. Write
+	We begin with (i). Let $t \in \mathfrak{p}$ and $x \in M$ be such that $\mathfrak{p} = \text{ann}(x)$. Write
 	\[ t = \sum_{\gamma \in \mathcal{A}} t_\gamma, \quad x = \sum_{\eta \in \mathcal{B}} x_\eta, \]
 	where $t_\gamma \in R_\gamma \smallsetminus \{0\}$ and $x_\eta \in M_\eta \smallsetminus \{0\}$ for all $\gamma, \eta$. Denote by $\gamma_0$ and $\eta_0$ the minimal elements in $\mathcal{A}$ and $\mathcal{B}$, respectively. Homogenity amounts to $t_\gamma \in \mathfrak{p}$ for each $\gamma \in \mathcal{A}$, and this will be done by induction on $|\mathcal{B}|$. By a further induction on $|\mathcal{A}|$, for fixed $x$ and $\mathfrak{p}$, this can be reduced to showing $t_{\gamma_0} \in \mathfrak{p}$.
 	
@@ -297,12 +296,12 @@ Now turn to filtrations. We only deal with decreasing filtrations indexed by $\Z
 	\[ \gr_F(R) := \bigoplus_{n \geq 0} \underbracket{F^n R \big/ F^{n+1} R}_{=: \gr_F^n R} \]
 	whose multiplication is defined as follows: if $x \in F^n R / F^{n+1} R$ and $y \in F^m R/F^{m+1} R$, choose liftings $\tilde{x} \in F^n R$ and $\tilde{y} \in F^m R$ and define
 	\[ xy := \text{the image of }\; \tilde{x}\tilde{y}\; \text{ in }\; F^{n+m} R / F^{n+m+1} R; \]
-	this is readily seen to be well-defined. The multiplication of arbitrarily many homogeneous elements can be obtained in the same recipe. The datum $(R, F^\bullet R)$ is called a \emph{filtered ring},
+	this is readily seen to be well-defined. The multiplication of arbitrarily many homogeneous elements can be obtained in the same recipe. The datum $(R, F^\bullet R)$ is called a \emph{filtered ring}.
 
 	Given a filtered ring $R$, a \emph{filtered $R$-module} $M$ is an $R$-module $M$ equipped with a descending sequence\footnote{In view of later applications, the filtration on a module is indexed by $\Z$ instead of $\Z_{\geq 0}$.} of submodules
 	\[ \cdots \supset F^i M \supset F^{i+1} M \supset \cdots, \quad i \in \Z \]
 	such that $F^i R \cdot F^j M \subset F^{i+j} M$. Define the associated graded module as the $\Z$-graded $\gr_F R$-module
-	\[ \gr_F(M) := \bigoplus_{n \in \Z} \underbracket{F^n M \big/ F^{n+1} M}_{=: \gr_F^i M} \]
+	\[ \gr_F(M) := \bigoplus_{n \in \Z} \underbracket{F^n M \big/ F^{n+1} M}_{=: \gr_F^n M} \]
 	whose scalar multiplication is defined using liftings as above.
 \end{definition}
 
@@ -345,7 +344,7 @@ Conserve the conventions in the previous section on filtrations, etc.
 This makes the filtered rings and the filtered modules over a filtered ring into categories. Obviously, morphisms $\varphi$ between filtered objects induce graded morphisms $\gr \varphi$ between the associated graded objects. Therefore we obtain a functor from the category of filtered rings or modules into their graded avatars.
 
 \begin{remark}
-	Suppose $\varphi: M \to N$ is a morphism between filtered $A$-modules. The quotient $M/\Ker(\varphi)$ inherits a filtration from $M$, whereas the submodule $\Image(\varphi)$ inherits one from $N$. When the natural isomorphism $M/\Ker(\varphi) \to \Image(\varphi)$ is an isomorphism between filtered modules, or equivalently
+	Suppose $\varphi: M \to N$ is a morphism between filtered $A$-modules. The quotient $M/\Ker(\varphi)$ inherits a filtration from $M$, whereas the submodule $\Image(\varphi)$ inherits one from $N$. When the natural isomorphism $M/\Ker(\varphi) \to \Image(\varphi)$ respects the filtrations, or equivalently
 	\[ \forall i \in \Z, \; \varphi(F^i M) = \varphi(M) \cap F^i N, \]
 	we say $\varphi$ is a \emph{strict morphism}.
 \end{remark}
@@ -397,7 +396,7 @@ In what follows, $\mathfrak{a}$ always denotes a proper ideal of a ring $R$.
 	Let $R$ be a Noetherian ring endowed with $\mathfrak{a}$-adic filtration. Let $M$ be a finitely generated $R$-module and $N \subset M$ an $R$-submodule. Then the filtration on $N$ induced by the $\mathfrak{a}$-adic filtration of $M$, namely $F^i N := \mathfrak{a}^i M \cap N$, is $\mathfrak{a}$-stable.
 \end{theorem}
 \begin{proof}
-	Define $\text{Bl}(N)$ using the induced filtration $F^i N := \mathfrak{a}^i M \cap N$, which is a submodule of the finitely generated $\text{Bl}_{\mathfrak{a}} R$-module $\text{Bl}(M)$ (Lemma \ref{prop:Bl-fg}). If $\mathfrak{a} = (a_1, \ldots, a_m)$ than $\text{Bl}_{\mathfrak{a}} R = R[a_1 X, \ldots, a_m X] \subset R[X]$, hence Noetherian by Hilbert's Basissatz. We deduce that $\text{Bl}(N)$ is finitely generated over $\text{Bl}_{\mathfrak{a}} R$. In turn, this implies $F^\bullet N$ is an $\mathfrak{a}$-stable filtration on $N$ by Lemma \ref{prop:Bl-fg}.
+	Define $\text{Bl}(N)$ using the induced filtration $F^i N := \mathfrak{a}^i M \cap N$, which is a submodule of the finitely generated $\text{Bl}_{\mathfrak{a}} R$-module $\text{Bl}(M)$ (Lemma \ref{prop:Bl-fg}). If $\mathfrak{a} = (a_1, \ldots, a_m)$ then $\text{Bl}_{\mathfrak{a}} R = R[a_1 X, \ldots, a_m X] \subset R[X]$, hence Noetherian by Hilbert's Basissatz. We deduce that $\text{Bl}(N)$ is finitely generated over $\text{Bl}_{\mathfrak{a}} R$. In turn, this implies $F^\bullet N$ is an $\mathfrak{a}$-stable filtration on $N$ by Lemma \ref{prop:Bl-fg}.
 \end{proof}
 
 \begin{theorem}\label{prop:intersection-thm}

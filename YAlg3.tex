@@ -36,7 +36,7 @@
 \usepackage{fontspec}
 \usepackage{unicode-math}
 \setromanfont{TeX Gyre Pagella}
-\setsansfont{TeX Gyre Heros Cn}
+\setsansfont{TeX Gyre HerosCn}
 \setmathfont[math-style=ISO, bold-style=ISO]{texgyrepagella-math.otf}
 
 % Make \today print yyyy-mm-dd
@@ -59,7 +59,6 @@
 
 \usepackage{stmaryrd}
 \usepackage{bbding}
-\usepackage[nottoc]{tocbibind}
 \usepackage{mathrsfs}
 \usepackage[centercolon]{mathtools}
 \usepackage[dvipsnames]{xcolor}
@@ -100,12 +99,13 @@
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
 
-\renewcommand*\arraystretch{1.5} % Extra spacing in a table environment.
+\renewcommand{\arraystretch}{1.5} % Extra spacing in a table environment.
 
 % Load custom commands
 \usepackage{mycommand}
 \usepackage{myarrows}
 
+\usepackage{etoolbox}
 \usepackage{xstring}
 \usepackage{pdfpages}
 
@@ -131,7 +131,7 @@
 % Set up the chapter titles
 \usepackage{titlesec}
 \titleformat{\chapter}[display]
-	{\filleft\normalfont\fontspec[Scale=2.5]{League Spartan}}
+	{\normalfont\fontspec[Scale=2.5]{League Spartan}}
 	{Lecture \thechapter}
 	{10mm}
 	{}[]
@@ -159,14 +159,15 @@
 		}%
 		\pagestyle{fancy}		% Resume the page style to "fancy".
 		\pagenumbering{roman}	% Resume the page numbers to roman style.
+		\setcounter{page}{1}
 	}
 	
 	\begin{titlepage}
 		\vspace*{\stretch{1}}
 		\noindent\begin{center}\rule{\linewidth}{2pt}\end{center}	% Draw a rule
 		\begin{center}
-			\Huge \textbf{Yanqi Lake Lectures on Algebra}  \\ \vspace{1em}
-			\Huge Part 3
+			\Huge \textbf{Yanqi Lake Lectures on Algebra} \\[1em]
+			\Huge Part~3
 		\end{center}
 		\noindent\begin{center}\rule{\linewidth}{2pt}\end{center}	% Draw a rule
 		\vspace{1em}

@@ -27,7 +27,7 @@ Let $R$ be an integral domain.
 It follows immediately that $R^\times = v^{-1}(0)$. Uniformizers are unique up to $R^\times$. Note that $v(K^\times) = \Z$ implies that $R$ cannot be a field.
 
 \begin{example}
-	The ring $\Z_p$ of $p$-adic integers ($p$: prime number) together with the usual $p$-adic valuations are standard examples of DVR. The algebra of formal power series $\Bbbk\llbracket X\rrbracket$ are also DVR: the valuation of $\sum_n a_n X^n$ is the smallest $n$ such that $a_n \neq 0$.
+	The rings $\Z_p$ of $p$-adic integers ($p$: prime number) together with the usual $p$-adic valuations are standard examples of DVRs. The algebra of formal power series $\Bbbk\llbracket X\rrbracket$ is also a DVR: the valuation of $\sum_n a_n X^n$ is the smallest $n$ such that $a_n \neq 0$.
 	
 	More generally, in the geometric context, discrete valuations can be defined by looking at the vanishing order of rational/meromorphic functions along subvarieties of codimension one with suitable regularities.
 \end{example}
@@ -51,7 +51,7 @@ Recall that a regular local ring $R$ with $\dim R = 1$ is a Noetherian local rin
 \begin{proposition}\label{prop:reg-local-dvr}
 	Suppose $t$ is a regular parameter in a regular local ring $R$ of dimension one, then $R$ is a domain, and every element $x \in R \smallsetminus \{0\}$ can be uniquely written as $x = t^r u$ with $r \geq 0$ and $u \in R^\times$. This makes $R$ into a discrete valuation ring by setting $v(x) = r$, for which $t$ is a uniformizer.
 	
-	Therefore $R$ is a discrete valuation ring. Conversely, every discrete valuation ring is regular local of dimension $1$.
+	Conversely, every discrete valuation ring is regular local of dimension $1$.
 \end{proposition}
 \begin{proof}
 	From Theorem \ref{prop:regular-local-domain} we know regular local rings are Noetherian domains. By applying Krull's Intersection Theorem (Corollary \ref{prop:Krull-intersection-domain}) to the powers of $(t)$, we see that $r := \sup\{k \geq 0: x \in (t)^k \}$ is finite. Write $x = t^r u$. Since $R^\times = R \smallsetminus \mathfrak{m}$, we see $u \in R^\times$. As to uniqueness, suppose $t^r u = t^s w$ with $r \geq s$, then $t^{r-s} = u^{-1}w \in R^\times$ implies $r=s$, hence $u=w$ as $R$ is a domain. As every element of $\text{Frac}(R)^\times$ is uniquely expressed as $t^r u$ with $r \in \Z$, one readily checks that $v(t^r u) = r$ satisfies all the requirements of discrete valuation.
@@ -67,11 +67,11 @@ This will be related to normality later on.
 	Explain that the regular local rings of dimension $0$ are just fields.
 \end{exercise}
 
-\section{Auxiliary results on the total fraction ring}
-Let $R$ be a ring, henceforth assumed Noetherian. If there exist a non zero-divisor $t \in R$ and $\mathfrak{p} \in \text{Ass}(R/(t))$, we say $\mathfrak{p}$ is \emph{associated to a non zero-divisor}.
+\section{Auxiliary results on the total ring of fractions}
+Let $R$ be a ring, henceforth assumed Noetherian. If there exists a non zero-divisor $t \in R$ and $\mathfrak{p} \in \text{Ass}(R/(t))$, we say $\mathfrak{p}$ is \emph{associated to a non zero-divisor}.
 
 \begin{lemma}\label{prop:zero-test-ass}
-	Let $M$ be a finitely generated $R$-module. An element $x \in M$ is zero if and only if its image in $M_{\mathfrak{p}}$ is zero for every maximal element $\mathfrak{p}$ in $\mathrm{Ass}(M)$.
+	Let $M$ be a finitely generated $R$-module. An element $x \in M$ is zero if and only if its image in $M_{\mathfrak{p}}$ is zero for every maximal element $\mathfrak{p}$ in $\text{Ass}(M)$.
 \end{lemma}
 \begin{proof}
 	Suppose $x \neq 0$. Since $M$ is Noetherian, among ideals of the form $\text{ann}(y)$ there is a maximal one containing $\text{ann}(x)$, and we have seen in Lemma \ref{prop:Ass-maximal} that such an ideal $\mathfrak{p}$ belongs to $\text{Ass}(M)$. Since $\text{ann}(x) \subset \mathfrak{p}$, we have $x/1 \in M_{\mathfrak{p}} \smallsetminus \{0\}$.
@@ -79,13 +79,13 @@ Let $R$ be a ring, henceforth assumed Noetherian. If there exist a non zero-divi
 
 Call a ring \emph{reduced}\index{reduced ring} if it has no nilpotent element except zero.
 \begin{lemma}
-	Suppose $R$ is reduced, then $\mathrm{Ass}(R)$ consists of minimal primes.
+	Suppose $R$ is reduced, then $\text{Ass}(R)$ consists of minimal primes.
 \end{lemma}
 \begin{proof}
 	As $R$ is reduced, $\{0\} = \sqrt{0_R}$ is the intersection of minimal prime ideals $\mathfrak{p}_1, \mathfrak{p}_2, \ldots$ (all lying in $\text{Ass}(R)$, hence finite in number). By the theory of primary decompositions, one infers that $\text{Ass}(R) = \{\mathfrak{p}_1, \ldots \}$.
 \end{proof}
 
-For the next result, we denote by $T$ the set of non zero-divisors of $R$. Recall that the \emph{total fraction ring} $K(R)$ is $R[T^{-1}]$; this is the largest localization such that $R \to K(R)$ is injective, and $K(R) = \text{Frac}(R)$ when $R$ is a domain. The map $\mathfrak{p} \mapsto \mathfrak{p}K(R)$ sets up an order-preserving bijection $\text{Ass}(R) \rightiso \text{Ass}(K(R))$: indeed, if $\mathfrak{p} \ni t$ for some $t \in T$, then $\mathfrak{p}$ cannot belong to $\text{Ass}(R)$ because the union of $\text{Ass}(R)$ equals $R \smallsetminus T$.
+For the next result, we denote by $T$ the set of non zero-divisors of $R$. Recall that the \emph{total ring of fractions} $K(R)$ is $R[T^{-1}]$; this is the largest localization such that $R \to K(R)$ is injective, and $K(R) = \text{Frac}(R)$ when $R$ is a domain. The map $\mathfrak{p} \mapsto \mathfrak{p}K(R)$ sets up an order-preserving bijection $\text{Ass}(R) \rightiso \text{Ass}(K(R))$: indeed, if $\mathfrak{p} \ni t$ for some $t \in T$, then $\mathfrak{p}$ cannot belong to $\text{Ass}(R)$ because the union of $\text{Ass}(R)$ equals $R \smallsetminus T$.
 
 \begin{lemma}\label{prop:K-vs-localization}
 	Let $R$ be reduced. Then $K(R) \rightiso \prod_{\mathfrak{p}} K(R/\mathfrak{p})$ as $R$-algebras, where $\mathfrak{p}$ ranges over the minimal prime ideals of $R$. For any multiplicative subset $S \subset R$ there is a canonical isomorphism of $R[S^{-1}]$-algebras
@@ -93,9 +93,9 @@ For the next result, we denote by $T$ the set of non zero-divisors of $R$. Recal
 	K(R[S^{-1}]) & \rightiso K(R)[S^{-1}].
 	\end{align*}
 \end{lemma}
-In other words, the formation of total fraction ring commutes with localizations.
+In other words, the formation of total ring of fractions commutes with localizations.
 \begin{proof}
-	Each element in $K(R) = R[T^{-1}]$ is either a zero-divisor or invertible. The set of zero-divisors of $K(R)$ is the union of minimal prime ideals $\mathfrak{p}_i K(R)$ of $K(R)$ (where $\text{Ass}(R) = \{ \mathfrak{p}_1, \ldots, \mathfrak{p}_m\}$ by an earlier discussion), therefore each prime ideal of $K(R)$ must equal some $\mathfrak{p}_i K(R)$, by prime avoidance (Proposition \ref{prop:prime-avoidance}). Hence $\mathfrak{p}_1 K(R), \ldots, \mathfrak{p}_m K(R)$ are also the maximal ideals in $K(R)$, with zero intersection. Chinese Remainder Theorem entails that $K(R) \simeq \prod_{i=1}^m K(R)/\mathfrak{p}_i K(R)$. To conclude the first part, notice that $K(R)/\mathfrak{p}_i K(R) = (R/\mathfrak{p}_i)[T^{-1}]$; this is a field in generated by an isomorphic copy of $R/\mathfrak{p}_i$ since $\mathfrak{p}_i \cap T = \emptyset$, hence equals $\text{Frac}(R/\mathfrak{p}_i)$.
+	Each element in $K(R) = R[T^{-1}]$ is either a zero-divisor or invertible. The set of zero-divisors of $K(R)$ is the union of minimal prime ideals $\mathfrak{p}_i K(R)$ of $K(R)$ (where $\text{Ass}(R) = \{ \mathfrak{p}_1, \ldots, \mathfrak{p}_m\}$ by an earlier discussion), therefore each prime ideal of $K(R)$ must equal some $\mathfrak{p}_i K(R)$, by prime avoidance (Proposition \ref{prop:prime-avoidance}). Hence $\mathfrak{p}_1 K(R), \ldots, \mathfrak{p}_m K(R)$ are also the maximal ideals in $K(R)$, with zero intersection. Chinese Remainder Theorem entails that $K(R) \simeq \prod_{i=1}^m K(R)/\mathfrak{p}_i K(R)$. To conclude the first part, notice that $K(R)/\mathfrak{p}_i K(R) = (R/\mathfrak{p}_i)[T^{-1}]$; this is a field generated by an isomorphic copy of $R/\mathfrak{p}_i$ since $\mathfrak{p}_i \cap T = \emptyset$, hence equals $\text{Frac}(R/\mathfrak{p}_i)$.
 	
 	As for the second part, one decomposes $K(R[S^{-1}])$ and $K(R)[S^{-1}]$ by the previous step, noting that
 	\begin{compactitem}
@@ -123,7 +123,7 @@ Fix a Noetherian ring $R$.
 \end{exercise}
 
 \begin{proposition}\label{prop:normality-principal}
-	Let $R$ be a Noetherian domain. Then $R$ is normal if and only if for every principal ideal $(t) \subset R$ and every $\mathfrak{p} \in \mathrm{Ass}(R/(t))$, the ideal $\mathfrak{p}R_{\mathfrak{p}}$ is principal.
+	Let $R$ be a Noetherian domain. Then $R$ is normal if and only if for every principal ideal $(t) \subset R$ and every $\mathfrak{p} \in \text{Ass}(R/(t))$, the ideal $\mathfrak{p}R_{\mathfrak{p}}$ is principal.
 \end{proposition}
 \begin{proof}
 	Assume the conditions above. To prove the normality of $R$, it suffices to use $R = \bigcap R_{\mathfrak{p}}$ where $\mathfrak{p}$ ranges over the primes associated to nonzero principal ideals (consequence of Lemma \ref{prop:intersection-ass}). Indeed, each $R_{\mathfrak{p}}$ is regular, hence normal by Proposition \ref{prop:reg-local-dvr}, therefore so is their intersection by the previous exercise.
@@ -165,7 +165,7 @@ Fix a Noetherian ring $R$.
 \begin{lemma}\label{prop:reduced-test}
 	Let $R$ be a Noetherian ring. Suppose that
 	\begin{compactitem}
-		\item the primes in $\mathrm{Ass}(R)$ are all minimal, and
+		\item the primes in $\text{Ass}(R)$ are all minimal, and
 		\item $R_{\mathfrak{p}}$ is a field for every minimal prime ideal $\mathfrak{p}$,
 	\end{compactitem}
 	then $R$ is reduced.
@@ -178,7 +178,7 @@ Fix a Noetherian ring $R$.
 	A Noetherian ring $R$ is a finite direct product of normal domains if and only if the following two conditions hold.
 	\begin{description}
 		\item[R1] The localization of $R$ at every prime ideal of height $1$ (resp. $0$) is a discrete valuation ring (resp. a field).
-		\item[S2] For every non zero-divisor $t$ of $R$, the primes in $\mathrm{Ass}(R/(t))$ are all of height $1$; the primes in $\mathrm{Ass}(R)$ are all of height $0$.
+		\item[S2] For every non zero-divisor $t$ of $R$, the primes in $\text{Ass}(R/(t))$ are all of height $1$; the primes in $\text{Ass}(R)$ are all of height $0$.
 	\end{description}
 \end{theorem}
 The condition \textbf{R1} means regularity in codimension $\leq 1$. The condition \textbf{S2} is often rephrased in terms of \emph{depth}, which will be discussed in Proposition \ref{prop:S2}.
@@ -192,7 +192,7 @@ The condition \textbf{R1} means regularity in codimension $\leq 1$. The conditio
 	
 	This reduces the verification of \textbf{S2} to the case of normal domains, which is addressed in Proposition \ref{prop:normality-principal}. The condition \textbf{R1} is implied by Corollary \ref{prop:normality-dvr} since normality is preserved under localizations.
 	
-	Assume conversely \textbf{R1} and \textbf{S2}. They imply the conditions of Lemma \ref{prop:reduced-test}, hence $R$ is reduced. Now for every prime $\mathfrak{p}$ associated to a non zero-divisor, we have $\text{ht}(\mathfrak{p})=1$ and $R_{\mathfrak{p}}$ is a normal domain by \textbf{R1} $\wedge$ \textbf{S2}. By Lemma \ref{prop:intersection-ass} (as $R$ is reduced), $R$ is integrally closed in $K(R)$: indeed, if $x \in K(R)$ is integral over $R$, so is its image in $K(R_{\mathfrak{p}}) = K(R)_{\mathfrak{p}}$ for every $\mathfrak{p}$ as above, therefore lies in $R_{\mathfrak{p}}$. Decompose $K(R) = \prod_{i=1}^m K(R/\mathfrak{p}_i)$ as in Lemma \ref{prop:K-vs-localization}. The idempotents $e_i \in K(R)$ associated to this decomposition are trivially integral over $R$: $e_i^2 - e_i = 0$, hence $e_i \in R$ for all $i$. It follows that $R = Re_1 + \cdots + Re_m \prod_{i=1}^m Re_i \subset K(R)$ and one easily checks that $Re_i = R/\mathfrak{p}_i$.
+	Assume conversely \textbf{R1} and \textbf{S2}. They imply the conditions of Lemma \ref{prop:reduced-test}, hence $R$ is reduced. Now for every prime $\mathfrak{p}$ associated to a non zero-divisor, we have $\text{ht}(\mathfrak{p})=1$ and $R_{\mathfrak{p}}$ is a normal domain by \textbf{R1} $\wedge$ \textbf{S2}. By Lemma \ref{prop:intersection-ass} (as $R$ is reduced), $R$ is integrally closed in $K(R)$: indeed, if $x \in K(R)$ is integral over $R$, so is its image in $K(R_{\mathfrak{p}}) = K(R)_{\mathfrak{p}}$ for every $\mathfrak{p}$ as above, therefore lies in $R_{\mathfrak{p}}$. Decompose $K(R) = \prod_{i=1}^m K(R/\mathfrak{p}_i)$ as in Lemma \ref{prop:K-vs-localization}. The idempotents $e_i \in K(R)$ associated to this decomposition are trivially integral over $R$: $e_i^2 - e_i = 0$, hence $e_i \in R$ for all $i$. It follows that $R = \prod_{i=1}^m Re_i \subset K(R)$ and one easily checks that $Re_i = R/\mathfrak{p}_i$.
 	
 	Finally, since $R$ is integrally closed in $K(R)$, the decomposition above implies $R/\mathfrak{p}_i$ is integrally closed in $K(R/\mathfrak{p}_i)$. All in all, we have written $R$ as a direct product of normal domains.
 \end{proof}
@@ -227,7 +227,7 @@ Based on \cite{Bour98}, we give a brief account on the notion of depth. Let $R$ 
 	\begin{enumerate}[(i)]
 		\item $\mathrm{depth}_I(M)=0$;
 		\item for all $x \in I$, the homomorphism $M \xrightarrow{x} M$ is not injective;
-		\item $\mathrm{Ass}(M) \cap V(I) \neq \emptyset$.
+		\item $\text{Ass}(M) \cap V(I) \neq \emptyset$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -273,7 +273,7 @@ Based on \cite{Bour98}, we give a brief account on the notion of depth. Let $R$ 
 \end{figure}
 
 \begin{corollary}
-	With the same assumptions, let $(x_1, \ldots, x_r)$ be an $M$-regular sequence with $x_i \in I$. It is of length $\mathrm{depth}_I(M)$ if and only if $\mathrm{Ass}(M/(x_1, \ldots, x_r)M) \cap V(I) \neq \emptyset$.
+	With the same assumptions, let $(x_1, \ldots, x_r)$ be an $M$-regular sequence with $x_i \in I$. It is of length $\mathrm{depth}_I(M)$ if and only if $\text{Ass}(M/(x_1, \ldots, x_r)M) \cap V(I) \neq \emptyset$.
 \end{corollary}
 \begin{proof}
 	The sequence has length $\text{depth}_I(M)$ if and only if $R$-module $M/(x_1, \ldots, x_r)M$ has depth zero, so it remains to apply Proposition \ref{prop:depth-zero}.
@@ -283,7 +283,7 @@ Based on \cite{Bour98}, we give a brief account on the notion of depth. Let $R$ 
 	Let $R$ be a Noetherian local ring with maximal ideal $\mathfrak{m}$, and $M \neq \{0\}$ a finitely generated $R$-module, then $\mathrm{depth}_{\mathfrak{m}}(M) \leq \dim M$.
 \end{corollary}
 \begin{proof}
-	Consider the following situation: $x \in \mathfrak{m}$ is not a zero-divisor for $M \neq \{0\}$. In the discussion of dimensions, we have seen that $d(M) \geq d(M/xM) \geq d(M/xM)-1$, where $d(\cdot)$ is the degree of Hilbert--Samuel polynomial; on the other hand, since the alternating sum of Hilbert--Samuel polynomials in $0 \to M \xrightarrow{x} M \to M/xM \to 0$ has degree $< d(M)$, we infer that $d(M/xM) = d(M) - 1$. Hence $\dim(M/xM) = \dim(M) - 1$. By relating depth to $M$-regular sequences, we deduce $\text{depth}_{\mathfrak{m}}(M) \leq \dim M$.
+	Consider the following situation: $x \in \mathfrak{m}$ is not a zero-divisor for $M \neq \{0\}$. In the discussion of dimensions, we have seen that $d(M) \geq d(M/xM) \geq d(M)-1$, where $d(\cdot)$ is the degree of Hilbert--Samuel polynomial; on the other hand, since the alternating sum of Hilbert--Samuel polynomials in $0 \to M \xrightarrow{x} M \to M/xM \to 0$ has degree $< d(M)$, we infer that $d(M/xM) = d(M) - 1$. Hence $\dim(M/xM) = \dim(M) - 1$. By relating depth to $M$-regular sequences, we deduce $\text{depth}_{\mathfrak{m}}(M) \leq \dim M$.
 \end{proof}
 
 \begin{definition}[Cohen--Macaulay modules]\index{Cohen--Macaulay module}

@@ -41,7 +41,7 @@ The reader might have encountered the following result in differential geometry.
 	\[ \sum_{i=0}^n (-1)^i \cdot u(x_i) \cdots \wedge \widehat{x_i} \wedge \cdots  \]
 	whereas the right-hand side equals
 	\[ \sum_{i=1}^n (-1)^{i+1} \cdot u(x_i) x_0 \wedge \cdots \wedge \widehat{x_i} \wedge \cdots. \]
-	The terms with a $\widehat{x_i}$ (non-existant --- hopefully this won't generate metaphysical issues) where $i > 0$ cancel out. We are left with $u(x_0) x_1 \wedge \cdots \wedge x_n = u(x) \omega$.
+	The terms with a $\widehat{x_i}$ (non-existent --- hopefully this won't generate metaphysical issues) where $i > 0$ cancel out. We are left with $u(x_0) x_1 \wedge \cdots \wedge x_n = u(x) \omega$.
 \end{proof}
 Obviously, the same formula extends to all $\omega \in \bigwedge L$ by linearity.
 
@@ -77,7 +77,7 @@ We fix an ideal $I \subset R$.
 	\[ \mathrm{depth}_I\left(\prod_\beta M_\beta \right) = \inf_\beta \mathrm{depth}_I(M_\beta). \]
 \end{proposition}
 \begin{proof}
-	This follows from $\Ext^n_R(R/I, \prod_i M_i) = \prod_{i \in I} \Ext^n_R(R/I, M_i)$, as is easily seen by taking a projective resolution of $R/I$ and using the fact the $\Hom_R$ preserves direct products in the second variable.
+	This follows from $\Ext^n_R(R/I, \prod_\beta M_\beta) = \prod_\beta \Ext^n_R(R/I, M_\beta)$, as is easily seen by taking a projective resolution of $R/I$ and using the fact the $\Hom_R$ preserves direct products in the second variable.
 \end{proof}
 
 \begin{remark}
@@ -89,9 +89,9 @@ We fix an ideal $I \subset R$.
 \end{proposition}
 \begin{proof}
 	To show $\Ext^i_R(N,M)=0$ for $i < \text{depth}_I(M)$, we begin with the case $m=1$. This case follows by a dimension-shifting argument based on the short exact sequence
-	\[ 0 \to K \to (R/I)^{\oplus I} \to M \to 0, \]
+	\[ 0 \to K \to (R/I)^{\oplus I} \to N \to 0, \]
 	together with induction on $i$ (note that $\Ext^{<0}_R(N,M)=0$ for trivial reasons). The case of general $m$ follows by a standard \emph{dévissage} using
-	\[ 0 \to JN \to N \to N/JN \to 0 \]
+	\[ 0 \to IN \to N \to N/IN \to 0 \]
 	and the associated long exact sequence.
 \end{proof}
 
@@ -104,12 +104,12 @@ We fix an ideal $I \subset R$.
 
 The following technical results will be invoked in the proof of Theorem \ref{prop:Koszul-depth}.
 \begin{proposition}\label{prop:depth-vanishing-aux}
-	Let $C^\bullet$ be a cochain complex of $R$-modules such that $n \ll 0 \implies C^n = 0$. Let $h \in \Z$  such that for all integers $n \leq k \leq h$, the depth of $C^n$ with respect to $J_k := \mathrm{ann}(H^k(C^\bullet))$ is $> k-n$, then
+	Let $C^\bullet$ be a cochain complex of $R$-modules such that $n \ll 0 \implies C^n = 0$. Let $h \in \Z$ be such that for all integers $n \leq k \leq h$, the depth of $C^n$ with respect to $J_k := \mathrm{ann}(H^k(C^\bullet))$ is $> k-n$, then
 	\[ H^{\leq h}(C^\bullet)=0. \]
 \end{proposition}
 In what follows, we write $H^n = H^n(C^\bullet) = Z^n/B^n$ in the usual notation for homological algebra.
 \begin{proof}
-	Assume on the contrary that there exists $k \leq h$ with $H^{< k} = 0$ whereas $H^k \neq 0$. Write $J = J_k$. As $J$ annihilates the nonzero $R$-module $H^k$, the criterion of depth-zero modules (Proposition \ref{prop:depth-zero}) implies that $\text{depth}_J(H^k) = 0$. By assumption $\text{depth}_J(C_k) > k-k = 0$, it follows that $\text{depth}_J(Z_k) > 0$ since $Z_k \subset C_k$, by applying the aforementioned criterion of depth-zero. From the short exact sequence
+	Assume on the contrary that there exists $k \leq h$ with $H^{< k} = 0$ whereas $H^k \neq 0$. Write $J = J_k$. As $J$ annihilates the nonzero $R$-module $H^k$, the criterion of depth-zero modules (Proposition \ref{prop:depth-zero}) implies that $\text{depth}_J(H^k) = 0$. By assumption $\text{depth}_J(C^k) > k-k = 0$, it follows that $\text{depth}_J(Z^k) > 0$ since $Z^k \subset C^k$, by applying the aforementioned criterion of depth-zero. From the short exact sequence
 	\[ 0 \to B^k \to Z^k \to H^k \to 0 \]
 	we deduce distinguished triangles in $D(R\dcate{Mod})$
 	\begin{gather*}
@@ -122,11 +122,11 @@ In what follows, we write $H^n = H^n(C^\bullet) = Z^n/B^n$ in the usual notation
 	\[ 0 \to \underbracket{B^n}_{= Z^n} \to C^n \to B^{n+1} \to 0. \]
 	Again, one infers from the distinguished triangle
 	\[ \mathcal{H}\text{om}(R/J, B^{n+1})[-1] \to \mathcal{H}\text{om}(R/J, B^n) \to \mathcal{H}\text{om}(R/J, C^n) \xrightarrow{+1} , \]
-	the assumption $\text{depth}_J(C^n) > k-n$ and descending induction on $n$ that $n < k \implies \text{depth}_J(B_n) = k-n+1$. This is impossible since $B_{\ll 0} = 0$ has infinite depth.
+	the assumption $\text{depth}_J(C^n) > k-n$ and descending induction on $n$ that $n < k \implies \text{depth}_J(B^n) = k-n+1$. This is impossible since $B^{\ll 0} = 0$ has infinite depth.
 \end{proof}
 
 \begin{corollary}\label{prop:depth-vanishing}
-	Let $I \subset R$ be an ideal, $C^\bullet$ be a cochain complex with $n \ll 0 \implies C_n=0$, and $h \in \Z$. Suppose that $n \leq h$ implies $I \cdot H^n(C^\bullet) = 0$ and $\mathrm{depth}_I(C^n) > h-n$. Then $H^{\leq h}(C^\bullet) = 0$.
+	Let $I \subset R$ be an ideal, $C^\bullet$ be a cochain complex with $n \ll 0 \implies C^n=0$, and $h \in \Z$. Suppose that $n \leq h$ implies $I \cdot H^n(C^\bullet) = 0$ and $\mathrm{depth}_I(C^n) > h-n$. Then $H^{\leq h}(C^\bullet) = 0$.
 \end{corollary}
 \begin{proof}
 	For $k \leq h$ we have $J_k := \text{ann}(H^k(C^\bullet)) \supset I$. Hence Lemma \ref{prop:depth-power} entails that
@@ -137,7 +137,7 @@ In what follows, we write $H^n = H^n(C^\bullet) = Z^n/B^n$ in the usual notation
 \section{Koszul complexes and depth}
 The simplest Koszul complexes are defined as follows. Given $x \in R$, we form the cochain complex in degrees $\{0,1\}$
 \[ K(x) := \left[ R \xrightarrow{x} R \right]. \]
-More generally, for any $R$-module $M$, viewed as a complex concentrated in degree zero, and a family $\mathbf{x} = (x_\alpha)_{\alpha \in \mathcal{A}}$ of element of $R$, we define the associated \emph{Koszul complex}\index{Koszul complex} as
+More generally, for any $R$-module $M$, viewed as a complex concentrated in degree zero, and a family $\mathbf{x} = (x_\alpha)_{\alpha \in \mathcal{A}}$ of elements of $R$, we define the associated \emph{Koszul complex}\index{Koszul complex} as
 \[ K^\bullet(\mathbf{x}; M) := K^\bullet(u; M), \]
 where we take $u: R^{\oplus \mathcal{A}} \to R$ corresponding to $\mathbf{x}$ in Definition \ref{def:Koszul-general}. Unfolding definitions, we have \index{$K^\bullet(\mathbf{x};M)$}
 \[ K^h(\mathbf{x}; M) = \begin{cases}
@@ -161,7 +161,7 @@ Let $I$ denote the ideal generated by $\{x_\alpha: \alpha \in \mathcal{A} \}$. T
 	\item the $0$-th cohomology of $K^\bullet(\mathbf{x}; M)$ is $\Hom_R(R/I, M) = \{x \in M: Ix=0 \}$, the $I$-torsion part of $M$;
 	\item if $|\mathcal{A}| = n$, the $n$-th cohomology of $K^\bullet(\mathbf{x}; M)$ is $M/IM$.
 \end{itemize}
-These facts will cast in our later arguments.
+These facts will be used in our later arguments.
 
 \begin{lemma}\label{prop:Koszul-coho-ann}
 	Each cohomology of $K^\bullet(\mathbf{x}; M)$ is annihilated by $I$.
@@ -171,7 +171,7 @@ These facts will cast in our later arguments.
 \end{proof}
 
 \begin{theorem}\label{prop:Koszul-depth}\index{depth}
-	Let $M$ be an $R$-module and $\mathbf{x} = \{x_\alpha \}_{\alpha \in \mathcal{A}}$ be a family of elements of $R$, which generate an ideal $I$ of $A$. Then $\mathrm{depth}_I(M)$ equals
+	Let $M$ be an $R$-module and $\mathbf{x} = \{x_\alpha \}_{\alpha \in \mathcal{A}}$ be a family of elements of $R$, which generate an ideal $I$ of $R$. Then $\mathrm{depth}_I(M)$ equals
 	\[ \inf \left\{n \geq 0: H^n(K^\bullet(\mathbf{x}; M)) \neq 0 \right\} \in \Z_{\geq 0} \sqcup \{\infty \} . \]
 	Consequently, if $I \subset R$ is an ideal generated by elements $x_1, \ldots, x_n$ and $IM \neq M$, then we have
 	\[ \mathrm{depth}_I(M) \leq n. \]
@@ -179,7 +179,7 @@ These facts will cast in our later arguments.
 \begin{proof}
 	Let $d := \text{depth}_I(M)$. Since $K^h(\mathbf{x}; M)$ is a direct product of copies of $M$ (possibly the empty product $=0$), by Proposition \ref{prop:depth-prod} its depth equals either $d$ or $\infty$. Combining Lemma \ref{prop:Koszul-coho-ann} and Corollary \ref{prop:depth-vanishing} (with $h = d-1$), we see that $H^{< d}(K^\bullet(\mathbf{x}; M)) = 0$. It remains to show $H^d(K^\bullet(\mathbf{x}; M)) \neq 0$ provided that $d < \infty$, which we assume from now onwards.
 
-	The case $d=0$ is clear since there exists $\mathfrak{p} \in \text{Ass}(M) \cap V(I)$, therefore $R/\mathfrak{p} \hookrightarrow M$ and $\exists x \in M$ with $\mathfrak{p} x \supset Ix = \{0\}$, whence $H^0(K^\bullet(\mathbf{x}; M)) \neq 0$. Now suppose $d \in \Z_{\geq 1}$ and assume $H^d(K^\bullet(\mathbf{x}; M)) = 0$. Take a free resolution $F_\bullet \to R/I \to 0$ and put $C^\bullet := \Hom_R(F_\bullet, M)$, so that
+	The case $d=0$ is clear since there exists $\mathfrak{p} \in \text{Ass}(M) \cap V(I)$, therefore $R/\mathfrak{p} \hookrightarrow M$ and $\exists x \in M$ with $Ix \subset \mathfrak{p}x = \{0\}$, whence $H^0(K^\bullet(\mathbf{x}; M)) \neq 0$. Now suppose $d \in \Z_{\geq 1}$ and assume $H^d(K^\bullet(\mathbf{x}; M)) = 0$. Take a free resolution $F_\bullet \to R/I \to 0$ and put $C^\bullet := \Hom_R(F_\bullet, M)$, so that
 	\[ H^i(C^\bullet) \simeq \Ext^i_R(R/I, M), \quad i \geq 0. \]
 	Hence for $i < d$ we have short exact sequences
 	\[ 0 \to B^i \to C^i \to B^{i+1} \to 0 \]

@@ -27,7 +27,7 @@ Observe that for all $\mathfrak{q} \in (\varphi^\sharp)^{-1}(\mathfrak{p})$, the
 	\begin{enumerate}[(i)]
 		\item $\dim(B_{\mathfrak{q}}) \leq \dim(A_{\mathfrak{p}}) + \dim B_{\mathfrak{q}} \dotimes{A_{\mathfrak{p}}} \kappa(\mathfrak{p})$ (note that the existence of $\mathfrak{q}$ ensures that $B_{\mathfrak{p}} \dotimes{A_{\mathfrak{p}}} \kappa(\mathfrak{p}) \neq \{0\}$, hence $B_{\mathfrak{q}} \dotimes{A_{\mathfrak{p}}} \kappa(\mathfrak{p}) \neq \{0\}$);
 		\item equality holds if going-down holds for $\varphi$;
-		\item if going-down holds and $\varphi^\sharp$ is surjective, then $\dim(B) \geq \dim(A)$, and for all ideal $\mathfrak{a} \subsetneq A$ we have $\varphi(\mathfrak{a}) B \neq B$ and $\mathrm{ht}(\mathfrak{a}) = \mathrm{ht}(\varphi(\mathfrak{a})B)$.
+		\item if going-down holds and $\varphi^\sharp$ is surjective, then $\dim(B) \geq \dim(A)$, and for all ideals $\mathfrak{a} \subsetneq A$ we have $\varphi(\mathfrak{a}) B \neq B$ and $\mathrm{ht}(\mathfrak{a}) = \mathrm{ht}(\varphi(\mathfrak{a})B)$.
 	\end{enumerate}
 \end{proposition}
 
@@ -36,13 +36,13 @@ It is crucial to notice that $\dim B_{\mathfrak{q}} \dotimes{A_{\mathfrak{p}}} \
 This bounds the source dimension of a morphism by the target dimension plus the fiber dimension, localized both at $\mathfrak{p}$ and $\mathfrak{q} \in (\varphi^\sharp)^{-1}(\mathfrak{p})$. In order to have an equality, a certain submersion-like condition on $\varphi^\sharp$ is evidently required; this explains the going-down condition. Cf. \cite[(6.H)]{Mat80}.
 
 \begin{proof}
-	We have an induced local homomorphism $A_{\mathfrak{p}} \to B_{\mathfrak{q}}$ since $\mathfrak{q} \mapsto \mathfrak{p}$. Since (i) and (ii) depend only on this induced homomorphism, we may assume from the outset that $A$, $B$ are local with maximal ideals $\mathfrak{p}, \mathfrak{q}$, and $\varphi$ is a local homomorphism. Let $d := \dim A$ and take a parameter ideal $I = (t_1, \ldots, t_d)$ of $A$, so that $\mathfrak{p}^k \subset I \subset \mathfrak{p}$ for some $k$. It follows that $\sqrt{\varphi(\mathfrak{p}) B} = \sqrt{\varphi(I)B}$, therefore $\dim(B \dotimes{A} \kappa(\mathfrak{p})) = \dim(B/\varphi(\mathfrak{p})B) = \dim (B/\varphi(I)B)$; denote this number as $e$. Take a $s_1, \ldots, s_e \in \mathfrak{q}$ whose images generate a parameter ideal for $B/\varphi(I)B$, and put $J := (\varphi(t_1), \ldots, \varphi(t_d), s_1, \ldots, s_e)$. Then $B/J$ is Artinian, therefore $\dim B \leq d+e$ establishes (i).
+	We have an induced local homomorphism $A_{\mathfrak{p}} \to B_{\mathfrak{q}}$ since $\mathfrak{q} \mapsto \mathfrak{p}$. Since (i) and (ii) depend only on this induced homomorphism, we may assume from the outset that $A$, $B$ are local with maximal ideals $\mathfrak{p}, \mathfrak{q}$, and $\varphi$ is a local homomorphism. Let $d := \dim A$ and take a parameter ideal $I = (t_1, \ldots, t_d)$ of $A$, so that $\mathfrak{p}^k \subset I \subset \mathfrak{p}$ for some $k$. It follows that $\sqrt{\varphi(\mathfrak{p}) B} = \sqrt{\varphi(I)B}$, therefore $\dim(B \dotimes{A} \kappa(\mathfrak{p})) = \dim(B/\varphi(\mathfrak{p})B) = \dim (B/\varphi(I)B)$; denote this number as $e$. Take $s_1, \ldots, s_e \in \mathfrak{q}$ whose images generate a parameter ideal for $B/\varphi(I)B$, and put $J := (\varphi(t_1), \ldots, \varphi(t_d), s_1, \ldots, s_e)$. Then $B/J$ is Artinian, therefore $\dim B \leq d+e$ establishes (i).
 	
 	As for (ii), we conserve the same hypotheses and take a prime chain $\mathfrak{q} = \mathfrak{q}_0 \supsetneq \cdots \supsetneq \mathfrak{q}_e$ with $\mathfrak{q}_e \supset \varphi(\mathfrak{p})B$ in $B$, as well as a prime chain $\mathfrak{p} = \mathfrak{p}_0 \supsetneq \cdots \supsetneq \mathfrak{p}_d$ in $A$. Note that $\varphi^{-1}(\mathfrak{q}_e) = \mathfrak{p}$ since $e = \dim B/\varphi(\mathfrak{p})B$. By applying going-down repeatedly to the chain $\mathfrak{p}_i$, we obtain a prime chain in $B$
 	\[ \mathfrak{q}_e \supsetneq \cdots \supsetneq \mathfrak{q}_{e+d}, \quad \varphi^{-1}(\mathfrak{q}_{e+i}) = \mathfrak{p}_i. \]
 	Concatenation with $\mathfrak{q}_0 \supsetneq \cdots$ gives $\dim(B) = d + e$. This shows (ii).
 	
-	The first assertion of (iii) results from (ii). To show the remaining one, let us show $\varphi(\mathfrak{a})B \neq B$: if $\varphi^\sharp(\mathfrak{q}) = \mathfrak{p} \supset \mathfrak{a}$, then $\mathfrak{q} \supset \varphi(\mathfrak{a}) B$. Next, take a minimal over-prime $\mathfrak{q} \supset \varphi(\mathfrak{a})B$ with $\text{ht}(\mathfrak{q}) = \text{ht}(\varphi(\mathfrak{a})B)$. With $\mathfrak{p} := \varphi^{-1}(\mathfrak{q}) \supset \mathfrak{a}$, we must have $\dim B_{\mathfrak{q}} \otimes \kappa(\mathfrak{p}) = \text{ht}(\mathfrak{q}/\varphi(\mathfrak{p})B) = 0$ by the minimality of $\mathfrak{q}$. An application of (ii) yields
+	The first assertion of (iii) results from (ii). To show the remaining one, let us show $\varphi(\mathfrak{a})B \neq B$: if $\varphi^\sharp(\mathfrak{q}) = \mathfrak{p} \supset \mathfrak{a}$, then $\mathfrak{q} \supset \varphi(\mathfrak{a}) B$. Next, take a minimal prime $\mathfrak{q}$ over $\varphi(\mathfrak{a})B$ with $\text{ht}(\mathfrak{q}) = \text{ht}(\varphi(\mathfrak{a})B)$. With $\mathfrak{p} := \varphi^{-1}(\mathfrak{q}) \supset \mathfrak{a}$, we must have $\dim B_{\mathfrak{q}} \dotimes{A_{\mathfrak{p}}} \kappa(\mathfrak{p}) = \text{ht}(\mathfrak{q}/\varphi(\mathfrak{p})B) = 0$ by the minimality of $\mathfrak{q}$. An application of (ii) yields
 	\begin{gather*}
 		\text{ht}(\varphi(\mathfrak{a})B) = \text{ht}(\mathfrak{q}) = \text{ht}(\mathfrak{p}) \geq \text{ht}(\mathfrak{a}).
 	\end{gather*}
@@ -62,7 +62,7 @@ This bounds the source dimension of a morphism by the target dimension plus the 
 		\draw (-3,0) -- (-2,1);
 		\draw (3,0) -- (2,1);
 		\fill[opacity=0.2, shade, color=black!50!white] (-2,1) -- (2,1) -- (3,0) -- (-3,0) -- (-2,1);
-		\node[anchor=west, text width=4cm, align=left] at (4.5, 0.7) {\small The minimal primes in a ring $B$ may have different heights when the scheme $\Spec(B)$ is not equi-dimensional.};
+		\node[anchor=west, text width=4cm, align=left] at (4.5, 0.7) {\small The minimal primes in a ring $B$ may have different heights when the scheme $\Spec(B)$ is not equidimensional.};
 	\end{tikzpicture}
 \end{center}
 \vspace{1em}
@@ -86,9 +86,9 @@ holds for flat ring homomorphisms.
 \begin{proof}
 	Going-up holds and $\Spec(B) \twoheadrightarrow \Spec(A)$ in the situation of (i) by Theorem \ref{prop:Cohen-Seidenberg}, hence $\dim B \geq \dim A$ by lifting prime chains. To prove $\leq$, observe that $\mathfrak{q} \subsetneq \mathfrak{q}'$ implies $\mathfrak{q} \cap A \subsetneq \mathfrak{q}' \cap A$ since there are no inclusion relations in the fibers of $\Spec(B) \to \Spec(A)$.
 
-	As for (ii), note that $\text{ht}(\mathfrak{q}) \leq \text{ht}(\mathfrak{p}) + \text{ht}(\mathfrak{q}/\mathfrak{p}B)$ where $\mathfrak{p} := \mathfrak{q} \cap A$; as the are no inclusion relations in fibers, the last term must be $0$.
+	As for (ii), note that $\text{ht}(\mathfrak{q}) \leq \text{ht}(\mathfrak{p}) + \text{ht}(\mathfrak{q}/\mathfrak{p}B)$ where $\mathfrak{p} := \mathfrak{q} \cap A$; as there are no inclusion relations in fibers, the last term must be $0$.
 	
-	Now assume going-down and consider (iii). Take $\mathfrak{q} \in \Spec(B)$ with $\text{ht}(\mathfrak{q}) = \text{ht}(J)$. Put $\mathfrak{p} := \mathfrak{q} \cap A \supset J　\cap A$. Again, since there are no inclusions in the fiber over $\mathfrak{p}$ of $\Spec(B) \twoheadrightarrow \Spec(A)$, we have $\dim(B_{\mathfrak{q}}/ \mathfrak{p}B_{\mathfrak{q}}) = 0$. Proposition \ref{prop:fiber-ineq} (ii) implies $\text{ht}(\mathfrak{q})=\text{ht}(\mathfrak{p})$, therefore $\text{ht}(J) \geq \text{ht}(J \cap A)$.
+	Now assume going-down and consider (iii). Take $\mathfrak{q} \in \Spec(B)$ with $\text{ht}(\mathfrak{q}) = \text{ht}(J)$. Put $\mathfrak{p} := \mathfrak{q} \cap A \supset J \cap A$. Again, since there are no inclusions in the fiber over $\mathfrak{p}$ of $\Spec(B) \twoheadrightarrow \Spec(A)$, we have $\dim(B_{\mathfrak{q}}/ \mathfrak{p}B_{\mathfrak{q}}) = 0$. Proposition \ref{prop:fiber-ineq} (ii) implies $\text{ht}(\mathfrak{q})=\text{ht}(\mathfrak{p})$, therefore $\text{ht}(J) \geq \text{ht}(J \cap A)$.
 	
 	On the other hand, for any $\mathfrak{p} \supset J \cap A$ with $\text{ht}(\mathfrak{p}) = \text{ht}(J \cap A)$, since $A/J \cap A \hookrightarrow B/J$ is integral, there exists $\mathfrak{q} \supset J$ with $\mathfrak{q} \cap A = \mathfrak{p}$. Together with Proposition \ref{prop:fiber-ineq} (i) and $\mathrm{ht}(\mathfrak{q}/\mathfrak{p}B) = 0$, this implies $\text{ht}(J) \leq \text{ht}(\mathfrak{q}) \leq \text{ht}(\mathfrak{p}) = \text{ht}(J \cap A)$ by (ii).
 \end{proof}
@@ -104,9 +104,9 @@ Let us apply the results from the previous section to elucidate the Krull dimens
 	\[ \dim B_{\mathfrak{q}} = \dim A_{\mathfrak{p}} + 1 \]
 	and taking supremum over $\mathfrak{p} \in \Spec(A)$ gives the result.
 	
-	Indeed, put $B_{\mathfrak{p}} := B[(A \smallsetminus \mathfrak{p})^{-1}] = A_{\mathfrak{p}}[X]$ and $\mathfrak{q}' := \mathfrak{q}[(A \smallsetminus \mathfrak{p})^{-1}] \in \Spec(B_{\mathfrak{p}})$. As $\mathfrak{q}' \supset \mathfrak{p}A_{\mathfrak{p}}$, we have $\overline{\mathfrak{q}'} := \mathfrak{q}' \supset \mathfrak{p}A_{\mathfrak{p}} \in \Spec(\kappa[X])$, and $\overline{\mathfrak{q}'}$ is maximal in the fiber over $\{0\}$ of $\Spec(\kappa[X]) \to \Spec(\kappa)$, i.e.\ in $\MaxSpec(\kappa[X])$. Localization in stages yields
+	Indeed, put $B_{\mathfrak{p}} := B[(A \smallsetminus \mathfrak{p})^{-1}] = A_{\mathfrak{p}}[X]$ and $\mathfrak{q}' := \mathfrak{q}[(A \smallsetminus \mathfrak{p})^{-1}] \in \Spec(B_{\mathfrak{p}})$. As $\mathfrak{q}' \supset \mathfrak{p}A_{\mathfrak{p}}$, the image $\overline{\mathfrak{q}'} := \mathfrak{q}'/\mathfrak{p}A_{\mathfrak{p}}B_{\mathfrak{p}}$ belongs to $\Spec(\kappa[X])$, and is maximal in the fiber over $\{0\}$ of $\Spec(\kappa[X]) \to \Spec(\kappa)$, i.e.\ in $\MaxSpec(\kappa[X])$. Localization in stages yields
 	\[ B_{\mathfrak{q}} \dotimes{A_{\mathfrak{p}}} \kappa \simeq \frac{B_{\mathfrak{q}}}{\mathfrak{p} B_{\mathfrak{q}}} \simeq \left( \frac{B_{\mathfrak{p}}}{ \mathfrak{p} A_{\mathfrak{p}} B_{\mathfrak{p}}} \right)_{\mathfrak{q}' } \simeq \kappa[X]_{\overline{\mathfrak{q}'}}. \]
-	As $\kappa[X]$ is a principal ideal domain which is not a field, every maximal ideal thereof has height one. Hence $\dim \kappa[X]_{\overline{\mathfrak{q'}}} = \mathrm{ht}(\mathfrak{q}') = 1$.
+	As $\kappa[X]$ is a principal ideal domain which is not a field, every maximal ideal thereof has height one. Hence $\dim \kappa[X]_{\overline{\mathfrak{q}'}} = \mathrm{ht}(\overline{\mathfrak{q}'}) = 1$.
 \end{proof}
 
 \begin{corollary}\label{prop:poly-alg-ht}
@@ -125,14 +125,14 @@ We record another simple consequence for later use.
 	Let $\Bbbk$ be a field. Any $\Bbbk$-algebra $A$ with $n$ generators has finite dimension $\leq n$.
 \end{corollary}
 \begin{proof}
-	Writing $A = \Bbbk[X_1, \ldots, X_n]/I$ for some ideal $I$, we have $\dim A \leq \Bbbk[X_1, \ldots, X_n]$ since every prime chain in $A$ lifts to $\Bbbk[X_1, \ldots, X_n]$. Now apply Theorem \ref{prop:dim-polynomial-alg}.
+	Writing $A = \Bbbk[X_1, \ldots, X_n]/I$ for some ideal $I$, we have $\dim A \leq \dim \Bbbk[X_1, \ldots, X_n]$ since every prime chain in $A$ lifts to $\Bbbk[X_1, \ldots, X_n]$. Now apply Theorem \ref{prop:dim-polynomial-alg}.
 \end{proof}
 
 \section{Noether normalization and its consequences}
 Fix a field $\Bbbk$. A few preparatory results are in order.
 
 \begin{lemma}\label{prop:normalization-Nagata}
-	Suppose $\Bbbk$ is a field and $t \in \Bbbk[X_1, \ldots X_e] \smallsetminus \Bbbk$. There exist $t_1, \ldots, t_{e-1} \in \Bbbk[X_1, \ldots, X_e]$ such that $\Bbbk[X_1, \ldots, X_e]$ is finitely generated as a module over the $\Bbbk$-subalgebra $S := \Bbbk[t_1, \ldots, t_{e-1}, t]$.
+	Suppose $\Bbbk$ is a field and $t \in \Bbbk[X_1, \ldots, X_e] \smallsetminus \Bbbk$. There exist $t_1, \ldots, t_{e-1} \in \Bbbk[X_1, \ldots, X_e]$ such that $\Bbbk[X_1, \ldots, X_e]$ is finitely generated as a module over the $\Bbbk$-subalgebra $S := \Bbbk[t_1, \ldots, t_{e-1}, t]$.
 \end{lemma}
 \begin{proof}
 	We seek $t_i$ of the form $X_i - X_e^{k^i}$ where $k$ is a large integer. Then $t$ can be uniquely expressed as a polynomial of $t_1, \ldots, t_{e-1}, X_e$. We claim that upon modifying $t$ by $\Bbbk^\times$, which is clearly harmless, one can choose $k$ such that $t$ is monic as an element of $\Bbbk[t_1, \ldots, t_{e-1}][X_e]$, say of some degree $\delta$. If this is the case,
@@ -148,7 +148,7 @@ Fix a field $\Bbbk$. A few preparatory results are in order.
 	Let $\mathfrak{a}$ be a nonzero ideal of a domain $R$, then $\dim(R/\mathfrak{a}) + 1 \leq \dim R$.
 \end{lemma}
 \begin{proof}
-	Any prime chain $\mathfrak{p}_0 \supsetneq \cdots \supsetneq \mathfrak{p}_n$ in $R$ with $\mathfrak{p}_n \supset \mathfrak{a}$ can be extended to a prime chain length $n+1$, namely by adjoining $\mathfrak{p}_{n+1} := \{0\}$.
+	Any prime chain $\mathfrak{p}_0 \supsetneq \cdots \supsetneq \mathfrak{p}_n$ in $R$ with $\mathfrak{p}_n \supset \mathfrak{a}$ can be extended to a prime chain of length $n+1$, namely by adjoining $\mathfrak{p}_{n+1} := \{0\}$.
 \end{proof}
 
 \begin{theorem}[E.\ Noether, M.\ Nagata]\label{prop:Noether-normalization}\index{Noether normalization}
@@ -159,7 +159,7 @@ Fix a field $\Bbbk$. A few preparatory results are in order.
 	\end{compactitem}
 \end{theorem}
 
-Note that the assumption $I_j \subsetneq I_{j+1}$ is merely for convenience. Allowing $I_j = I_{j+1}$ and $d_j = d_{j+1}$ for some $j$ is surely possible..
+Note that the assumption $I_j \subsetneq I_{j+1}$ is merely for convenience. Allowing $I_j = I_{j+1}$ and $d_j = d_{j+1}$ for some $j$ is surely possible.
 
 \begin{proof}
 	Write $B = \Bbbk[Y_1, \ldots, Y_r]/J$, where $r \geq n$ (Corollary \ref{prop:fg-dimension-bound}), and denote the preimage of $I_j$ in $\Bbbk[Y_1, \ldots, Y_r]$ by $\tilde{I}_j$. The first step is to reduce to the case $J=\{0\}$. To see this, we adjoin $\tilde{I}_0 = J$ (with $d_0 = n$) into the ideal chain; it may happen that $\tilde{I}_0 = \tilde{I}_1$, but that's harmless. Suppose we can find $\tilde{A} \subset \Bbbk[Y_1, \ldots, Y_r]$, $\tilde{A} \simeq \Bbbk[X_1, \ldots, X_r]$ with the required properties relative to $\tilde{I}_\bullet$. Taking quotient by $J$, we obtain the corresponding properties for $I_\bullet$. Indeed, the passage from $\tilde{A}$ to $A := \tilde{A}/(\tilde{A} \cap J)$ truncates the variables $X_{n + 1}, \ldots, X_r$, whereas
@@ -216,7 +216,7 @@ we say $B$ is a \emph{catenary} domain\index{catenary}. This means that $\text{h
 	Choose a subalgebra $A$ of $B$ as in Theorem \ref{prop:Noether-normalization}. Since the field $\text{Frac}(B)$ is a finite extension of $\text{Frac}(A)$ and $\dim A = \dim B$ by Proposition \ref{prop:dim-integral}, the first assertion reduces immediately to the case $B = \Bbbk[X_1, \ldots, X_n]$, which is obvious. As to the second assertion, consider a maximal prime chain $\mathfrak{q}_0 \supsetneq \cdots \supsetneq \mathfrak{q}_n = \{0\}$ in $B$. Maximality implies $\text{ht}(\mathfrak{q}_i/\mathfrak{q}_{i+1}) = 1$ for all $i$ and $\dim B/\mathfrak{q}_0 = 0$. Applying Corollary \ref{prop:fg-dim-formula} repeatedly, we see
 	\begin{multline*}
 		\dim B = \dim B/\mathfrak{q}_n = \dim B/\mathfrak{q}_{n-1} + \text{ht}(\mathfrak{q}_{n-1}/\mathfrak{q}_n) = \\
-		\dim B/\mathfrak{q}_{n-2} + \text{ht}(\mathfrak{q}_{n-1}/\mathfrak{q}_{n-2}) + \text{ht}(\mathfrak{q}_{n-1}/\mathfrak{q}_n) = \cdots = \dim B/\mathfrak{q}_0 + \sum_{i=0}^{n-1} \text{ht}(\mathfrak{q}_i/\mathfrak{q}_{i+1})
+		\dim B/\mathfrak{q}_{n-2} + \text{ht}(\mathfrak{q}_{n-2}/\mathfrak{q}_{n-1}) + \text{ht}(\mathfrak{q}_{n-1}/\mathfrak{q}_n) = \cdots = \dim B/\mathfrak{q}_0 + \sum_{i=0}^{n-1} \text{ht}(\mathfrak{q}_i/\mathfrak{q}_{i+1})
 	\end{multline*}
 	which equals $n$.
 \end{proof}
