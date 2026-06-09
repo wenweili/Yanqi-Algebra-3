@@ -2,12 +2,12 @@ These are the XeLaTeX sources for my lecture notes on commutative algebra, entit
 * [University of Chinese Academy of Sciences](http://www.ucas.ac.cn) (Yanqi Lake campus), whence the title;
 * [Peking University](http://www.pku.edu.cn).
 
-These notes are slightly outdated, poorly organized, and the mathematical contents have not been thoroughly checked yet. Please use them at your own risk. The author does not intend to publish these notes.
+These notes are slightly outdated, poorly organized, and the mathematical content has not been thoroughly checked yet. Please use them at your own risk. The author does not intend to publish these notes.
 
 # How to compile
 
 ## System requirements
-The source codes are to be compiled using XeLaTeX. The reader is assumed to work under the UN*X + bash environment.
+The source code is to be compiled using XeLaTeX. The reader is assumed to work under the UN*X + bash environment.
 
 The recipes below can be tweaked to work under Windows, but this is not recommended. The simplest solution is to go open-source.
 
@@ -19,9 +19,9 @@ We only need the standard packages and fonts, such as
 
 The aforementioned OpenType fonts should be installed system-wide to be accessible by XeLaTeX.
 
-For some strange reason, I installed and used the fonts TeX Gyre Heros Cn and TeX Gyre Pagella. In case of error messages related to these fonts, please look for the OTF files (in the directories in your computer which store TeX-related fonts) whose names begin with **texgyreheroscn** and **texgyrepagella**, then install them manually on your system.
+For some strange reason, I installed and used the fonts TeX Gyre Heros Cn and TeX Gyre Pagella. In case of error messages related to these fonts, please look for the OTF files (in the directories on your computer which store TeX-related fonts) whose names begin with **texgyreheroscn** and **texgyrepagella**, then install them manually on your system.
 
-Make sure that all the relevant packages/programs are installed. For reference, the author made the compilation using Arch-based Linux distributions with TeX Live 2018; the packages **biber** and **texlive-science** are required.
+Make sure that all the relevant packages/programs are installed. For reference, the author compiled using Arch-based Linux distributions with TeX Live 2018; the packages **biber** and **texlive-science** are required.
 
 ## Clone the files
 Assume that [Git](https://git-scm.com/) has been installed on your computer. As a preparation for the compilation process, we will clone the files into `~/Yanqi-Algebra-3` in our home directory. On the command line, type
@@ -54,14 +54,14 @@ To clean up everything in our directory except the PDF file, type
 make clean
 ```
 
-# The source codes
+# The source code
 These notes are based on the standard *book* document class from LaTeX. Some other macros are outsourced to **mycommand.sty** and **myarrows.sty**.
 
 # The cover page
-The cover page is in the file **Cover-page.pdf**, which will automatically be included in the resulting main PDF file after compilation. It is made from the open source software [Scribus](https://www.scribus.net/); the source file in *.sla* format is not included here.
+The cover page is in the file **Cover-page.pdf**, which will automatically be included in the resulting main PDF file after compilation. It is made from the open-source software [Scribus](https://www.scribus.net/); the source file in *.sla* format is not included here.
 
 # Feedback
-In case of problems of compilation, please kindly report to the author. Make sure that all the system requirements above are met, and provide detailed error messages. Other suggestions are also welcome.
+In case of problems with compilation, please kindly report to the author. Make sure that all the system requirements above are met, and provide detailed error messages. Other suggestions are also welcome.
 
 # License
 Except possibly the photos and the logo of UCAS, the entire codebase is under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
