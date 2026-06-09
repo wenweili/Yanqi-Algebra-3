@@ -1,4 +1,4 @@
-This are the XeLaTeX sources for the my lecture notes on commutative algebra, entitled somewhat pompously as **Yanqi Lake Lectures on Algebra, Part III**. These notes have been used at
+These are the XeLaTeX sources for my lecture notes on commutative algebra, entitled somewhat pompously **Yanqi Lake Lectures on Algebra, Part III**. These notes have been used at
 * [University of Chinese Academy of Sciences](http://www.ucas.ac.cn) (Yanqi Lake campus), whence the title;
 * [Peking University](http://www.pku.edu.cn).
 
@@ -19,12 +19,12 @@ We only need the standard packages and fonts, such as
 
 The aforementioned OpenType fonts should be installed system-wide to be accessible by XeLaTeX.
 
-For some strange reason, I used and installed the fonts TeX Gyre Heros Cn and TeX Gyre Pagella. In case of error messages related to these fonts, please look for the OTF files (in the directories in your computer which store TeX-related fonts) whose names begin with **texgyreheroscn** and **texgyrepagella**, then install them manually in your system.
+For some strange reason, I installed and used the fonts TeX Gyre Heros Cn and TeX Gyre Pagella. In case of error messages related to these fonts, please look for the OTF files (in the directories in your computer which store TeX-related fonts) whose names begin with **texgyreheroscn** and **texgyrepagella**, then install them manually on your system.
 
 Make sure that all the relevant packages/programs are installed. For reference, the author made the compilation using Arch-based Linux distributions with TeX Live 2018; the packages **biber** and **texlive-science** are required.
 
 ## Clone the files
-Assume that [Git](https://git-scm.com/) has been installed on your computer. As a preparation for the compilation process, we will clone the files into `~/Yanqi-Algebra-3` in our home directory. In command line, type
+Assume that [Git](https://git-scm.com/) has been installed on your computer. As a preparation for the compilation process, we will clone the files into `~/Yanqi-Algebra-3` in our home directory. On the command line, type
 ```
 cd ~
 git clone https://github.com/wenweili/Yanqi-Algebra-3
@@ -55,7 +55,7 @@ make clean
 ```
 
 # The source codes
-These notes are based on the standard *book* document class from LaTeX. Some other macros are outsourced to **mycommands.sty** and **myarrows.sty**.
+These notes are based on the standard *book* document class from LaTeX. Some other macros are outsourced to **mycommand.sty** and **myarrows.sty**.
 
 # The cover page
 The cover page is in the file **Cover-page.pdf**, which will automatically be included in the resulting main PDF file after compilation. It is made from the open source software [Scribus](https://www.scribus.net/); the source file in *.sla* format is not included here.
