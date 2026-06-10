@@ -1,0 +1,7 @@
+{
+  "autoStart": ["latex"],
+  "autoInjectDiagnostics": ["latex"],
+  "servers": {
+    "latex": { "command": "texlab", "args": [] }
+  }
+}
